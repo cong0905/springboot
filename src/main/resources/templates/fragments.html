@@ -1,0 +1,7 @@
+<!DOCTYPE html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head th:fragment="head(title)">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title th:text="${title} + ' · TechShop'">TechShop</title>
+<meta name="csrf-token" th:content="${_csrf.token}"><link rel="stylesheet" th:href="@{/css/app.css}"><script defer th:src="@{/js/app.js}"></script>
+</head><body><header th:fragment="header" class="site-header"><a class="brand" href="/">TECH<span>SHOP</span><small>Góc công nghệ của bạn</small></a><nav aria-label="Điều hướng chính"><a href="/products">Sản phẩm</a><a th:if="${isCustomer}" href="/cart">Giỏ hàng</a><a th:if="${isCustomer}" href="/orders">Đơn của tôi</a><a th:if="${isAdmin}" href="/admin">Quản trị</a><a th:if="${viewer == null}" href="/login" class="button small">Đăng nhập</a><form th:if="${viewer != null}" th:action="@{/logout}" method="post"><button class="link-button">Đăng xuất</button></form></nav></header>
+<nav th:fragment="adminNav" class="admin-nav" aria-label="Quản trị"><a href="/admin">Tổng quan</a><a href="/admin/products">Sản phẩm & kho</a><a href="/admin/categories">Danh mục</a><a href="/admin/orders">Đơn hàng</a></nav>
+<footer th:fragment="footer"><span>TechShop · Java Spring Boot</span><span>Giá VND · Thanh toán khi nhận hàng</span></footer>
+</body></html>

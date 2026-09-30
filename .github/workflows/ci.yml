@@ -1,0 +1,56 @@
+name: Build and test
+on:
+  push:
+    branches: [main, 'feature/**', 'fix/**']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  fast-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - run: chmod +x mvnw && ./mvnw -B verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fast-test-reports
+          path: target/surefire-reports/
+  mysql-tests:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_DATABASE: techshop_test
+          MYSQL_USER: techshop
+          MYSQL_PASSWORD: ci-only-password
+          MYSQL_ROOT_PASSWORD: ci-only-root-password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=5s --health-timeout=3s --health-retries=30
+    env:
+      TEST_DB_URL: jdbc:mysql://127.0.0.1:3306/techshop_test?connectionTimeZone=UTC
+      TEST_DB_USERNAME: techshop
+      TEST_DB_PASSWORD: ci-only-password
+      TEST_MIGRATIONS: classpath:db/migration
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - run: chmod +x mvnw && ./mvnw -B verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mysql-test-reports
+          path: target/surefire-reports/

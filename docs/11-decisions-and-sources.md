@@ -45,3 +45,13 @@ Kiểm tra tại thời điểm lập baseline 01/10/2026. Nguồn giúp xác mi
 | MySQL constraints | [CHECK constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html) | Nonnegative balance, totals/status checks |
 
 Khả năng @Lock không tự bảo đảm mọi race được giải quyết; transaction scope, thứ tự lock và integration tests thuộc trách nhiệm implementation. Tương tự, bật Spring Security không tự kiểm tra ownership của order.
+
+## ADR-12 — CSS đóng gói cho bản code đầu tiên
+
+Ngày 01/10/2026, trạng thái áp dụng cho lát cắt đầu tiên. Thymeleaf dùng CSS/JavaScript và SVG trong static, không tải Bootstrap/CDN. Mục đích: demo chạy mà không phụ thuộc asset bên ngoài. Đây là chênh lệch với stack UI baseline; chưa thay đổi quy tắc nghiệp vụ. Khi mở rộng UI cần lựa chọn thống nhất và kiểm tra accessibility, tránh pha nhiều framework.
+
+## ADR-13 — H2 demo/test nhanh và MySQL service CI
+
+Ngày 01/10/2026, trạng thái áp dụng cho lát cắt đầu tiên. Demo dùng H2 memory với migration riêng; schema MySQL Flyway là nguồn ứng dụng thật. Bộ test có biến TEST_DB_* để chạy lại trên database MySQL riêng, và CI dùng service mysql:8.4. Chưa thêm Testcontainers vì môi trường phát triển không có Docker daemon. H2 không chứng minh isolation/locking/MySQL SQL compatibility; job MySQL phải đạt trước merge các thay đổi tồn kho/checkout. Đây là chênh lệch công cụ so với baseline, không bỏ tiêu chí MySQL tests.
+
+Nguồn kỹ thuật của bản code: [Spring Boot testing](https://docs.spring.io/spring-boot/reference/testing/index.html), [Spring Data entity persistence](https://docs.spring.io/spring-data/jpa/reference/jpa/entity-persistence.html), [Spring Security CSRF](https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html), [MySQL 8.4 InnoDB locking](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html). Versions dependencies theo BOM của Spring Boot trong pom.xml.
