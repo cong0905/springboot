@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:techshop;MODE=MySQL;DB_CLOSE_DELAY=-1;LOCK_TIMEOUT=5000
+    username: sa
+    password: ""
+  flyway:
+    locations: classpath:db/demo
+app:
+  demo: true

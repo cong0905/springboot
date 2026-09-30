@@ -1,67 +1,127 @@
 # springboot · TechShop
 
-TechShop là dự án website bán đồ công nghệ cho **một cửa hàng**, xây dựng bằng Java Spring Boot. Mục tiêu là hoàn thành một hệ thống có luồng mua hàng, quản lý tồn kho và xử lý đơn rõ ràng, có thể trình diễn trong hồ sơ Java Backend.
+Website bán đồ công nghệ cho một cửa hàng, dùng **Java 21, Spring Boot 4.1.1, Thymeleaf, Spring Security, JPA, Flyway và MySQL 8.4**.
 
-**Trạng thái: đã có bộ tài liệu phân tích và thiết kế v0.1; chưa có mã ứng dụng chạy được.** Các chức năng, API, database và thời gian bên dưới là kế hoạch triển khai, không phải tính năng đã hoàn thành. Baseline lập ngày 01/10/2026, theo múi giờ Asia/Ho_Chi_Minh.
+**Đã có bản code đầu tiên chạy được.** Có catalog, đăng ký/đăng nhập, giỏ hàng, đặt hàng COD, hủy/xử lý đơn, điều chỉnh tồn kho và báo cáo. Đây là bản phát triển đầu tiên; chưa đạt toàn bộ điều kiện phát hành MVP trong spec. Xem [trạng thái triển khai](docs/12-implementation-status.md) để biết phần đã kiểm chứng và công việc còn lại.
 
-## Phạm vi bản đầu tiên
+## Chạy demo nhanh
 
-- Khách vãng lai xem, tìm kiếm, lọc sản phẩm.
-- Khách đăng ký, đăng nhập, quản lý giỏ hàng, đặt hàng COD, xem và hủy đơn còn chờ xác nhận.
-- Admin quản lý danh mục, sản phẩm, điều chỉnh tồn kho có lịch sử; xử lý đơn và xem báo cáo cơ bản.
-- Bảo vệ quyền truy cập, CSRF, chống đặt đơn trùng, ngăn bán vượt tồn kho, lưu giá và địa chỉ tại thời điểm đặt hàng.
-
-Giả định làm việc: một người phát triển, một kho, tiền VND, giao hàng xử lý thủ công. Thanh toán online, marketplace nhiều người bán, đổi trả, biến thể sản phẩm và ứng dụng di động thuộc giai đoạn sau.
-
-## Đọc tài liệu theo thứ tự
-
-| Tài liệu | Nội dung |
-|---|---|
-| [Project charter](docs/00-project-charter.md) | Vấn đề, mục tiêu, phạm vi, giả định, rủi ro |
-| [Đặc tả SRS](docs/01-spec.md) | Yêu cầu, quy tắc, use case, tiêu chí nghiệm thu, màn hình |
-| [Kiến trúc](docs/02-architecture.md) | Module, lớp, bảo mật, transaction, triển khai |
-| [Thiết kế dữ liệu](docs/03-data-design.md) | ERD, data dictionary, khóa, index, vòng đời dữ liệu |
-| [Hợp đồng API](docs/04-api-contract.md) | Route, payload, quyền, lỗi và idempotency |
-| [Các sơ đồ](docs/05-diagrams.md) | Hoạt động, tuần tự, trạng thái, quy trình phát triển |
-| [Kế hoạch phát triển](docs/06-development-plan.md) | 6 tuần, dependency, milestone, DoR/DoD |
-| [Backlog](docs/07-backlog.md) | Công việc, ưu tiên, ước lượng và đầu ra |
-| [Kế hoạch kiểm thử](docs/08-test-plan.md) | Truy vết yêu cầu, test case và điều kiện phát hành |
-| [Phân tích dữ liệu](docs/09-analytics-plan.md) | KPI, nguồn dữ liệu, quy tắc tính và kiểm soát chất lượng |
-| [Vận hành](docs/10-operations.md) | CI/CD, cấu hình, backup, rollback, xử lý sự cố |
-| [Quyết định thiết kế](docs/11-decisions-and-sources.md) | ADR, lựa chọn còn mở, tài liệu kỹ thuật chính thức |
-| [DDL tham chiếu](database/schema.sql) | Database MySQL 8.4 dự kiến; chưa chạy kiểm chứng trên MySQL |
-| [SQL báo cáo](database/analytics.sql) | Truy vấn mẫu, theo tham số thời gian UTC |
-| [Đóng góp](CONTRIBUTING.md) | Cách chia nhánh, commit, PR và cập nhật spec |
-
-Các sơ đồ dùng Mermaid, xem trực tiếp khi mở file Markdown trên GitHub. DDL ở database/ là bản thiết kế; khi khởi tạo ứng dụng sẽ chuyển thành migration Flyway. Hiện chưa có pom.xml, Maven Wrapper, Dockerfile hay pipeline build ứng dụng.
-
-## Công nghệ dự kiến
-
-Java 21; Spring Boot 4.1.1 làm baseline tại ngày lập kế hoạch; Spring MVC; Thymeleaf; Bootstrap 5; Spring Security với session; Spring Data JPA; MySQL 8.4; Flyway; JUnit; Spring Boot Test; Testcontainers; Maven; Docker và GitHub Actions. Dùng BOM của Spring Boot để quản lý các thư viện Spring, kiểm tra bản vá ổn định khi khởi tạo project.
-
-## Cách bắt đầu
-
-Clone repository trên máy có quyền truy cập GitHub:
+Cài **JDK 21**, kiểm tra `java -version` và `JAVA_HOME` trỏ đến JDK 21. Maven Wrapper đã có trong repo; lần chạy đầu cần Internet để tải Maven và dependencies.
 
 ```bash
 git clone git@github.com:cong0905/springboot.git
 cd springboot
-git switch -c feature/project-bootstrap
+git switch feature/techshop-first-implementation
+./mvnw spring-boot:run -Dspring-boot.run.profiles=demo
 ```
 
-1. Đọc charter và spec, xem các giả định A-01 đến A-10.
-2. Thực hiện B-01 đến B-04 trong backlog: tạo project, môi trường local, migration và CI.
-3. Làm lát cắt đầu tiên: MySQL → repository → service → controller → trang danh sách sản phẩm.
-4. Viết hướng dẫn chạy thật vào README khi lát cắt đó hoạt động. Không coi lệnh triển khai dự kiến trong tài liệu là các script đang tồn tại.
+Windows PowerShell, sau khi clone và vào thư mục:
 
-## Mốc hoàn thành
+```powershell
+git switch feature/techshop-first-implementation
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=demo"
+```
 
-Bản MVP đạt yêu cầu khi khách đặt được đơn COD; admin xử lý đến DELIVERED; kiểm thử đồng thời và phân quyền đạt; báo cáo đối chiếu đúng dữ liệu; một người khác chạy được từ README; có bản demo và bằng chứng kiểm thử. Chi tiết ở [kế hoạch](docs/06-development-plan.md) và [test plan](docs/08-test-plan.md).
+Mở **http://localhost:8080**. Demo dùng H2 trong bộ nhớ, tự tạo 2 danh mục, 6 sản phẩm và tồn kho 20 mỗi sản phẩm. Dữ liệu demo mất khi dừng ứng dụng. Các tài khoản bên dưới chỉ dành cho profile `demo`; không sử dụng profile này khi đưa ứng dụng lên Internet.
 
-## Theo dõi thay đổi
-
-| Phiên bản | Ngày | Nội dung |
+| Vai trò | Email demo | Mật khẩu demo |
 |---|---|---|
-| 0.1 | 01/10/2026 | Baseline phân tích, thiết kế và kế hoạch phát triển; các giả định chưa phải yêu cầu đã được chủ dự án xác nhận riêng |
+| Admin | admin@techshop.test | DemoAdmin2026! |
+| Khách hàng | customer@techshop.test | DemoCustomer2026! |
 
-Không có giấy phép mã nguồn được chọn trong baseline này. Không ghi tài khoản demo thật, mật khẩu, khóa hoặc dữ liệu khách hàng vào repository.
+Luồng thử: khách đăng nhập → mở sản phẩm → thêm giỏ → đặt COD → xem đơn. Admin đăng nhập ở phiên khác → quản lý đơn → xác nhận → bàn giao vận chuyển → xác nhận đã giao và thu COD → xem dashboard. Khách có thể hủy đơn `PENDING`; admin hủy được `PENDING`/`CONFIRMED`.
+
+## Chạy bằng MySQL và Docker Compose
+
+Cần Docker với Compose v2. Sao chép cấu hình mẫu:
+
+```bash
+cp .env.example .env
+```
+
+PowerShell dùng `Copy-Item .env.example .env`. Sửa `.env`: đặt `DB_PASSWORD`, `MYSQL_ROOT_PASSWORD` và, nếu cần tạo quản trị viên lần đầu, đặt:
+
+```dotenv
+APP_BOOTSTRAP_ADMIN_ENABLED=true
+APP_BOOTSTRAP_ADMIN_EMAIL=your-admin@example.com
+APP_BOOTSTRAP_ADMIN_PASSWORD=your-own-admin-password
+```
+
+Mật khẩu admin cần 10–64 ký tự, không quá 72 byte UTF-8. Dùng mật khẩu riêng, không commit `.env`. Bootstrap chỉ tạo admin mới; không nâng quyền một tài khoản khách hàng đã tồn tại.
+
+```bash
+docker compose up --build -d
+docker compose logs -f app
+```
+
+Mở http://localhost:8080. MySQL lưu dữ liệu trong volume `mysql_data`. Sau khi tạo admin, đặt `APP_BOOTSTRAP_ADMIN_ENABLED=false`, xóa mật khẩu admin khỏi `.env` và chạy `docker compose up -d app` để tạo lại container với cấu hình mới. `docker compose down` dừng dịch vụ và giữ dữ liệu; thay mật khẩu trong `.env` không tự đổi mật khẩu của database đã khởi tạo.
+
+Docker Compose trong repo phục vụ môi trường local. Khi triển khai thật cần HTTPS/reverse proxy, profile `prod`, secrets, kiểm tra vận hành và backup/restore theo [operations](docs/10-operations.md).
+
+### Chạy Java trực tiếp với MySQL
+
+Tạo database `techshop` và tài khoản có quyền migration, đặt `DB_URL`, `DB_USERNAME`, `DB_PASSWORD` trong môi trường rồi chạy `./mvnw spring-boot:run` (Windows dùng `.\mvnw.cmd`). Java chạy trực tiếp không tự đọc file `.env`; file đó được Compose đọc. Không chạy thủ công `database/schema.sql` trước Flyway: migration `V1__initial_schema.sql` tạo schema trên database rỗng. JPA chỉ validate, không tự sửa schema.
+
+## Kiểm thử và build
+
+```bash
+./mvnw verify
+java -jar target/springboot-0.1.0-SNAPSHOT.jar --spring.profiles.active=demo
+```
+
+Windows: `.\mvnw.cmd verify`. Với một phiên demo vừa khởi động, chạy thêm `python3 scripts/smoke_http.py` (Windows: `py scripts/smoke_http.py`) ở terminal khác để kiểm tra HTTP thật: session/CSRF, đặt COD/replay, admin giao đơn và báo cáo. Script thay đổi dữ liệu demo; khởi động lại demo trước chạy lại. Mặc định có **14 bài kiểm thử**, gồm 11 integration tests và 3 unit tests. Các case chính: ownership/role/CSRF, từ chối trường đăng ký `role`, đăng nhập/đăng xuất, preview giá, retry cùng key, snapshot, tồn kho, rollback, checkout/hủy đồng thời, luồng trạng thái, doanh thu theo thời điểm giao và render các trang.
+
+Chạy cùng bộ test trên **database MySQL riêng tên techshop_test, chỉ dành cho test** bằng biến môi trường:
+
+| Biến | Ví dụ |
+|---|---|
+| TEST_DB_URL | jdbc:mysql://localhost:3306/techshop_test?connectionTimeZone=UTC |
+| TEST_DB_USERNAME | techshop_test |
+| TEST_DB_PASSWORD | mật khẩu local của bạn |
+| TEST_MIGRATIONS | classpath:db/migration |
+
+**Integration tests xóa dữ liệu nghiệp vụ trong database test trước mỗi case. Không trỏ TEST_DB_URL vào database sử dụng thật.** Workflow [CI](.github/workflows/ci.yml) có hai job độc lập: H2 và MySQL 8.4 service. Kết quả thực tế ghi trong [implementation status](docs/12-implementation-status.md); cấu hình workflow không tự chứng minh các job đã chạy thành công.
+
+## Cấu trúc mã nguồn
+
+| Thư mục | Trách nhiệm |
+|---|---|
+| src/main/java/vn/techshop/identity | Tài khoản, principal, đăng ký |
+| catalog | Danh mục, sản phẩm, tìm kiếm/lọc |
+| cart | Giỏ hàng, version và preview giá/phí |
+| order | Checkout, snapshot, idempotency, cancel, trạng thái |
+| inventory | Điều chỉnh và sổ biến động tồn kho |
+| reporting | KPI và sản phẩm bán chạy |
+| config | Security, HTML/admin controllers, seed và bootstrap |
+| shared | Validation, phân trang, lỗi và request ID |
+| src/main/resources/db/migration | Flyway MySQL, nguồn schema ứng dụng |
+| src/main/resources/db/demo | Migration tương thích H2 cho demo/test nhanh |
+| templates và static | Giao diện Thymeleaf, CSS, JavaScript, SVG đóng gói |
+| src/test | Unit và integration tests |
+
+Controllers HTML và REST dùng chung services. Checkout khóa giỏ và khóa sản phẩm theo ID; ghi đơn, snapshot, ledger và xóa giỏ trong một transaction. Unique `(user_id, checkout_key)` và request hash chống tạo lại đơn. Hủy đơn khóa đơn rồi hoàn tồn đúng một lần. API dùng session, CSRF và role/ownership ở server; `GET /api/v1/csrf` cấp token cho API client cùng session.
+
+## Bộ tài liệu BA/DA
+
+Các tài liệu 00–11 là baseline thiết kế; [12](docs/12-implementation-status.md) mô tả code hiện tại và chênh lệch so với baseline.
+
+| Tài liệu | Nội dung |
+|---|---|
+| [Charter](docs/00-project-charter.md) | Phạm vi, giả định, rủi ro |
+| [SRS](docs/01-spec.md) | Yêu cầu, use case, quy tắc và AC |
+| [Kiến trúc](docs/02-architecture.md) | Module, security, transaction |
+| [Dữ liệu](docs/03-data-design.md) | ERD, dictionary, index |
+| [API contract](docs/04-api-contract.md) | Hợp đồng mục tiêu; xem tài liệu 12 về khác biệt hiện tại |
+| [Sơ đồ](docs/05-diagrams.md) | Activity, sequence, state, phát triển |
+| [Kế hoạch](docs/06-development-plan.md) | Milestone và dependency |
+| [Backlog](docs/07-backlog.md) | Công việc và ước lượng |
+| [Test plan](docs/08-test-plan.md) | Kịch bản nghiệm thu mục tiêu |
+| [Analytics](docs/09-analytics-plan.md) | KPI, timezone và đối chiếu |
+| [Operations](docs/10-operations.md) | Backup, rollback, triển khai |
+| [ADR/nguồn](docs/11-decisions-and-sources.md) | Quyết định và tài liệu chính thức |
+| [Implementation status](docs/12-implementation-status.md) | Code, kiểm chứng, giới hạn, bước tiếp theo |
+| [Schema tham chiếu](database/schema.sql) | Bản thiết kế được chuyển thành migration V1 |
+| [SQL tham chiếu](database/analytics.sql) | Truy vấn báo cáo thiết kế |
+| [Đóng góp](CONTRIBUTING.md) | Branch, commit và review |
+
+Thanh toán online, nhiều cửa hàng, đổi trả và biến thể sản phẩm thuộc giai đoạn sau. Chưa chọn giấy phép mã nguồn. Không commit credentials thật hoặc dữ liệu khách hàng.
