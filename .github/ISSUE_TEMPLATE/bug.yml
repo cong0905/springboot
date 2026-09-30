@@ -1,0 +1,28 @@
+name: Báo lỗi
+description: Expected / actual và bằng chứng tái hiện
+title: "[Bug] "
+body:
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Bước tái hiện
+      description: Commit, môi trường, tài khoản theo role; không đưa secret hoặc dữ liệu cá nhân.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Expected / actual
+      description: FR/BR/AC bị vi phạm; requestId/log đã loại PII.
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity đề xuất
+      options:
+        - S1 - Sai tiền/tồn/quyền hoặc mất dữ liệu
+        - S2 - Luồng chính hoặc báo cáo sai
+        - S3 - UI/lỗi phụ có workaround
+    validations:
+      required: true

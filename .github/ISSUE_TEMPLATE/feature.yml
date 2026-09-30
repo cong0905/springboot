@@ -1,0 +1,32 @@
+name: Feature theo backlog
+description: Triển khai một lát cắt có tiêu chí nghiệm thu
+title: "[B-XX] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Vấn đề và mục tiêu
+      description: Ai cần gì, tại sao cần?
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: FR / BR / AC và dependency
+      description: Tham chiếu SRS và backlog; nêu scope.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Tiêu chí nghiệm thu
+      description: Given / When / Then, cả happy path và lỗi.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Cách kiểm chứng và ước lượng
+      description: Test cần chạy, data/schema/API impact, effort và ngoài phạm vi.
+    validations:
+      required: true
