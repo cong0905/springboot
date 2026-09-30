@@ -69,9 +69,9 @@ Tạo database `techshop` và tài khoản có quyền migration, đặt `DB_URL
 java -jar target/springboot-0.1.0-SNAPSHOT.jar --spring.profiles.active=demo
 ```
 
-Windows: `.\mvnw.cmd verify`. Mặc định có **14 bài kiểm thử**, gồm 11 integration tests và 3 unit tests. Các case chính: ownership/role/CSRF, từ chối trường đăng ký `role`, đăng nhập/đăng xuất, preview giá, retry cùng key, snapshot, tồn kho, rollback, checkout/hủy đồng thời, luồng trạng thái, doanh thu theo thời điểm giao và render các trang.
+Windows: `.\mvnw.cmd verify`. Với một phiên demo vừa khởi động, chạy thêm `python3 scripts/smoke_http.py` (Windows: `py scripts/smoke_http.py`) ở terminal khác để kiểm tra HTTP thật: session/CSRF, đặt COD/replay, admin giao đơn và báo cáo. Script thay đổi dữ liệu demo; khởi động lại demo trước chạy lại. Mặc định có **14 bài kiểm thử**, gồm 11 integration tests và 3 unit tests. Các case chính: ownership/role/CSRF, từ chối trường đăng ký `role`, đăng nhập/đăng xuất, preview giá, retry cùng key, snapshot, tồn kho, rollback, checkout/hủy đồng thời, luồng trạng thái, doanh thu theo thời điểm giao và render các trang.
 
-Chạy cùng bộ test trên **database MySQL riêng chỉ dành cho test** bằng biến môi trường:
+Chạy cùng bộ test trên **database MySQL riêng tên techshop_test, chỉ dành cho test** bằng biến môi trường:
 
 | Biến | Ví dụ |
 |---|---|

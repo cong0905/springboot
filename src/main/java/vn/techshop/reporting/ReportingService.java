@@ -30,8 +30,9 @@ public class ReportingService {
         if(limit<1 || limit>50)throw BusinessException.invalid("Giới hạn phải từ 1 đến 50.");LocalDate end=to==null?LocalDate.now(clock.withZone(VIETNAM)):to;LocalDate start=from==null?end.minusDays(6):from;var range=range(start,end);
         return jdbc.query("select p.id,p.sku,p.name,sum(i.quantity) as units,sum(i.line_total) as revenue from order_items i join orders o on o.id=i.order_id join products p on p.id=i.product_id where o.status='DELIVERED' and o.delivered_at>=? and o.delivered_at<? group by p.id,p.sku,p.name order by units desc,revenue desc,p.id asc limit ?",(rs,n) -> new TopProduct(rs.getLong("id"),rs.getString("sku"),rs.getString("name"),rs.getLong("units"),rs.getBigDecimal("revenue")),range[0],range[1],limit);
     }
-    static java.sql.Timestamp[] range(LocalDate start,LocalDate end) {
+    static LocalDateTime[] range(LocalDate start,LocalDate end) {
         if(end.isBefore(start) || ChronoUnit.DAYS.between(start,end)>365)throw BusinessException.invalid("Khoảng ngày không hợp lệ hoặc vượt 366 ngày.");
-        return new java.sql.Timestamp[]{java.sql.Timestamp.from(start.atStartOfDay(VIETNAM).toInstant()),java.sql.Timestamp.from(end.plusDays(1).atStartOfDay(VIETNAM).toInstant())};
+        // Bind UTC wall-clock values to DATETIME; do not let JDBC use the host default timezone.
+        return new LocalDateTime[]{LocalDateTime.ofInstant(start.atStartOfDay(VIETNAM).toInstant(),ZoneOffset.UTC),LocalDateTime.ofInstant(end.plusDays(1).atStartOfDay(VIETNAM).toInstant(),ZoneOffset.UTC)};
     }
 }

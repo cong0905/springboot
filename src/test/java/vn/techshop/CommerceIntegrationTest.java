@@ -104,8 +104,12 @@ class CommerceIntegrationTest {
         var shipped=orders.transition(o.id(),admin,new OrderService.Transition("SHIPPED",confirmed.version(),false));
         assertThatThrownBy(() -> orders.transition(o.id(),admin,new OrderService.Transition("DELIVERED",shipped.version(),false))).isInstanceOf(BusinessException.class);
         var delivered=orders.transition(o.id(),admin,new OrderService.Transition("DELIVERED",shipped.version(),true));
-        jdbc.update("update orders set created_at=?,delivered_at=? where id=?",java.sql.Timestamp.from(Instant.parse("2020-01-01T00:00:00Z")),java.sql.Timestamp.from(Instant.parse("2021-10-01T17:30:00Z")),o.id());
+        jdbc.update("update orders set created_at=?,delivered_at=? where id=?",LocalDateTime.parse("2020-01-01T00:00:00"),LocalDateTime.parse("2021-10-01T17:30:00"),o.id());
         var report=reports.summary(LocalDate.of(2021,10,2),LocalDate.of(2021,10,2));assertThat(report.deliveredOrders()).isEqualTo(1);assertThat(report.placedOrders()).isZero();assertThat(report.merchandiseRevenue()).isEqualByComparingTo("600000");assertThat(report.shippingCollected()).isEqualByComparingTo("30000");assertThat(delivered.history()).hasSize(4);
+        jdbc.update("update orders set delivered_at=? where id=?",LocalDateTime.parse("2021-10-02T17:00:00"),o.id());
+        assertThat(reports.summary(LocalDate.of(2021,10,2),LocalDate.of(2021,10,2)).deliveredOrders()).isZero();
+        jdbc.update("update orders set delivered_at=? where id=?",LocalDateTime.parse("2021-10-01T17:00:00"),o.id());
+        assertThat(reports.summary(LocalDate.of(2021,10,2),LocalDate.of(2021,10,2)).deliveredOrders()).isEqualTo(1);
     }
     @Test void lastUnitConcurrentCheckoutHasOneWinner() throws Exception {
         var p=catalog.detail(product,true);inventory.adjust(product,admin,new InventoryService.Adjustment(-2,"Giảm tồn còn một",p.version()));add(customer,1);add(other,1);

@@ -22,13 +22,13 @@ Ngày: 01/10/2026 theo Asia/Ho_Chi_Minh. Branch: `feature/techshop-first-impleme
 
 ## Kiểm chứng
 
-- `mvn verify`: **14 tests, 0 failures, 0 errors**, Java 21, H2 2.4.240. Test profile dùng Flyway H2 riêng, Hibernate validate schema.
+- `mvn verify`: **14 tests, 0 failures, 0 errors**, Java 21, H2 2.4.240; lần regression báo cáo chạy thêm với JVM America/New_York. Test profile dùng Flyway H2 riêng, Hibernate validate schema.
 - 3 unit tests: biên phí giao hàng, pricing hash khi tổng tiền bằng nhau nhưng giá đổi, state transitions.
 - 11 integration tests chạy transaction thật, MockMvc/Security và executor nhiều thread; không dùng transaction rollback tự động bao quanh mỗi test.
 - Các tình huống: checkout/replay/snapshot/cancel/ledger; price-change và key-reuse; CSRF/role/owner/unknown-field; render trang khách/admin; stale cart/tồn âm; transition/COD/doanh thu theo delivered_at; tranh một đơn vị tồn; cùng key checkout đồng thời và cancel đồng thời; rollback toàn bộ đơn/items/history/ledger/cart; session login/logout; inactive category và input/filter validation.
 - Rollback test cố ý ném lỗi trước commit của transaction ngoài đang chứa checkout, rồi xác nhận không có write nào tồn tại. Chưa có fault injection cho lỗi JDBC giữa từng bước service.
-- Browser smoke test dùng ứng dụng demo thật: đang ghi nhận kết quả sau khi chạy. Không coi MockMvc là bằng chứng JavaScript thao tác thành công.
-- MySQL 8.4.9 đã initialize trong môi trường phát triển, nhưng server bị môi trường chặn mở UNIX socket; lần test MySQL local không kết nối được. Vì vậy kết quả H2 không được coi là bằng chứng MySQL concurrency. Workflow `mysql-tests` dùng MySQL 8.4 service trên GitHub Actions; xem kết quả của commit/PR trước merge.
+- HTTP smoke test với demo jar thật: login/session/CSRF, thêm giỏ, HTML checkout preview, checkout/replay, admin xác nhận→giao→thu COD, báo cáo và các trang chính. Đạt với JVM Asia/Ho_Chi_Minh; script tái lập ở `scripts/smoke_http.py`. Browser Playwright chưa chạy được vì tải Chromium bị lỗi; chưa xác minh thao tác JavaScript/ảnh chụp desktop-mobile.
+- MySQL 8.4.9 đã initialize trong môi trường phát triển, nhưng server bị môi trường chặn mở UNIX socket; lần test MySQL local không kết nối được. Vì vậy kết quả H2 không được coi là bằng chứng MySQL concurrency. Cả hai job H2 và MySQL đã đạt ở [CI run của commit code đầu tiên](https://github.com/cong0905/springboot/actions/runs/36793362378), 14 tests/job, 0 failures/errors. Các commit tiếp theo vẫn cần kiểm tra kết quả CI trước merge.
 - Dockerfile/Compose có trong repo, nhưng chưa chạy Docker build/Compose tại môi trường phát triển này do không có Docker daemon. Không có bằng chứng deployment/restore/performance và chưa công bố p95/coverage.
 
 Integration tests chỉ chấp nhận H2 memory `techshop-test` hoặc database MySQL tên **techshop_test** trước khi dọn dữ liệu; có guard chống trỏ nhầm database. CI dùng một database rỗng riêng.
@@ -70,7 +70,7 @@ Checkout khóa Cart trước, kiểm tra replay, rồi khóa Product theo thứ 
 | Analytics đầy đủ | Summary delivered revenue/AOV, placed, status snapshot, top | Conversion events và KPI còn lại ở giai đoạn sau |
 | Quan sát/vận hành | request ID, lỗi không expose stacktrace, cookie/session settings | Chưa Actuator health/metrics, central logging hoặc alert |
 
-Phí giao 30.000 ₫ dưới subtotal 1.000.000 ₫, miễn phí từ ngưỡng này; tính bằng BigDecimal nguyên VND. Pricing hash chứa product ID/quantity/unit price/currency/shipping fee; request hash checkout còn chứa version/tổng kỳ vọng/địa chỉ. Tiền hàng/fee/report tính từ snapshot đơn; thời gian DATETIME(6) được lưu và đọc UTC. Báo cáo date range theo Việt Nam dùng khoảng UTC nửa mở, tối đa 366 ngày.
+Phí giao 30.000 ₫ dưới subtotal 1.000.000 ₫, miễn phí từ ngưỡng này; tính bằng BigDecimal nguyên VND. Pricing hash chứa product ID/quantity/unit price/currency/shipping fee; request hash checkout còn chứa version/tổng kỳ vọng/địa chỉ. Tiền hàng/fee/report tính từ snapshot đơn; thời gian DATETIME(6) được lưu và đọc UTC; range JDBC bind LocalDateTime UTC để không bị múi giờ mặc định của host dịch chuyển. Báo cáo date range theo Việt Nam dùng khoảng UTC nửa mở, tối đa 366 ngày.
 
 ## API hiện có
 

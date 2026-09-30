@@ -37,6 +37,7 @@ jobs:
           --health-cmd="mysqladmin ping -h localhost"
           --health-interval=5s --health-timeout=3s --health-retries=30
     env:
+      JAVA_TOOL_OPTIONS: -Duser.timezone=Asia/Ho_Chi_Minh
       TEST_DB_URL: jdbc:mysql://127.0.0.1:3306/techshop_test?connectionTimeZone=UTC
       TEST_DB_USERNAME: techshop
       TEST_DB_PASSWORD: ci-only-password
