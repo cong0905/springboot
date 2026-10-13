@@ -1,0 +1,1263 @@
+{
+  "note": "Tên và ảnh sản phẩm thật; giá, tồn kho và serial là dữ liệu mẫu TechShop.",
+  "capturedAt": "2026-10-02T01:17:10.619Z",
+  "products": [
+    {
+      "sku": "REAL-IPHONE-15",
+      "name": "iPhone 15 128GB",
+      "category": "PHONE",
+      "brand": "Apple",
+      "samplePrice": 15990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/iphone-15.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/iphone-15-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-15-plus_1__1.png",
+          "contentType": "image/png",
+          "bytes": 205226,
+          "sha256": "67830e36eb1fc4ee29e8dbe8fe625c17323f03f9869cc4cc45ccd56c2b7d1700"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Chipset",
+          "value": "Apple A16 Bionic 6 nhân"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "6 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 6 lõi với 2 lõi hiệu năng và 4 lõi tiết kiệm điện"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.1 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super Retina XDR OLED"
+        },
+        {
+          "name": "Pin",
+          "value": "3349 mAh"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPHONE-15-PLUS",
+      "name": "iPhone 15 Plus 128GB",
+      "category": "PHONE",
+      "brand": "Apple",
+      "samplePrice": 18990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/iphone-15-plus.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/iphone-15-plus-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-15-plus_1_.png",
+          "contentType": "image/png",
+          "bytes": 205226,
+          "sha256": "67830e36eb1fc4ee29e8dbe8fe625c17323f03f9869cc4cc45ccd56c2b7d1700"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Chipset",
+          "value": "Apple A16 Bionic"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "6 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 6 lõi với 2 lõi hiệu năng và 4 lõi tiết kiệm điện"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.7 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super Retina XDR OLED"
+        },
+        {
+          "name": "Pin",
+          "value": "4383 mAh"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPHONE-16",
+      "name": "iPhone 16 128GB",
+      "category": "PHONE",
+      "brand": "Apple",
+      "samplePrice": 20990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/iphone-16.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/iphone-16-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-1.png",
+          "contentType": "image/png",
+          "bytes": 346267,
+          "sha256": "e4676ed4f4d9f282ba92cc936148cafd66442454a00817a1b3f204a0ebc4082e"
+        },
+        {
+          "assetPath": "/assets/products/real/iphone-16-2.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-2.png",
+          "contentType": "image/png",
+          "bytes": 231796,
+          "sha256": "9772a797cdcf0ff71730b62694c942869503f89e0584c76f2ebf35e9b5693f78"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Chipset",
+          "value": "Apple A18"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 6 lõi mới với 2 lõi hiệu năng và 4 lõi tiết kiệm điện"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.1 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super Retina XDR OLED"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPHONE-16-PLUS",
+      "name": "iPhone 16 Plus 128GB",
+      "category": "PHONE",
+      "brand": "Apple",
+      "samplePrice": 23990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/iphone-16-plus.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/iphone-16-plus-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-plus-1.png",
+          "contentType": "image/png",
+          "bytes": 346267,
+          "sha256": "e4676ed4f4d9f282ba92cc936148cafd66442454a00817a1b3f204a0ebc4082e"
+        },
+        {
+          "assetPath": "/assets/products/real/iphone-16-plus-2.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-plus-2.png",
+          "contentType": "image/png",
+          "bytes": 231796,
+          "sha256": "9772a797cdcf0ff71730b62694c942869503f89e0584c76f2ebf35e9b5693f78"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Chipset",
+          "value": "Apple A18"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 6 lõi mới với 2 lõi hiệu năng và 4 lõi tiết kiệm điện"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.7 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super Retina XDR OLED"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPHONE-16-PRO",
+      "name": "iPhone 16 Pro 128GB",
+      "category": "PHONE",
+      "brand": "Apple",
+      "samplePrice": 27990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/iphone-16-pro.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/iphone-16-pro-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-pro_1.png",
+          "contentType": "image/png",
+          "bytes": 260352,
+          "sha256": "ecf76c545a5a41505ac93b009d4637d8899988304b5a1b6f50a5f269f3478c5d"
+        },
+        {
+          "assetPath": "/assets/products/real/iphone-16-pro-2.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-pro-2.png",
+          "contentType": "image/png",
+          "bytes": 149861,
+          "sha256": "ace530d3b8675af7f01ae5d4e461df099d1683a7383ca63998b93b7ee16a6434"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Chipset",
+          "value": "Apple A18 Pro"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 6 lõi mới với 2 lõi hiệu năng và 4 lõi tiết kiệm điện"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.3 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super Retina XDR OLED"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPHONE-16-PRO-MAX",
+      "name": "Điện thoại iPhone 16 Pro Max 256GB",
+      "category": "PHONE",
+      "brand": "Apple",
+      "samplePrice": 31990000,
+      "storage": "256GB",
+      "sourceUrl": "https://cellphones.com.vn/iphone-16-pro-max.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/iphone-16-pro-max-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-pro-max.png",
+          "contentType": "image/png",
+          "bytes": 260352,
+          "sha256": "ecf76c545a5a41505ac93b009d4637d8899988304b5a1b6f50a5f269f3478c5d"
+        },
+        {
+          "assetPath": "/assets/products/real/iphone-16-pro-max-2.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/iphone-16-pro-max-2.png",
+          "contentType": "image/png",
+          "bytes": 149861,
+          "sha256": "ace530d3b8675af7f01ae5d4e461df099d1683a7383ca63998b93b7ee16a6434"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Chipset",
+          "value": "Apple A18 Pro"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "256 GB"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 6 lõi mới với 2 lõi hiệu năng và 4 lõi hiệu suất"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.9 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super Retina XDR OLED"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-GALAXY-S24-ULTRA",
+      "name": "Samsung Galaxy S24 Ultra 12GB 256GB",
+      "category": "PHONE",
+      "brand": "Samsung",
+      "samplePrice": 24990000,
+      "storage": "256GB",
+      "sourceUrl": "https://cellphones.com.vn/samsung-galaxy-s24-ultra.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/galaxy-s24-ultra-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/s/s/ss-s24-ultra-xam-222.png",
+          "contentType": "image/png",
+          "bytes": 244660,
+          "sha256": "90ad90e3e50782f94fb5c593ea6b8001e8616e63cd45e837facaf97c11773091"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.8 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Dynamic AMOLED 2X"
+        },
+        {
+          "name": "Chipset",
+          "value": "Snapdragon 8 Gen 3 For Galaxy"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "12 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "256 GB"
+        },
+        {
+          "name": "Pin",
+          "value": "5,000mAh"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "3.39GHz,3.1GHz,2.9GHz,2.2GHz"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-GALAXY-S24-PLUS",
+      "name": "Samsung Galaxy S24 Plus 12GB 256GB",
+      "category": "PHONE",
+      "brand": "Samsung",
+      "samplePrice": 18990000,
+      "storage": "256GB",
+      "sourceUrl": "https://cellphones.com.vn/samsung-galaxy-s24-plus.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/galaxy-s24-plus-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/g/a/galaxy-s24-plus-tim.png",
+          "contentType": "image/png",
+          "bytes": 228319,
+          "sha256": "69a0d0eea99119ca37b52cb30a54e1a6037c98e8d70c5f0cecbaff760b359b6c"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.7 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Dynamic AMOLED 2X"
+        },
+        {
+          "name": "Chipset",
+          "value": "Exynos 2400"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "12 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "256 GB"
+        },
+        {
+          "name": "Pin",
+          "value": "4,900mAh"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "3.2GHz,2.9GHz,2.6GHz,1.95GHz"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-GALAXY-A55",
+      "name": "Samsung Galaxy A55 5G 8GB 128GB",
+      "category": "PHONE",
+      "brand": "Samsung",
+      "samplePrice": 8990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/samsung-galaxy-a55.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/galaxy-a55-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/s/a/samsung-galaxy-a55.png",
+          "contentType": "image/png",
+          "bytes": 173787,
+          "sha256": "6110b76dfffeb7731e71ac6ac04c13ac612ac975ada6d26bf00a13b45b8053f1"
+        },
+        {
+          "assetPath": "/assets/products/real/galaxy-a55-2.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/s/a/samsung-galaxy-a55_1__1.png",
+          "contentType": "image/png",
+          "bytes": 210917,
+          "sha256": "3cafa25d13727f2e45c782e4dd1e2ce7eacf141953d81687256f23e0892d5ad2"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.6 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super AMOLED"
+        },
+        {
+          "name": "Chipset",
+          "value": "Exynos 1480 4nm 2.4GHz"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Pin",
+          "value": "5000 mAh"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "4 nhân 2.7 GHz & 4 nhân 2.0 GHz"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-XIAOMI-14",
+      "name": "Xiaomi 14 12GB 256GB",
+      "category": "PHONE",
+      "brand": "Xiaomi",
+      "samplePrice": 14990000,
+      "storage": "256GB",
+      "sourceUrl": "https://cellphones.com.vn/xiaomi-14.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/xiaomi-14-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/x/i/xiaomi-14-pre-xanh-la.png",
+          "contentType": "image/png",
+          "bytes": 253653,
+          "sha256": "986499535208b2369ae3920df2bd0c02aa271884a5875e5045749ebc1e68f116"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "6.36 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "LTPO OLED"
+        },
+        {
+          "name": "Chipset",
+          "value": "Qualcomm Snapdragon 8 Gen 3 (4 nm)"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "12 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "256 GB"
+        },
+        {
+          "name": "Pin",
+          "value": "4610 mAh"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-MACBOOK-AIR-M3-13",
+      "name": "MacBook Air M3 13 inch 2024 8CPU 10GPU 16GB - 256GB sạc 30W",
+      "category": "LAPTOP",
+      "brand": "Apple",
+      "samplePrice": 25990000,
+      "storage": "16GB / 256GB",
+      "sourceUrl": "https://cellphones.com.vn/macbook-air-m3-13-inch-2024-16gb-256gb-10gpu.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/macbook-air-m3-13-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/m/a/macbook_8__1_2.png",
+          "contentType": "image/png",
+          "bytes": 277631,
+          "sha256": "c100cf0d47fc5575f411205c80368840dc8119df0020949a734a5138f700f51a"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Dung lượng RAM",
+          "value": "16GB"
+        },
+        {
+          "name": "Ổ cứng",
+          "value": "256GB SSD"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "13.6 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "True Tone"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU Apple M3 8 LõiNeural Engine 16 lõi"
+        },
+        {
+          "name": "Cổng giao tiếp",
+          "value": "Cổng sạc MagSafe 3Hai cổng Thunderbolt / USB 4"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-MACBOOK-AIR-M3-15",
+      "name": "MacBook Air M3 15 inch 2024 16GB - 256GB sạc 70W",
+      "category": "LAPTOP",
+      "brand": "Apple",
+      "samplePrice": 28990000,
+      "storage": "16GB / 256GB",
+      "sourceUrl": "https://cellphones.com.vn/macbook-air-m3-15-inch-2024-16gb-256gb.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/macbook-air-m3-15-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/m/a/macbook_23_.png",
+          "contentType": "image/png",
+          "bytes": 282539,
+          "sha256": "97012026cc39bf969a8b0b2daecbdcdcd1ef1f86fe3c556eac2dbf0acaba1d62"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Dung lượng RAM",
+          "value": "16GB"
+        },
+        {
+          "name": "Ổ cứng",
+          "value": "256GB SSD"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "15.3 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "True Tone"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU Apple M3 8 LõiNeural Engine 16 lõi"
+        },
+        {
+          "name": "Cổng giao tiếp",
+          "value": "Cổng sạc MagSafe 3Hai cổng Thunderbolt / USB 4"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-MACBOOK-AIR-M2",
+      "name": "Apple MacBook Air M2 2024 8CPU 8GPU 8GB 256GB I Chính hãng Apple Việt Nam",
+      "category": "LAPTOP",
+      "brand": "Apple",
+      "samplePrice": 21990000,
+      "storage": "8GB / 256GB",
+      "sourceUrl": "https://cellphones.com.vn/macbook-air-m2-2022.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/macbook-air-m2-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/m/a/macbook_1__1_8.png",
+          "contentType": "image/png",
+          "bytes": 257560,
+          "sha256": "f26c91e6cbc8704ff65f026082aea6f65173a441334c91819e2a91bb007e945d"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Dung lượng RAM",
+          "value": "8GB"
+        },
+        {
+          "name": "Ổ cứng",
+          "value": "256GB"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "13.6 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Liquid Retina Display"
+        },
+        {
+          "name": "Pin",
+          "value": "52,6 Wh"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "Apple M2"
+        },
+        {
+          "name": "Cổng giao tiếp",
+          "value": "2 x Thunderbolt 3Jack tai nghe 3.5 mmMagSafe 3"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-MACBOOK-PRO-M3",
+      "name": "MacBook Pro 14 M3 8GB - 512GB",
+      "category": "LAPTOP",
+      "brand": "Apple",
+      "samplePrice": 37990000,
+      "storage": "8GB / 512GB",
+      "sourceUrl": "https://cellphones.com.vn/macbook-pro-14-inch-m3-2023-8gb-512gb.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/macbook-pro-m3-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/g/r/group_560_1.png",
+          "contentType": "image/png",
+          "bytes": 134040,
+          "sha256": "d7a6281276ff835445113a28f58633e029017b11a8849bdbb0b1158d195fd037"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Dung lượng RAM",
+          "value": "8GB"
+        },
+        {
+          "name": "Ổ cứng",
+          "value": "512GB"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "14.2 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Độ sáng XDR: 1000 nit liên tục ở chế độ toàn màn hìnhĐộ sáng đỉnh 1600 nit (chỉ nội dung HDR)True ToneProMotion"
+        },
+        {
+          "name": "Pin",
+          "value": "70Wh"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "Apple M3 8 nhân"
+        },
+        {
+          "name": "Cổng giao tiếp",
+          "value": "Hai cổng Thunderbolt / USB 4 (USB-C)Ba cổng Thunderbolt 4 (USB-C)Cổng HDMI Cổng HDMIKhe thẻ nhớ SDXCJack 3.5mm"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPAD-10",
+      "name": "iPad Gen 10 10.9 inch 2022 Wifi 64GB I Chính hãng Apple Việt Nam",
+      "category": "TABLET",
+      "brand": "Apple",
+      "samplePrice": 9490000,
+      "storage": "64GB",
+      "sourceUrl": "https://cellphones.com.vn/ipad-10-9-inch-2022.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/ipad-10-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/ipad-10-9-inch-2022.png",
+          "contentType": "image/png",
+          "bytes": 110900,
+          "sha256": "1167764816cb46672245dbde82aceb95d33015b58db1fe79678a508627bc2c6b"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "10.9 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "IPS LCD"
+        },
+        {
+          "name": "Chipset",
+          "value": "Apple A14 Bionic 6 nhân"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "4 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "64 GB"
+        },
+        {
+          "name": "Pin",
+          "value": "28.6 Wh (~ 7587 mAh)"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "2 nhân 3.1 GHz & 4 nhân 1.8 GHz"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPAD-AIR-M2",
+      "name": "iPad Air 6 M2 11 inch Wifi 128GB",
+      "category": "TABLET",
+      "brand": "Apple",
+      "samplePrice": 15990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/ipad-air-6-m2-11-inch.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/ipad-air-m2-1.jpg",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/i/p/ipad-air-6-m2-11-inch_9_.jpg",
+          "contentType": "image/jpeg",
+          "bytes": 40729,
+          "sha256": "b4839331de22e547b76d7b35346ec3b1e0680b9f58fd539327eddd91e21e10e9"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "10.86 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Liquid Retina"
+        },
+        {
+          "name": "Chipset",
+          "value": "Apple M2"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Pin",
+          "value": "Tích hợp pin sạc Li-Po 28,93 watt‑giờ"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 8 lõi với 4 lõi hiệu năng và 4 lõi tiết kiệm điện"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-IPAD-PRO-M4",
+      "name": "iPad Pro M4 11 inch Wifi 256GB",
+      "category": "TABLET",
+      "brand": "Apple",
+      "samplePrice": 26990000,
+      "storage": "256GB",
+      "sourceUrl": "https://cellphones.com.vn/ipad-pro-m4-11-inch.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/ipad-pro-m4-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/f/r/frame_100_1_2__2_2.png",
+          "contentType": "image/png",
+          "bytes": 68034,
+          "sha256": "7610c266bac3c4674f705b654077a03acea15a80cb66c6f6d8d6860c6ccff54f"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "11 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Ultra Retina XDR"
+        },
+        {
+          "name": "Chipset",
+          "value": "Apple M4"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "256 GB"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "CPU 9 lõi với 3 lõi hiệu năng và 6 lõi tiết kiệm điện"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-GALAXY-TAB-S9",
+      "name": "Samsung Galaxy Tab S9 5G 8GB 128GB",
+      "category": "TABLET",
+      "brand": "Samsung",
+      "samplePrice": 16990000,
+      "storage": "128GB",
+      "sourceUrl": "https://cellphones.com.vn/samsung-galaxy-tab-s9.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/galaxy-tab-s9-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/s/s/ss-tab-s9_2.png",
+          "contentType": "image/png",
+          "bytes": 209639,
+          "sha256": "3a56493b600411d22376c2b1ed62e13cc8e36bfdcbaf389b3444f918e0feffc8"
+        },
+        {
+          "assetPath": "/assets/products/real/galaxy-tab-s9-2.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/s/s/ss-tab-s9_1__2.png",
+          "contentType": "image/png",
+          "bytes": 207644,
+          "sha256": "3093ce2272b787a1eda22a136d15d70b26098522716a1302a0ebd8c5e4e41267"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kích thước màn hình",
+          "value": "11 inches"
+        },
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Dynamic AMOLED 2X"
+        },
+        {
+          "name": "Chipset",
+          "value": "Snapdragon 8 Gen 2"
+        },
+        {
+          "name": "Dung lượng RAM",
+          "value": "8 GB"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "128 GB"
+        },
+        {
+          "name": "Pin",
+          "value": "8,400mAh"
+        },
+        {
+          "name": "Loại CPU",
+          "value": "8 nhân 3.36 GHz, 2.8GHz, 2GHz"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-APPLE-WATCH-S9",
+      "name": "Apple Watch Series 9 41mm (GPS) viền nhôm dây cao su",
+      "category": "WATCH",
+      "brand": "Apple",
+      "samplePrice": 9490000,
+      "storage": "41mm",
+      "sourceUrl": "https://cellphones.com.vn/apple-watch-series-9-41mm.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/apple-watch-s9-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/a/p/apple_lte_2__1.png",
+          "contentType": "image/png",
+          "bytes": 158327,
+          "sha256": "789eb6038b02fa04e227bc599f9c2b6da5fdc40538326192961b56bb4230ee79"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Retina"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "1.6 inch"
+        },
+        {
+          "name": "Thời lượng pin",
+          "value": "Chế độ thông minh: 18 giờ Chế độ tiết kiệm pin: 36 giờ"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-APPLE-WATCH-SE",
+      "name": "Apple Watch SE 2022 40mm",
+      "category": "WATCH",
+      "brand": "Apple",
+      "samplePrice": 5990000,
+      "storage": "40mm",
+      "sourceUrl": "https://cellphones.com.vn/apple-watch-se-2022-40mm.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/apple-watch-se-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/w/a/watch_se.png",
+          "contentType": "image/png",
+          "bytes": 152056,
+          "sha256": "651a768e7485b9dfabceda9bcff683f570b04aca016a111fb198f79a369fcc2b"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Retina LTPO OLED Độ sáng 1000 nits"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "Hãng không công bố"
+        },
+        {
+          "name": "Chipset",
+          "value": "Apple S8 SiP"
+        },
+        {
+          "name": "Bộ nhớ trong",
+          "value": "32 GB"
+        },
+        {
+          "name": "Thời lượng pin",
+          "value": "Sử dụng đến 18 giờ"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-GALAXY-WATCH6",
+      "name": "Samsung Galaxy Watch6 40mm Bluetooth",
+      "category": "WATCH",
+      "brand": "Samsung",
+      "samplePrice": 5490000,
+      "storage": "40mm",
+      "sourceUrl": "https://cellphones.com.vn/samsung-galaxy-watch-6.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/galaxy-watch6-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/w/a/watch6_thumbnail.png",
+          "contentType": "image/png",
+          "bytes": 180543,
+          "sha256": "c21348feb894006c63abcab4d33e3cdeccf8346c017272bfa9b5de271609c08a"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công nghệ màn hình",
+          "value": "Super Amoled"
+        },
+        {
+          "name": "Kích thước màn hình",
+          "value": "1.3 inch"
+        },
+        {
+          "name": "Thời lượng pin",
+          "value": "40 giờ (Tắt chế độ Always on Display) Lên đến 30 giờ (Bật chế độ Always on Display)"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-AIRPODS-PRO-2",
+      "name": "Tai nghe Bluetooth Apple AirPods Pro 2 2023 USB-C",
+      "category": "AUDIO",
+      "brand": "Apple",
+      "samplePrice": 5490000,
+      "storage": "USB-C",
+      "sourceUrl": "https://cellphones.com.vn/apple-airpods-pro-2-usb-c.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/airpods-pro-2-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/a/p/apple-airpods-pro-2-usb-c_1_.png",
+          "contentType": "image/png",
+          "bytes": 84044,
+          "sha256": "7578052d31e36d1142b054a061ac01d2347463a5de5637a666a01e1bf73dd4d9"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công nghệ âm thanh",
+          "value": "Active Noise CancellationChip Apple H2Adaptive EQ"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-AIRPODS-4",
+      "name": "Tai nghe Bluetooth Apple AirPods 4",
+      "category": "AUDIO",
+      "brand": "Apple",
+      "samplePrice": 3490000,
+      "storage": "Tiêu chuẩn",
+      "sourceUrl": "https://cellphones.com.vn/apple-airpods-4.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/airpods-4-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/a/p/apple-airpods-4-thumb.png",
+          "contentType": "image/png",
+          "bytes": 68871,
+          "sha256": "35be5fe2beefe7322605c04f7bf6d312c17d2aa336d2b52f2cabddb21007b0bb"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Chipset",
+          "value": "Chip tai nghe H2"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-SONY-WH-1000XM5",
+      "name": "Tai nghe Bluetooth chụp tai Sony WH-1000XM5",
+      "category": "AUDIO",
+      "brand": "Sony",
+      "samplePrice": 6990000,
+      "storage": "Bluetooth",
+      "sourceUrl": "https://cellphones.com.vn/tai-nghe-chup-tai-sony-wh-1000xm5.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/sony-wh-1000xm5-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/f/r/frame_428_2.png",
+          "contentType": "image/png",
+          "bytes": 65997,
+          "sha256": "066c5eb9934b0ae6c47408e5da63c34c15c7fd9e46e7b1526f459ef020a27f4a"
+        }
+      ],
+      "specifications": []
+    },
+    {
+      "sku": "REAL-JBL-FLIP6",
+      "name": "Loa Bluetooth JBL Flip 6",
+      "category": "AUDIO",
+      "brand": "JBL",
+      "samplePrice": 2490000,
+      "storage": "Bluetooth",
+      "sourceUrl": "https://cellphones.com.vn/loa-bluetooth-jbl-flip-6.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/jbl-flip6-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/g/r/group_211_1__1.png",
+          "contentType": "image/png",
+          "bytes": 143094,
+          "sha256": "7b8b4c944eecf2c34fc4f42f0da0692bf1114ac951844a605152888e648ef727"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công nghệ âm thanh",
+          "value": "Party Boost (kết nối 2 loa cùng lúc)"
+        },
+        {
+          "name": "Công suất",
+          "value": "30 W"
+        },
+        {
+          "name": "Thời lượng pin",
+          "value": "12 giờ"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-JBL-CHARGE5",
+      "name": "Loa Bluetooth JBL Charge 5",
+      "category": "AUDIO",
+      "brand": "JBL",
+      "samplePrice": 3290000,
+      "storage": "Bluetooth",
+      "sourceUrl": "https://cellphones.com.vn/loa-bluetooth-jbl-charge-5.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/jbl-charge5-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/g/r/group_211.png",
+          "contentType": "image/png",
+          "bytes": 144332,
+          "sha256": "0aebf886ddd1753367cf5c07dfb7afc78ca4b008be7232fb0206f3fbba795d56"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công nghệ âm thanh",
+          "value": "JBL Original Pro Sound"
+        },
+        {
+          "name": "Công suất",
+          "value": "40 W"
+        },
+        {
+          "name": "Thời lượng pin",
+          "value": "20 giờ"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-GALAXY-BUDS2-PRO",
+      "name": "Tai nghe Bluetooth True Wireless Samsung Galaxy Buds2 Pro",
+      "category": "AUDIO",
+      "brand": "Samsung",
+      "samplePrice": 2990000,
+      "storage": "Bluetooth",
+      "sourceUrl": "https://cellphones.com.vn/samsung-galaxy-buds-2-pro.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/galaxy-buds2-pro-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/s/a/samsung-galaxy-buds-2-pro-thumb.png",
+          "contentType": "image/png",
+          "bytes": 147575,
+          "sha256": "a480253ccadecf788915aae2fbba614195b1d1c71d8f56dee6c4f079fc11dab5"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công nghệ âm thanh",
+          "value": "Active Noise Cancelling360 Reality AudioAmbient SoundÂm thanh Hi-Fi"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-APPLE-20W",
+      "name": "Sạc nhanh Apple 20w USB-C chính hãng Apple Việt Nam",
+      "category": "GEAR",
+      "brand": "Apple",
+      "samplePrice": 490000,
+      "storage": "20W / USB-C",
+      "sourceUrl": "https://cellphones.com.vn/cu-sac-nhanh-iphone-20w-pd-type-c.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/apple-20w-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/g/r/group_117_1.png",
+          "contentType": "image/png",
+          "bytes": 38778,
+          "sha256": "462da578c169bf52b5751b0cd2cb0a62040838e6da37e65c9f36d315c668fcda"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công suất sạc",
+          "value": "20W"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-LOGITECH-MX-MASTER3S",
+      "name": "Chuột không dây Logitech MX Master 3S",
+      "category": "GEAR",
+      "brand": "Logitech",
+      "samplePrice": 2190000,
+      "storage": "Không dây",
+      "sourceUrl": "https://cellphones.com.vn/chuot-khong-day-logitech-mx-master-3s.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/logitech-mx-master3s-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/c/h/chuot-khong-day-logitech-mx-master-3s.png",
+          "contentType": "image/png",
+          "bytes": 82252,
+          "sha256": "15df7ef9dea86df71fdb1fcbc36a2a3b4a9653d675b538db4b42ffb1168589cb"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Kết nối",
+          "value": "BluetoothUSB Receiver"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-LOGITECH-K380",
+      "name": "Bàn phím Bluetooth Logitech K380",
+      "category": "GEAR",
+      "brand": "Logitech",
+      "samplePrice": 690000,
+      "storage": "Bluetooth",
+      "sourceUrl": "https://cellphones.com.vn/ban-phim-khong-day-logitech-k380.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/logitech-k380-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/b/a/ban-phim-bluetooth-logitech-k380.png",
+          "contentType": "image/png",
+          "bytes": 172389,
+          "sha256": "8b465e514d0bedbc6ff9203ec71a3c45ee8493ef6c212397c73f23d5cbf0e94e"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Pin",
+          "value": "2 pin AAA, tuổi thọ pin 24 tháng."
+        }
+      ]
+    },
+    {
+      "sku": "REAL-SAMSUNG-25W",
+      "name": "Củ sạc nhanh Samsung 25W không kèm cáp (EP-T2510NBEGWW)",
+      "category": "GEAR",
+      "brand": "Samsung",
+      "samplePrice": 390000,
+      "storage": "25W / USB-C",
+      "sourceUrl": "https://cellphones.com.vn/cu-sac-nhanh-samsung-25w-ep-t2510nbegww.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/samsung-25w-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/c/u/cu-sac-nhanh-samsung-25w-ep-t2510nbegww_1.png",
+          "contentType": "image/png",
+          "bytes": 67388,
+          "sha256": "985eb636cfb6d4449a6c8da4b6c7cfb4e99431fa395a136acb37e822503e85f6"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Công suất sạc",
+          "value": "25W"
+        }
+      ]
+    },
+    {
+      "sku": "REAL-ANKER-737",
+      "name": "Pin sạc dự phòng Anker 737 Powercore A1289 24000 140W",
+      "category": "GEAR",
+      "brand": "Anker",
+      "samplePrice": 2890000,
+      "storage": "24000mAh",
+      "sourceUrl": "https://cellphones.com.vn/pin-sac-du-phong-anker-737-powercore-24000-140w-a1289.html",
+      "images": [
+        {
+          "assetPath": "/assets/products/real/anker-737-1.png",
+          "sourceUrl": "https://cdn2.cellphones.com.vn/600x/media/catalog/product/p/i/pin-sac-du-phong-anker-737-powercore-24000-140w-a1289.png",
+          "contentType": "image/png",
+          "bytes": 89459,
+          "sha256": "ae5f2f3efa3e967fd2015810c0c3e60e6d45ab2f050ec52e1138d4de645f6534"
+        }
+      ],
+      "specifications": [
+        {
+          "name": "Dung lượng pin",
+          "value": "24000maAh"
+        },
+        {
+          "name": "Công suất sạc",
+          "value": "140W"
+        }
+      ]
+    }
+  ]
+}

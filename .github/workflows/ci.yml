@@ -1,7 +1,7 @@
 name: Build and test
 on:
   push:
-    branches: [main, 'feature/**', 'fix/**']
+    branches: [main, 'feature/**', 'fix/**', 'codex/**']
   pull_request:
 permissions:
   contents: read
@@ -55,3 +55,67 @@ jobs:
         with:
           name: mysql-test-reports
           path: target/surefire-reports/
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Install verified scanners
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/install_ci_scanners.py
+      - name: Scan release source and Git history (redacted)
+        run: |
+          mkdir -p qa/ci-security
+          .local/security-tools/gitleaks dir . --redact --config=.gitleaks.toml --report-format=json --report-path=qa/ci-security/source.json
+          .local/security-tools/gitleaks git . --redact --config=.gitleaks.toml --report-format=json --report-path=qa/ci-security/history.json
+      - name: Scan all resolved runtime dependencies
+        run: |
+          chmod +x mvnw
+          ./mvnw -B dependency:list -DincludeScope=runtime -DoutputFile=.local/runtime-dependencies.txt
+          python3 scripts/runtime_sbom.py .local/runtime-dependencies.txt qa/ci-security/bom.cdx.json
+          .local/security-tools/osv-scanner scan source -L=qa/ci-security/bom.cdx.json --format=json --output-file=qa/ci-security/osv-runtime.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-reports
+          path: qa/ci-security/
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and start isolated demo
+        run: |
+          chmod +x mvnw
+          ./mvnw -B package -DskipTests
+          mkdir -p .local
+          java -jar target/springboot-0.1.0-SNAPSHOT.jar --spring.profiles.active=demo --server.port=8094 --app.upload.dir=.local/browser-uploads > .local/browser-app.log 2>&1 &
+      - name: Install browser and run real flows
+        env:
+          QA_BASE_URL: http://localhost:8094
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+          node scripts/repair_browser_qa.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-evidence
+          path: |
+            qa/repair-continuation/browser/
+            .local/browser-app.log

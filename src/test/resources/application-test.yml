@@ -7,3 +7,10 @@ spring:
     locations: ${TEST_MIGRATIONS:classpath:db/demo}
 app:
   demo: false
+  upload:
+    dir: ./target/test-uploads
+
+app.payment.mock.enabled: true
+
+# AI jobs are driven explicitly by integration tests, not by context background threads.
+app.ai.worker-enabled: false

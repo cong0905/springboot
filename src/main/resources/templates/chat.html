@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Tin nhắn hỗ trợ')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main class="chat-page" data-chat th:attr="data-admin=${chatAdmin}">
+    <th:block th:if="${chatAdmin}"><nav th:replace="~{fragments :: adminNav}"></nav></th:block>
+    <div class="chat-page-heading"><div><p class="chat-eyebrow">TECHZONE CARE</p><h1 th:text="${chatAdmin ? 'Hộp thư khách hàng' : 'Chat với TechZone'}"></h1><p th:text="${chatAdmin ? 'Tiếp nhận và trả lời các yêu cầu hỗ trợ.' : 'Hỏi về sản phẩm, đơn hàng hoặc dịch vụ. Chúng tôi sẽ phản hồi tại đây.'}"></p></div><a href="/products" class="chat-shop-link">Tiếp tục mua sắm →</a></div>
+    <div class="chat-layout" th:classappend="${chatAdmin ? 'chat-layout-admin' : ''}">
+        <aside th:if="${chatAdmin}" class="chat-inbox" aria-label="Cuộc trò chuyện">
+            <div class="chat-inbox-heading"><h2>Cuộc trò chuyện</h2><span data-inbox-total>0</span></div>
+            <div data-chat-conversations class="chat-conversations"><p class="chat-placeholder">Đang tải hộp thư…</p></div>
+            <div class="chat-inbox-pagination"><button type="button" data-inbox-prev disabled aria-label="Trang cuộc trò chuyện trước">←</button><span data-inbox-page>Trang 1</span><button type="button" data-inbox-next disabled aria-label="Trang cuộc trò chuyện sau">→</button></div>
+        </aside>
+        <section class="chat-thread" aria-label="Nội dung trò chuyện">
+            <div class="chat-thread-heading"><span class="chat-avatar" aria-hidden="true" data-thread-avatar>TZ</span><div><h2 data-chat-title th:text="${chatAdmin ? 'Chọn cuộc trò chuyện' : 'Đội ngũ hỗ trợ TechZone'}"></h2><p data-chat-status th:text="${chatAdmin ? 'Chọn khách hàng ở danh sách bên trái.' : 'Tin nhắn được lưu để bạn xem lại bất cứ lúc nào.'}"></p></div><span class="chat-private">Hỗ trợ riêng tư</span></div>
+            <div class="chat-support-panel">
+                <p data-support-status role="status">Đang tải trạng thái hỗ trợ…</p>
+                <div th:unless="${chatAdmin}" class="chat-support-actions">
+                    <button type="button" data-ai-open disabled>Tư vấn bằng AI</button>
+                    <button type="button" data-human-handoff>Gặp nhân viên</button>
+                </div>
+                <div th:if="${chatAdmin}" class="chat-support-actions">
+                    <button type="button" data-admin-accept disabled>Tiếp nhận</button>
+                    <button type="button" data-admin-close disabled>Kết thúc hỗ trợ</button>
+                </div>
+                <p th:if="${chatAdmin}" data-ai-configuration class="chat-ai-note"></p>
+                <div th:unless="${chatAdmin}" data-ai-consent hidden class="chat-consent">
+                    <p>Trợ lý AI dùng Gemini để tư vấn từ danh mục sản phẩm. Các câu hỏi mới khi bật AI và lịch sử của phiên AI được gửi tới Google. Không gửi mật khẩu, số thẻ hoặc thông tin riêng tư.</p>
+                    <label><input type="checkbox" data-ai-agree /> Tôi đồng ý gửi câu hỏi tới Gemini.</label>
+                    <div class="chat-support-actions"><button type="button" data-ai-start disabled>Bật tư vấn AI</button><button type="button" data-ai-cancel>Hủy</button></div>
+                </div>
+            </div>
+            <div class="chat-timeline" data-chat-timeline role="log" aria-label="Lịch sử tin nhắn" aria-live="polite" aria-relevant="additions">
+                <button type="button" class="chat-history-button" data-chat-older hidden>Xem tin nhắn trước</button>
+                <p class="chat-placeholder" data-chat-empty th:text="${chatAdmin ? 'Chọn khách hàng để bắt đầu trả lời.' : 'Gửi lời chào hoặc câu hỏi của bạn để bắt đầu cuộc trò chuyện.'}"></p>
+                <div data-chat-messages></div>
+            </div>
+            <form class="chat-composer" data-chat-form>
+                <label class="sr-only" for="chat-content">Nội dung tin nhắn</label>
+                <textarea id="chat-content" name="content" rows="2" maxlength="2000" placeholder="Nhập tin nhắn…" required th:disabled="${chatAdmin}"></textarea>
+                <div class="chat-composer-tools"><span><small data-chat-length>0 / 2.000</small><small class="chat-keyboard-hint">Enter để gửi · Shift + Enter để xuống dòng</small></span><button type="submit" th:disabled="${chatAdmin}">Gửi tin nhắn <span aria-hidden="true">→</span></button></div>
+                <p data-chat-error class="chat-error" role="alert"></p>
+            </form>
+        </section>
+    </div>
+    <p class="chat-footnote">Tự cập nhật mỗi 3 giây khi mở trang. Bạn có thể đóng trang và xem phản hồi sau trong mục Tin nhắn.</p>
+    <noscript><p>Bật JavaScript trong trình duyệt để gửi và nhận tin nhắn.</p></noscript>
+</main>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

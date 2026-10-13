@@ -14,10 +14,12 @@ public class InventoryService {
     public record Result(Long productId,int stockQuantity,Long version,Long movementId) {}
     public record MovementView(Long id,String type,int delta,int balanceAfter,String reason,Long actorId,java.time.Instant occurredAt) {}
     private final ProductRepository products;private final StockMovementRepository movements;private final Clock clock;
+    @org.springframework.beans.factory.annotation.Autowired private org.springframework.jdbc.core.JdbcTemplate jdbc;
     public InventoryService(ProductRepository products,StockMovementRepository movements,Clock clock) {this.products=products;this.movements=movements;this.clock=clock;}
     @Transactional public Result adjust(Long productId,Long actorId,Adjustment request) {
         if(request.delta()==null || request.delta()==0) throw BusinessException.invalid("Số lượng điều chỉnh phải khác 0.");
         var p=products.lockById(productId).orElseThrow(BusinessException::missing);Rules.version(p.getVersion(),request.expectedVersion(),"STALE_VERSION");
+        if(jdbc.queryForObject("select count(*) from product_variants where product_id=?",Integer.class,productId)>0)throw BusinessException.invalid("Sản phẩm quản lý serial phải nhập kho qua chi nhánh/IMEI.");
         var movement=apply(p,actorId,null,"ADJUSTMENT",request.delta(),Rules.text(request.reason(),5,500));products.flush();return new Result(p.getId(),p.getStockQuantity(),p.getVersion(),movement.getId());
     }
     @Transactional(propagation=Propagation.MANDATORY)

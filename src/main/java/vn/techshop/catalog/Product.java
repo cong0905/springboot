@@ -9,6 +9,9 @@ import org.hibernate.type.SqlTypes;
 @Entity
 @Table(name = "products")
 public class Product {
+    @Column(name="brand",length=80) private String brand;
+    public String getBrand(){return brand;}
+    public void setBrand(String value){brand=value;}
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "category_id", nullable = false)

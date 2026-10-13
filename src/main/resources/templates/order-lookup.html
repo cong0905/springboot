@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Tra cứu đơn hàng')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h1>Tra cứu hành trình đơn hàng</h1>
+        <p class="muted">Nhập mã đơn hàng và số điện thoại nhận hàng để tra cứu tiến độ vận chuyển và chi tiết đơn.</p>
+
+        <section class="panel" style="margin-top: 24px;">
+            <form th:action="@{/order-lookup}" method="post">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <label>Mã đơn hàng
+                        <input name="orderCode" th:value="${orderCode}" placeholder="Ví dụ: TS-00000001" required>
+                    </label>
+                    <label>Số điện thoại đặt hàng
+                        <input type="tel" name="phone" th:value="${phone}" pattern="0[0-9]{9}" placeholder="10 chữ số (0xxxxxxxxx)" required>
+                    </label>
+                </div>
+                <button type="submit" class="button" style="margin-top: 16px;">Tra cứu ngay</button>
+            </form>
+
+            <div th:if="${error != null}" class="alert" style="margin-top: 16px; color: #c62828; background: #ffebee; padding: 12px; border-radius: 6px;" th:text="${error}"></div>
+        </section>
+
+        <div th:if="${order != null}" style="margin-top: 32px;">
+            <div class="section-heading">
+                <h2 th:text="'Chi tiết đơn ' + ${order.orderCode()}"></h2>
+                <span class="badge" th:text="${order.status()}"></span>
+            </div>
+
+            <div class="two-column">
+                <section class="panel">
+                    <h3>Sản phẩm</h3>
+                    <div class="cart-line" th:each="i : ${order.items()}">
+                        <div>
+                            <strong th:text="${i.name()}"></strong>
+                            <p class="muted" th:text="${i.sku()} + ' · Số lượng: ' + ${i.quantity()}"></p>
+                        </div>
+                        <span th:text="${#numbers.formatInteger(i.lineTotal(),1,'POINT')} + ' ₫'"></span>
+                    </div>
+
+                    <div class="summary" style="margin-top: 16px;">
+                        <p><span>Tạm tính</span><strong th:text="${#numbers.formatInteger(order.subtotal(),1,'POINT')} + ' ₫'"></strong></p>
+                        <p th:if="${order.discountAmount() != null && order.discountAmount() > 0}">
+                            <span style="color:#2e7d32;">Giảm giá <span th:if="${order.couponCode() != null}" th:text="'(' + ${order.couponCode()} + ')'"></span></span>
+                            <strong style="color:#2e7d32;" th:text="'-' + ${#numbers.formatInteger(order.discountAmount(),1,'POINT')} + ' ₫'"></strong>
+                        </p>
+                        <p><span>Phí vận chuyển</span><strong th:text="${#numbers.formatInteger(order.shippingFee(),1,'POINT')} + ' ₫'"></strong></p>
+                        <p class="total"><span>Tổng cộng</span><strong th:text="${#numbers.formatInteger(order.total(),1,'POINT')} + ' ₫'"></strong></p>
+                    </div>
+
+                    <h3 style="margin-top: 24px;">Tiến trình xử lý</h3>
+                    <ol class="timeline">
+                        <li th:each="h : ${order.history()}">
+                            <strong th:text="${h.toStatus()}"></strong>
+                            <small th:text="${h.occurredAt()} + ' UTC'"></small>
+                            <p th:text="${h.reason()}"></p>
+                        </li>
+                    </ol>
+                </section>
+
+                <aside class="panel">
+                    <h3>Thông tin người nhận</h3>
+                    <p><strong>Người nhận:</strong> <span th:text="${order.maskedRecipientName()}"></span></p>
+                    <p><strong>Số điện thoại:</strong> <span th:text="${order.maskedPhone()}"></span></p>
+                    <p><strong>Địa chỉ giao:</strong> <span th:text="${order.maskedAddress()}"></span></p>
+                    <p><strong>Hình thức thanh toán:</strong> <span th:text="${order.paymentMethod()}"></span></p>
+                    <p><strong>Trạng thái thanh toán:</strong> 
+                        <strong th:if="${order.paymentStatus() == 'PAID'}" style="color:#15803d;">Đã thanh toán</strong>
+                        <strong th:if="${order.paymentStatus() == 'REFUNDED'}" style="color:#b91c1c;" th:text="'Đã hoàn tiền (' + ${#numbers.formatInteger(order.refundedAmount() != null && order.refundedAmount() > 0 ? order.refundedAmount() : order.total(),1,'POINT')} + ' ₫)'"></strong>
+                        <strong th:if="${order.paymentStatus() == 'PARTIALLY_REFUNDED'}" style="color:#b45309;" th:text="'Đã hoàn một phần (' + ${#numbers.formatInteger(order.refundedAmount(),1,'POINT')} + ' ₫)'"></strong>
+                        <span th:if="${order.paymentStatus() == 'UNPAID'}" style="color:#475569;">Chưa thanh toán</span>
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

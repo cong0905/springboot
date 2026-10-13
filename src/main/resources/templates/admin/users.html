@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Quản lý người dùng')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <nav th:replace="~{fragments :: adminNav}"></nav>
+    <div class="section-heading">
+        <h1>Quản lý tài khoản &amp; Khách hàng</h1>
+    </div>
+    
+    <form method="get" class="filters">
+        <label>Tìm theo tên hoặc email
+            <input name="keyword" th:value="${keyword}" placeholder="Nhập tên hoặc email..." maxlength="100">
+        </label>
+        <button type="submit" class="button">Tìm kiếm</button>
+        <a th:if="${keyword != null && !keyword.isBlank()}" href="/admin/users" class="button button-outline" style="text-decoration:none; margin-left:8px;">Đặt lại</a>
+    </form>
+
+    <div class="panel table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Họ &amp; Tên</th>
+                    <th>Email</th>
+                    <th>Vai trò</th>
+                    <th>Ngày tạo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="u : ${users.content}">
+                    <td th:text="'#' + ${u.id()}"></td>
+                    <td><strong th:text="${u.fullName()}"></strong></td>
+                    <td th:text="${u.email()}"></td>
+                    <td>
+                        <span class="badge" 
+                              th:classappend="${u.role() == 'ADMIN'} ? 'badge-primary' : 'badge-neutral'" 
+                              th:text="${u.role() == 'ADMIN' ? 'Quản trị viên' : 'Khách hàng'}"></span>
+                    </td>
+                    <td th:text="${u.createdAt() != null ? #temporals.format(u.createdAt(), 'dd/MM/yyyy HH:mm') : '—'}"></td>
+                </tr>
+                <tr th:if="${users.content.isEmpty()}">
+                    <td colspan="5" style="text-align: center; padding: 2rem;">Không tìm thấy người dùng phù hợp.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination" th:if="${users.totalPages > 1}">
+        <a th:if="${users.number > 0}" th:href="@{/admin/users(page=${users.number - 1}, keyword=${keyword})}">← Trước</a>
+        <span th:text="'Trang ' + ${users.number + 1} + ' / ' + ${users.totalPages}"></span>
+        <a th:if="${users.number + 1 < users.totalPages}" th:href="@{/admin/users(page=${users.number + 1}, keyword=${keyword})}">Sau →</a>
+    </div>
+</main>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

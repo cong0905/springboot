@@ -20,6 +20,9 @@ public class ProductImage {
     @Column(name = "sort_order", nullable = false)
     private Integer sortOrder;
 
+    @Column(name="variant_id") private Long variantId;
+    public Long getVariantId() { return variantId; }
+    public void setVariantId(Long id) { variantId=id; }
     public ProductImage() {}
     public Long getId() { return id; }
     public Long getProductId() { return productId; }

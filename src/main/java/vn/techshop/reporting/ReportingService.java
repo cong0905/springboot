@@ -13,18 +13,62 @@ import vn.techshop.shared.BusinessException;
 @Service
 @Transactional(readOnly=true)
 public class ReportingService {
-    public record Summary(LocalDate fromDate,LocalDate toDate,String timeZone,long placedOrders,long deliveredOrders,BigDecimal merchandiseRevenue,BigDecimal shippingCollected,BigDecimal codCollectedTotal,BigDecimal aov,Map<String,Long> statusCountsAsOf,Instant asOf) {}
+    public record Summary(
+        LocalDate fromDate,
+        LocalDate toDate,
+        String timeZone,
+        long placedOrders,
+        long deliveredOrders,
+        BigDecimal subtotal,
+        BigDecimal discountAmount,
+        BigDecimal merchandiseRevenue,
+        BigDecimal shippingCollected,
+        BigDecimal codCollectedTotal,
+        BigDecimal refundedAmount,
+        BigDecimal netRevenue,
+        BigDecimal aov,
+        Map<String,Long> statusCountsAsOf,
+        Instant asOf
+    ) {}
     public record TopProduct(Long productId,String sku,String name,long unitsSold,BigDecimal merchandiseRevenue) {}
     private final JdbcTemplate jdbc;private final Clock clock;
     private static final ZoneId VIETNAM=ZoneId.of("Asia/Ho_Chi_Minh");
     public ReportingService(JdbcTemplate jdbc,Clock clock) {this.jdbc=jdbc;this.clock=clock;}
     public Summary summary(LocalDate from,LocalDate to) {
         LocalDate end=to==null?LocalDate.now(clock.withZone(VIETNAM)):to;LocalDate start=from==null?end.minusDays(6):from;var range=range(start,end);
-        var revenue=jdbc.queryForMap("select count(*) as qty,coalesce(sum(subtotal),0) as merchandise,coalesce(sum(shipping_fee),0) as fees,coalesce(sum(total_amount),0) as total from orders where status='DELIVERED' and delivered_at>=? and delivered_at<?",range[0],range[1]);
-        long count=((Number)revenue.get("qty")).longValue();BigDecimal goods=new BigDecimal(revenue.get("merchandise").toString()),fees=new BigDecimal(revenue.get("fees").toString()),total=new BigDecimal(revenue.get("total").toString());
-        Long placed=jdbc.queryForObject("select count(*) from orders where created_at>=? and created_at<?",Long.class,range[0],range[1]);var states=new LinkedHashMap<String,Long>();for(var status:vn.techshop.order.OrderState.values())states.put(status.name(),0L);
+        var revenue=jdbc.queryForMap(
+            "select count(*) as qty, " +
+            "coalesce(sum(subtotal),0) as subtotal, " +
+            "coalesce(sum(discount_amount),0) as discount, " +
+            "coalesce(sum(subtotal - discount_amount),0) as merchandise, " +
+            "coalesce(sum(shipping_fee),0) as fees, " +
+            "coalesce(sum(total_amount),0) as total " +
+            "from orders where status='DELIVERED' and delivered_at>=? and delivered_at<?",
+            range[0],range[1]
+        );
+        long count=((Number)revenue.get("qty")).longValue();
+        BigDecimal subtotal=new BigDecimal(revenue.get("subtotal").toString());
+        BigDecimal discount=new BigDecimal(revenue.get("discount").toString());
+        BigDecimal goods=new BigDecimal(revenue.get("merchandise").toString());
+        BigDecimal fees=new BigDecimal(revenue.get("fees").toString());
+        BigDecimal total=new BigDecimal(revenue.get("total").toString());
+
+        BigDecimal refunded=jdbc.queryForObject(
+            "select coalesce(sum(amount),0) from refund_reconciliations where status='SUCCEEDED' and updated_at>=? and updated_at<?",
+            BigDecimal.class, range[0], range[1]
+        );
+        if(refunded==null) refunded=BigDecimal.ZERO;
+        BigDecimal netRevenue=total.subtract(refunded);
+
+        Long placed=jdbc.queryForObject("select count(*) from orders where created_at>=? and created_at<?",Long.class,range[0],range[1]);
+        var states=new LinkedHashMap<String,Long>();for(var status:vn.techshop.order.OrderState.values())states.put(status.name(),0L);
         jdbc.query("select status,count(*) as qty from orders group by status",rs -> {states.put(rs.getString("status"),rs.getLong("qty"));});
-        return new Summary(start,end,VIETNAM.getId(),placed==null?0:placed,count,goods,fees,total,count==0?null:goods.divide(BigDecimal.valueOf(count),0,RoundingMode.HALF_UP),states,clock.instant());
+        return new Summary(
+            start,end,VIETNAM.getId(),placed==null?0:placed,count,
+            subtotal,discount,goods,fees,total,refunded,netRevenue,
+            count==0?null:goods.divide(BigDecimal.valueOf(count),0,RoundingMode.HALF_UP),
+            states,clock.instant()
+        );
     }
     public List<TopProduct> top(LocalDate from,LocalDate to,int limit) {
         if(limit<1 || limit>50)throw BusinessException.invalid("Giới hạn phải từ 1 đến 50.");LocalDate end=to==null?LocalDate.now(clock.withZone(VIETNAM)):to;LocalDate start=from==null?end.minusDays(6):from;var range=range(start,end);

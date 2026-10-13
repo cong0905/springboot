@@ -1,127 +1,74 @@
-# springboot · TechShop
+# TechShop · Spring Boot Commerce
 
-Website bán đồ công nghệ cho một cửa hàng, dùng **Java 21, Spring Boot 4.1.1, Thymeleaf, Spring Security, JPA, Flyway và MySQL 8.4**.
+Website bán công nghệ: **Java 21, Spring Boot 4.1.1, Thymeleaf, Spring Security, JPA/JDBC, Flyway, MySQL/H2**. Có catalog, session/CSRF, giỏ/version, checkout/snapshot/idempotency, coupon, đánh giá, quản trị và CSV. Bản đa kênh bổ sung biến thể/thông số/album, kho chi nhánh/IMEI, pickup/giao 2h, thu cũ, hồ sơ trả góp demo, hội viên và bảo hành/đổi máy.
 
-**Đã có bản code đầu tiên chạy được.** Có catalog, đăng ký/đăng nhập, giỏ hàng, đặt hàng COD, hủy/xử lý đơn, điều chỉnh tồn kho và báo cáo. Đây là bản phát triển đầu tiên; chưa đạt toàn bộ điều kiện phát hành MVP trong spec. Xem [trạng thái triển khai](docs/12-implementation-status.md) để biết phần đã kiểm chứng và công việc còn lại.
+Xem [kế hoạch và tiến độ sửa chữa](kehoanh.md), [hợp đồng chức năng mới và cấu hình SMTP/Google](docs/18-repair-continuation.md), [bằng chứng hiện tại](qa/repair-continuation/README.md) và [hướng dẫn đa kênh](docs/13-omnichannel-guide.md). Báo cáo 12 và OpenAPI là snapshot nghiệp vụ đa kênh trước đợt sửa chữa; các API mới được ghi tại tài liệu 18. Các tài liệu 00–11 là baseline thiết kế; tài liệu Laravel được giữ riêng ở `docs/reference-laravel-features.md`.
 
-## Chạy demo nhanh
+## Chạy demo
 
-Cài **JDK 21**, kiểm tra `java -version` và `JAVA_HOME` trỏ đến JDK 21. Maven Wrapper đã có trong repo; lần chạy đầu cần Internet để tải Maven và dependencies.
-
-```bash
-git clone git@github.com:cong0905/springboot.git
-cd springboot
-git switch feature/techshop-first-implementation
-./mvnw spring-boot:run -Dspring-boot.run.profiles=demo
-```
-
-Windows PowerShell, sau khi clone và vào thư mục:
+Cần **JDK 21**. PowerShell:
 
 ```powershell
-git switch feature/techshop-first-implementation
-.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=demo"
+$env:JAVA_HOME='C:\Program Files\Java\jdk-21'
+.\mvnw.cmd verify
+.\scripts\run-demo.ps1
+# Nếu cổng 8080 đang được dùng:
+.\scripts\run-demo.ps1 -Port 8091
 ```
 
-Mở **http://localhost:8080**. Demo dùng H2 trong bộ nhớ, tự tạo 2 danh mục, 6 sản phẩm và tồn kho 20 mỗi sản phẩm. Dữ liệu demo mất khi dừng ứng dụng. Các tài khoản bên dưới chỉ dành cho profile `demo`; không sử dụng profile này khi đưa ứng dụng lên Internet.
+Linux/macOS: `./mvnw verify`, rồi `java -jar target/springboot-0.1.0-SNAPSHOT.jar --spring.profiles.active=demo`. Mở http://localhost:8080.
 
 | Vai trò | Email demo | Mật khẩu demo |
 |---|---|---|
 | Admin | admin@techshop.test | DemoAdmin2026! |
 | Khách hàng | customer@techshop.test | DemoCustomer2026! |
 
-Luồng thử: khách đăng nhập → mở sản phẩm → thêm giỏ → đặt COD → xem đơn. Admin đăng nhập ở phiên khác → quản lý đơn → xác nhận → bàn giao vận chuyển → xác nhận đã giao và thu COD → xem dashboard. Khách có thể hủy đơn `PENDING`; admin hủy được `PENDING`/`CONFIRMED`.
+Demo H2 mất dữ liệu khi dừng; chỉ chạy local. Có catalog mẫu mở rộng, biến thể/serial, chi nhánh Hà Nội, bảng thu cũ và gói trả góp demo. Giờ mở cửa/ảnh chi nhánh còn thiếu sẽ hiển thị chưa cập nhật.
 
-## Chạy bằng MySQL và Docker Compose
+Luồng: khách đăng nhập → điện thoại → chọn phiên bản → giỏ → checkout → chọn nhận cửa hàng → nhập liên hệ → **Tính lại giá & cửa hàng** → đặt. Khách có thể xem phiên bản/album/tồn cửa hàng trước đăng nhập và lọc theo mã tỉnh/khu vực cửa hàng. Admin mở đơn và nhập mã hoặc quét QR khách cung cấp để nhận máy. IMEI SOLD, bảo hành 12 tháng và điểm/hạng được cập nhật. Đơn giữ chưa trả tiền tự hủy sau 24 giờ.
 
-Cần Docker với Compose v2. Sao chép cấu hình mẫu:
+## Kiểm thử
 
-```bash
-cp .env.example .env
+`.\mvnw.cmd verify` kiểm tra session/role/CSRF/ownership, replay, rollback, tồn/IMEI, callback/expiry/coupon cạnh tranh, refund/ledger điểm/bảo hành, profile/địa chỉ/guest, content và cấu hình provider. Số tests thực tế cùng XML đối chiếu log nằm ở `qa/repair-continuation/h2-final.json` và `mysql-final.json`; không lấy số 58 tests của bản cũ làm nghiệm thu source mới. Khi JAR demo cũ đang chạy, dùng `'-Dtechshop.build.directory=target-h2'` hoặc `target-repair` để tránh khóa file.
+
+Tests xóa dữ liệu nghiệp vụ, chỉ dùng H2 `techshop-test` hoặc MySQL **techshop_test** riêng. `scripts/start-test-mysql.ps1` dùng binary MySQL đã cài, tạo instance loopback ở cổng 33317 và `.local/mysql-test`; không dùng cho production.
+
+```powershell
+.\scripts\start-test-mysql.ps1
+$env:TEST_DB_URL='jdbc:mysql://127.0.0.1:33317/techshop_test?connectionTimeZone=UTC'
+$env:TEST_DB_USERNAME='root'
+$env:TEST_DB_PASSWORD=''
+$env:TEST_MIGRATIONS='classpath:db/migration'
+.\mvnw.cmd verify
+Remove-Item Env:TEST_DB_URL,Env:TEST_DB_USERNAME,Env:TEST_DB_PASSWORD,Env:TEST_MIGRATIONS
 ```
 
-PowerShell dùng `Copy-Item .env.example .env`. Sửa `.env`: đặt `DB_PASSWORD`, `MYSQL_ROOT_PASSWORD` và, nếu cần tạo quản trị viên lần đầu, đặt:
+Browser QA mở rộng: khởi động demo riêng rồi đặt `QA_BASE_URL=http://localhost:8094` và chạy `node scripts/repair_browser_qa.cjs`. Cần Playwright + Chrome; có thể đặt `PLAYWRIGHT_MODULE` và `CHROME_PATH`. Kiểm tra các luồng mua, profile/địa chỉ, guest, đổi mật khẩu/thu hồi session và CMS ở 1440/1024/768/390/320px; JSON phân biệt thao tác thật với lỗi 409 cố ý chèn. Backup/restore chỉ trên DB test sở hữu: `scripts/verify-test-restore.ps1`; CSV/Excel: `scripts/verify-csv-excel.ps1`.
 
-```dotenv
-APP_BOOTSTRAP_ADMIN_ENABLED=true
-APP_BOOTSTRAP_ADMIN_EMAIL=your-admin@example.com
-APP_BOOTSTRAP_ADMIN_PASSWORD=your-own-admin-password
-```
+## MySQL và Docker Compose
 
-Mật khẩu admin cần 10–64 ký tự, không quá 72 byte UTF-8. Dùng mật khẩu riêng, không commit `.env`. Bootstrap chỉ tạo admin mới; không nâng quyền một tài khoản khách hàng đã tồn tại.
-
-```bash
+```powershell
+Copy-Item .env.example .env
+# Đặt DB_PASSWORD, MYSQL_ROOT_PASSWORD và bootstrap admin của bạn.
 docker compose up --build -d
-docker compose logs -f app
 ```
 
-Mở http://localhost:8080. MySQL lưu dữ liệu trong volume `mysql_data`. Sau khi tạo admin, đặt `APP_BOOTSTRAP_ADMIN_ENABLED=false`, xóa mật khẩu admin khỏi `.env` và chạy `docker compose up -d app` để tạo lại container với cấu hình mới. `docker compose down` dừng dịch vụ và giữ dữ liệu; thay mật khẩu trong `.env` không tự đổi mật khẩu của database đã khởi tạo.
+Compose dùng MySQL 8.4, volume `mysql_data` và `app_uploads`. Ảnh upload ngoài JAR ở `./data/uploads`, đổi bằng APP_UPLOAD_DIR; sao lưu cùng DB. Không chạy `database/schema.sql` trước Flyway. Java trực tiếp không đọc `.env`; đặt DB_URL/DB_USERNAME/DB_PASSWORD trong môi trường. MySQL mặc định không seed dữ liệu/tài khoản demo. Sau tạo admin, tắt bootstrap và xóa mật khẩu bootstrap khỏi `.env`. Compose chưa chạy tại máy này vì thiếu Docker; trước production cần HTTPS/cookie secure, secrets, backup/restore và [operations](docs/10-operations.md).
 
-Docker Compose trong repo phục vụ môi trường local. Khi triển khai thật cần HTTPS/reverse proxy, profile `prod`, secrets, kiểm tra vận hành và backup/restore theo [operations](docs/10-operations.md).
+## Cấu trúc
 
-### Chạy Java trực tiếp với MySQL
+`identity/catalog/cart` xử lý tài khoản và giỏ; `variant/branch/imei` xử lý hàng hóa; `order/inventory` xử lý đơn và ledger; `coupon/review/payment` xử lý ưu đãi/đánh giá/thanh toán; `tradein/installment/loyalty/warranty/reporting` xử lý đa kênh và hậu mãi. HTML/REST dùng cùng services, DTO records, open-in-view tắt. Checkout khóa cart → products theo ID → stock/IMEI `FOR UPDATE`; lưu đơn/snapshot/history/ledger/reservation và xóa giỏ trong một transaction. Hủy hoàn kho đúng một lần.
 
-Tạo database `techshop` và tài khoản có quyền migration, đặt `DB_URL`, `DB_USERNAME`, `DB_PASSWORD` trong môi trường rồi chạy `./mvnw spring-boot:run` (Windows dùng `.\mvnw.cmd`). Java chạy trực tiếp không tự đọc file `.env`; file đó được Compose đọc. Không chạy thủ công `database/schema.sql` trước Flyway: migration `V1__initial_schema.sql` tạo schema trên database rỗng. JPA chỉ validate, không tự sửa schema.
+## Phạm vi tích hợp
 
-## Kiểm thử và build
+- VNPay cần VNPAY_TMN_CODE + VNPAY_HASH_SECRET; đã kiểm tra chữ ký/số tiền/replay ở IPN, chưa giao dịch merchant thật. Browser return không tự ghi nhận tiền.
+- MOCK chỉ bật demo/test. Trả góp là hồ sơ/lịch trả demo, chưa kết nối ngân hàng/BNPL.
+- Giao 2h dùng tọa độ/Haversine và bảng phí local, chưa kết nối hãng vận chuyển. Mã nhận máy và QR hiển thị trong đơn, kiểm tra owner/role và hạn giữ hàng; chưa gửi SMS/email.
+- BarcodeDetector là tiện ích tùy trình duyệt; camera/máy quét thật chưa kiểm chứng.
+- Bảo hành công khai theo serial; điện thoại là kiểm tra bổ sung, không công khai danh sách máy theo số điện thoại.
+- SMTP và Google OAuth có profiles `smtp`/`google`; đặt credentials ngoài repository theo tài liệu 18. Token reset/newsletter chỉ giữ hash và dùng một lần. Chưa nghiệm thu giao thư thật, Google Console/callback hoặc production HTTPS; SMS hoãn theo lựa chọn của người dùng.
+- Guest dùng giỏ/session/proof riêng và chỉ COD giao tiêu chuẩn. Refund là ledger đối soát thủ công có chứng từ, chưa gọi provider hoàn tiền thật. Thu hồi bảo hành giữ lịch sử sửa chữa.
 
-```bash
-./mvnw verify
-java -jar target/springboot-0.1.0-SNAPSHOT.jar --spring.profiles.active=demo
-```
+Chat khách/admin và AI Gemini: xem [chat riêng](docs/19-customer-admin-chat.md) và [cấu hình Gemini](docs/21-gemini-chat-setup.md). AI tắt mặc định, cần `APP_AI_ENABLED=true`, `GEMINI_API_KEY` và `GEMINI_MODEL` ở backend. Khách đồng ý bật AI, nhận tư vấn/thẻ sản phẩm hoặc chuyển nhân viên; admin tiếp nhận để dừng AI. Kiểm thử Google đang dùng giả lập; chưa nghiệm thu API key/model thật.
 
-Windows: `.\mvnw.cmd verify`. Với một phiên demo vừa khởi động, chạy thêm `python3 scripts/smoke_http.py` (Windows: `py scripts/smoke_http.py`) ở terminal khác để kiểm tra HTTP thật: session/CSRF, đặt COD/replay, admin giao đơn và báo cáo. Script thay đổi dữ liệu demo; khởi động lại demo trước chạy lại. Mặc định có **14 bài kiểm thử**, gồm 11 integration tests và 3 unit tests. Các case chính: ownership/role/CSRF, từ chối trường đăng ký `role`, đăng nhập/đăng xuất, preview giá, retry cùng key, snapshot, tồn kho, rollback, checkout/hủy đồng thời, luồng trạng thái, doanh thu theo thời điểm giao và render các trang.
-
-Chạy cùng bộ test trên **database MySQL riêng tên techshop_test, chỉ dành cho test** bằng biến môi trường:
-
-| Biến | Ví dụ |
-|---|---|
-| TEST_DB_URL | jdbc:mysql://localhost:3306/techshop_test?connectionTimeZone=UTC |
-| TEST_DB_USERNAME | techshop_test |
-| TEST_DB_PASSWORD | mật khẩu local của bạn |
-| TEST_MIGRATIONS | classpath:db/migration |
-
-**Integration tests xóa dữ liệu nghiệp vụ trong database test trước mỗi case. Không trỏ TEST_DB_URL vào database sử dụng thật.** Workflow [CI](.github/workflows/ci.yml) có hai job độc lập: H2 và MySQL 8.4 service. Kết quả thực tế ghi trong [implementation status](docs/12-implementation-status.md); cấu hình workflow không tự chứng minh các job đã chạy thành công.
-
-## Cấu trúc mã nguồn
-
-| Thư mục | Trách nhiệm |
-|---|---|
-| src/main/java/vn/techshop/identity | Tài khoản, principal, đăng ký |
-| catalog | Danh mục, sản phẩm, tìm kiếm/lọc |
-| cart | Giỏ hàng, version và preview giá/phí |
-| order | Checkout, snapshot, idempotency, cancel, trạng thái |
-| inventory | Điều chỉnh và sổ biến động tồn kho |
-| reporting | KPI và sản phẩm bán chạy |
-| config | Security, HTML/admin controllers, seed và bootstrap |
-| shared | Validation, phân trang, lỗi và request ID |
-| src/main/resources/db/migration | Flyway MySQL, nguồn schema ứng dụng |
-| src/main/resources/db/demo | Migration tương thích H2 cho demo/test nhanh |
-| templates và static | Giao diện Thymeleaf, CSS, JavaScript, SVG đóng gói |
-| src/test | Unit và integration tests |
-
-Controllers HTML và REST dùng chung services. Checkout khóa giỏ và khóa sản phẩm theo ID; ghi đơn, snapshot, ledger và xóa giỏ trong một transaction. Unique `(user_id, checkout_key)` và request hash chống tạo lại đơn. Hủy đơn khóa đơn rồi hoàn tồn đúng một lần. API dùng session, CSRF và role/ownership ở server; `GET /api/v1/csrf` cấp token cho API client cùng session.
-
-## Bộ tài liệu BA/DA
-
-Các tài liệu 00–11 là baseline thiết kế; [12](docs/12-implementation-status.md) mô tả code hiện tại và chênh lệch so với baseline.
-
-| Tài liệu | Nội dung |
-|---|---|
-| [Charter](docs/00-project-charter.md) | Phạm vi, giả định, rủi ro |
-| [SRS](docs/01-spec.md) | Yêu cầu, use case, quy tắc và AC |
-| [Kiến trúc](docs/02-architecture.md) | Module, security, transaction |
-| [Dữ liệu](docs/03-data-design.md) | ERD, dictionary, index |
-| [API contract](docs/04-api-contract.md) | Hợp đồng mục tiêu; xem tài liệu 12 về khác biệt hiện tại |
-| [Sơ đồ](docs/05-diagrams.md) | Activity, sequence, state, phát triển |
-| [Kế hoạch](docs/06-development-plan.md) | Milestone và dependency |
-| [Backlog](docs/07-backlog.md) | Công việc và ước lượng |
-| [Test plan](docs/08-test-plan.md) | Kịch bản nghiệm thu mục tiêu |
-| [Analytics](docs/09-analytics-plan.md) | KPI, timezone và đối chiếu |
-| [Operations](docs/10-operations.md) | Backup, rollback, triển khai |
-| [ADR/nguồn](docs/11-decisions-and-sources.md) | Quyết định và tài liệu chính thức |
-| [Implementation status](docs/12-implementation-status.md) | Code, kiểm chứng, giới hạn, bước tiếp theo |
-| [Schema tham chiếu](database/schema.sql) | Bản thiết kế được chuyển thành migration V1 |
-| [SQL tham chiếu](database/analytics.sql) | Truy vấn báo cáo thiết kế |
-| [Đóng góp](CONTRIBUTING.md) | Branch, commit và review |
-
-Thanh toán online, nhiều cửa hàng, đổi trả và biến thể sản phẩm thuộc giai đoạn sau. Chưa chọn giấy phép mã nguồn. Không commit credentials thật hoặc dữ liệu khách hàng.
+Chưa có giấy phép mã nguồn. Không commit credentials/dữ liệu khách thật.

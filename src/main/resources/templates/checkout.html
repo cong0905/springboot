@@ -1,1 +1,217 @@
-<!DOCTYPE html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments :: head('Đặt hàng')}"></head><body><header th:replace="~{fragments :: header}"></header><main><a href="/cart" class="back">← Giỏ hàng</a><h1>Hoàn tất đơn hàng</h1><p class="alert" th:unless="${cart.canCheckout()}">Giỏ hàng chưa đủ điều kiện đặt. Vui lòng quay lại kiểm tra.</p><div class="two-column" th:if="${cart.canCheckout()}"><section class="panel"><h2>Thông tin giao hàng</h2><form id="checkout-form" data-api="/api/v1/orders" data-success="/orders/{id}" data-checkout><input type="hidden" name="checkoutKey" th:value="${checkoutKey}"><input type="hidden" name="cartVersion" data-number th:value="${cart.version()}"><input type="hidden" name="expectedTotal" data-number th:value="${cart.total()}"><input type="hidden" name="expectedPricingHash" th:value="${cart.pricingHash()}"><label>Người nhận<input name="recipientName" th:value="${viewer.fullName()}" autocomplete="name" minlength="2" maxlength="100" required></label><label>Số điện thoại<input type="tel" name="phone" autocomplete="tel" pattern="0[0-9]{9}" placeholder="10 chữ số, bắt đầu bằng 0" required></label><label>Địa chỉ đầy đủ<textarea name="address" autocomplete="street-address" minlength="10" maxlength="500" required></textarea></label><label>Ghi chú<textarea name="note" maxlength="500"></textarea></label><div class="payment">● Thanh toán khi nhận hàng — COD</div><div class="form-message" role="alert"></div><button class="full">Xác nhận đặt hàng</button><button type="button" class="secondary full" data-refresh-preview hidden>Cập nhật giá và xác nhận lại</button></form></section><aside class="panel summary"><h2>Đơn của bạn</h2><div data-preview-lines><p th:each="i : ${cart.items()}"><span th:text="${i.name()} + ' × ' + ${i.quantity()}"></span><strong th:text="${#numbers.formatInteger(i.lineTotal(),1,'POINT')} + ' ₫'"></strong></p></div><p><span>Phí giao</span><strong data-preview-fee th:text="${#numbers.formatInteger(cart.shippingFee(),1,'POINT')} + ' ₫'"></strong></p><p class="total"><span>Tổng thanh toán</span><strong data-preview-total th:text="${#numbers.formatInteger(cart.total(),1,'POINT')} + ' ₫'"></strong></p><p class="note">Kiểm tra địa chỉ và tổng tiền trước khi xác nhận.</p></aside></div></main><footer th:replace="~{fragments :: footer}"></footer></body></html>
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Đặt hàng')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">XÁC NHẬN MUA HÀNG</span>
+            <h1>Thông tin đặt hàng</h1>
+        </div>
+        <a th:href="${guestMode==true?'/guest/cart':'/cart'}" style="font-size: 0.9rem; text-decoration: none;">← Quay lại giỏ hàng</a>
+    </div>
+
+    <p class="alert" th:unless="${cart.canCheckout()}" style="padding: 1rem; background: #fee2e2; color: #dc2626; border-radius: 8px;">
+        ⚠️ Giỏ hàng chưa đủ điều kiện thanh toán (hết hàng hoặc giỏ trống). Vui lòng <a th:href="${guestMode==true?'/guest/cart':'/cart'}" style="color:inherit; font-weight:bold; text-decoration:underline;">kiểm tra lại giỏ hàng</a>.
+    </p>
+
+    <div th:if="${cart.canCheckout() && cart.items().?[variantId != null].size() > 0 && cart.items().?[variantId == null].size() > 0}" 
+         style="padding: 1rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; color: #991b1b; margin-bottom: 1.5rem;">
+        ⚠️ <strong>Đơn hàng đang chọn cả thiết bị IMEI và phụ kiện:</strong> Quy trình xuất kho yêu cầu tách thành các đơn riêng biệt. 
+        Vui lòng <a th:href="${guestMode==true?'/guest/cart':'/cart'}" style="color: #b91c1c; font-weight: bold; text-decoration: underline;">quay lại giỏ hàng</a> để chọn thanh toán từng nhóm hàng.
+    </div>
+
+    <div class="two-column" th:if="${cart.canCheckout() && (cart.items().?[variantId != null].size() == 0 || cart.items().?[variantId == null].size() == 0)}">
+        <section class="panel" style="padding: 1.5rem;">
+            <form th:attr="data-api=${guestMode==true?'/api/v1/guest/orders':'/api/v1/orders'},data-success=${guestMode==true?'/guest/orders/{id}':'/orders/{id}'}" data-checkout>
+                <input type="hidden" name="checkoutKey" th:value="${checkoutKey}">
+                <input type="hidden" name="cartVersion" data-number th:value="${cart.version()}">
+                <input type="hidden" name="expectedTotal" data-number th:value="${cart.total()}">
+                <input type="hidden" name="expectedPricingHash" th:value="${cart.pricingHash()}">
+
+                <label th:if="${guestMode!=true}">Chọn địa chỉ đã lưu<select data-saved-address><option value="">Nhập địa chỉ mới</option><option th:each="a:${addresses}" th:value="${a.id()}" th:attr="data-name=${a.recipientName()},data-phone=${a.phone()},data-address=${a.address()},data-default=${a.defaultAddress()}" th:text="${a.recipientName()}+' · '+${a.address()}"></option></select></label><a th:if="${guestMode!=true}" href="/addresses">Quản lý sổ địa chỉ</a>
+                <div style="margin-bottom: 2rem;">
+                    <h2 style="font-size: 1.15rem; margin-bottom: 1rem; display:flex; align-items:center; gap:8px;">
+                        <span style="background:var(--primary); color:#fff; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">1</span>
+                        Phương thức nhận hàng
+                    </h2>
+                    
+                    <label style="display:block; margin-bottom: 1rem;">Dịch vụ nhận hàng
+                        <select name="fulfillmentType" style="width: 100%; margin-top: 4px; padding: 10px;">
+                            <option value="HOME_DELIVERY_STANDARD">🚚 Giao hàng tiêu chuẩn toàn quốc (Miễn phí từ 1.000.000 ₫)</option>
+                            <option th:if="${guestMode!=true}" value="CLICK_AND_COLLECT">🏪 Nhận máy trực tiếp tại cửa hàng · Giữ máy 24 giờ</option>
+                            <option th:if="${guestMode!=true}" value="HOME_DELIVERY_INSTANT_2H">⚡ Giao siêu tốc 2H · Bán kính tối đa 20km</option>
+                        </select>
+                    </label>
+
+                    <label th:if="${guestMode!=true}" style="display:block; margin-bottom: 1rem;">Cửa hàng nhận máy (áp dụng khi nhận tại shop)
+                        <select name="pickupBranchId" data-number style="width: 100%; margin-top: 4px; padding: 10px;">
+                            <option value="">-- Vui lòng chọn cửa hàng gần bạn --</option>
+                            <option th:each="b:${branches}" th:value="${b.id()}" th:text="${b.name()} + ' - ' + ${b.address()}"></option>
+                        </select>
+                    </label>
+
+                    <details th:if="${guestMode!=true}" data-instant-coordinates style="background: var(--surface-alt); padding: 12px; border-radius: 8px; border: 1px solid var(--border);">
+                        <summary style="font-weight: 600; cursor: pointer; color: var(--primary);">📍 Tọa độ GPS nhận hàng (Giao siêu tốc 2H)</summary>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
+                            <label>Vĩ độ (Latitude)
+                                <input id="geo-lat" name="latitude" type="number" step="any" data-number min="-90" max="90" placeholder="VD: 21.013" style="width: 100%; margin-top: 4px;">
+                            </label>
+                            <label>Kinh độ (Longitude)
+                                <input id="geo-lng" name="longitude" type="number" step="any" data-number min="-180" max="180" placeholder="VD: 105.82" style="width: 100%; margin-top: 4px;">
+                            </label>
+                        </div>
+                        <div style="margin-top: 10px; display:flex; justify-content:space-between; align-items:center;">
+                            <button type="button" class="button button-outline small" onclick="getLiveLocation()">📍 Lấy vị trí GPS hiện tại</button>
+                            <small class="note" style="color: var(--text-muted); margin:0;">Phí tính theo khoảng cách chi nhánh gần nhất</small>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 2. THÔNG TIN KHÁCH HÀNG -->
+                <div style="margin-bottom: 2rem;">
+                    <h2 style="font-size: 1.15rem; margin-bottom: 1rem; display:flex; align-items:center; gap:8px;">
+                        <span style="background:var(--primary); color:#fff; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">2</span>
+                        Thông tin người nhận
+                    </h2>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <label>Họ và tên
+                            <input name="recipientName" th:value="${viewer != null ? viewer.fullName() : ''}" minlength="2" maxlength="100" autocomplete="name" required style="width: 100%; margin-top: 4px;">
+                        </label>
+                        <label>Số điện thoại
+                            <input type="tel" name="phone" pattern="0[0-9]{9}" placeholder="0901234567" autocomplete="tel" required style="width: 100%; margin-top: 4px;">
+                        </label>
+                    </div>
+
+                    <label style="display:block; margin-top: 12px;">Địa chỉ chi tiết
+                        <textarea name="address" minlength="10" maxlength="500" autocomplete="street-address" required placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố..." rows="2" style="width: 100%; margin-top: 4px;"></textarea>
+                    </label>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+                        <label>Mã giảm giá
+                            <input name="couponCode" maxlength="50" placeholder="VD: TECH10" style="width: 100%; margin-top: 4px;">
+                        </label>
+                        <label th:if="${guestMode!=true}">Thu cũ đổi mới trợ giá
+                            <select name="tradeInRequestId" data-number style="width: 100%; margin-top: 4px; padding: 10px;">
+                                <option value="">Không áp dụng</option>
+                                <option th:each="q:${quotes}" th:value="${q.id()}" th:text="'Phiếu #'+${q.id()}+' · '+${q.model()}"></option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <label style="display:block; margin-top: 12px;">Ghi chú giao hàng
+                        <textarea name="note" maxlength="500" placeholder="VD: Giao giờ hành chính, gọi trước khi giao..." rows="2" style="width: 100%; margin-top: 4px;"></textarea>
+                    </label>
+                </div>
+
+                <!-- 3. PHƯƠNG THỨC THANH TOÁN -->
+                <div style="margin-bottom: 2rem;">
+                    <h2 style="font-size: 1.15rem; margin-bottom: 1rem; display:flex; align-items:center; gap:8px;">
+                        <span style="background:var(--primary); color:#fff; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">3</span>
+                        Phương thức thanh toán
+                    </h2>
+
+                    <label style="display:block; margin-bottom: 1rem;">Hình thức thanh toán
+                        <select name="paymentMethod" style="width: 100%; margin-top: 4px; padding: 10px;">
+                            <option value="COD">💵 Thanh toán khi nhận hàng (COD)</option>
+                            <option th:if="${guestMode!=true && mockPaymentsEnabled==true}" value="MOCK">💳 Giả lập thanh toán trực tuyến (Sandbox Demo)</option>
+                            <option th:if="${guestMode!=true}" value="VNPAY">🏦 Cổng thanh toán VNPAY-QR</option>
+                            <option th:if="${guestMode!=true && plans!=null && !plans.isEmpty()}" value="INSTALLMENT">📑 Mua hàng trả góp</option>
+                        </select>
+                    </label>
+
+                    <div data-installment-container style="display:none; margin-bottom: 1rem;">
+                        <label style="display:block; margin-bottom: 0.5rem;">Gói trả góp
+                            <select name="installmentPlanId" data-number style="width: 100%; margin-top: 4px; padding: 10px;">
+                                <option value="">-- Chọn gói trả góp phù hợp --</option>
+                                <option th:each="p:${plans}" th:value="${p.id()}" th:attr="data-fee=${p.feePercent()},data-months=${p.months()}" th:text="${p.provider()}+' · '+${p.months()}+' tháng (phí '+${p.feePercent()}+'%)'"></option>
+                            </select>
+                        </label>
+                        <small style="color:var(--text-muted); display:block; margin-bottom: 8px;">* Minh bạch chi phí: Phí chuyển đổi và lịch thanh toán được tính rõ ràng trước khi đặt hàng.</small>
+
+                        <div data-installment-details style="display:none; padding:16px; background:var(--surface); border:1px solid var(--border); border-radius:8px;">
+                            <h3 style="margin-top:0; font-size:0.95rem; color:var(--text); margin-bottom:12px; display:flex; align-items:center; gap:6px;">
+                                <span>📋</span> Kế hoạch trả góp chi tiết
+                            </h3>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:0.9rem; margin-bottom:12px;">
+                                <div>Số tiền trả góp gốc: <strong data-inst-principal style="display:block; font-size:1rem; margin-top:2px;">0 ₫</strong></div>
+                                <div>Phí chuyển đổi (<span data-inst-fee-pct>0</span>%): <strong data-inst-fee style="display:block; font-size:1rem; margin-top:2px; color:var(--warning);">0 ₫</strong></div>
+                                <div>Tổng số tiền trả góp: <strong data-inst-total style="display:block; font-size:1.05rem; margin-top:2px; color:var(--primary);">0 ₫</strong></div>
+                                <div>Góp mỗi tháng (ước tính): <strong data-inst-monthly style="display:block; font-size:1.05rem; margin-top:2px; color:var(--primary);">0 ₫</strong></div>
+                            </div>
+                            <details style="margin-top:10px; font-size:0.85rem;">
+                                <summary style="cursor:pointer; color:var(--primary); font-weight:600;">Xem chi tiết lịch thanh toán từng tháng</summary>
+                                <div data-inst-schedule style="margin-top:8px; border-top:1px solid var(--border); padding-top:8px; max-height:160px; overflow-y:auto;">
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-message" role="alert" style="margin-bottom: 1rem; font-weight: 500;"></div>
+                
+                <div style="display:flex; gap:12px;">
+                    <button type="button" data-refresh-preview class="button button-outline" style="flex:1;">🔄 Tính lại giá &amp; kho</button>
+                    <button type="submit" class="button" data-place-order disabled style="flex:2; font-weight:600; padding:12px;">Xác nhận đặt hàng</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- TÓM TẮT ĐƠN HÀNG -->
+        <aside class="panel summary" style="height: fit-content;">
+            <h2 style="margin-top: 0; font-size: 1.25rem;">Đơn hàng của bạn</h2>
+            
+            <div data-preview-lines style="max-height: 280px; overflow-y: auto; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">
+                <div th:each="i:${cart.items()}" style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.9rem;">
+                    <span style="flex:1; padding-right:8px;" th:text="${i.name()} + ' × ' + ${i.quantity()}"></span>
+                    <strong th:text="${#numbers.formatInteger(i.lineTotal(),1,'POINT')} + ' ₫'"></strong>
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px; color:var(--text-muted);">
+                <span>Giảm giá &amp; Thu cũ</span>
+                <strong data-preview-discount style="color:var(--success);">0 ₫</strong>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:var(--text-muted);">
+                <span>Phí vận chuyển</span>
+                <strong data-preview-fee th:text="${#numbers.formatInteger(cart.shippingFee(),1,'POINT')} + ' ₫'"></strong>
+            </div>
+
+            <div class="total" style="display:flex; justify-content:space-between; padding-top:12px; border-top:2px solid var(--border);">
+                <span style="font-size:1.1rem; font-weight:700;">Tổng thanh toán</span>
+                <strong data-preview-total style="font-size:1.35rem; color:var(--primary);" th:text="${#numbers.formatInteger(cart.total(),1,'POINT')} + ' ₫'"></strong>
+            </div>
+
+            <p data-preview-branch class="note" style="margin-top: 12px; color:var(--primary); font-weight:500;"></p>
+            <p class="note" style="margin-top: 8px; font-size:0.8rem; color:var(--text-muted);">
+                🛡️ Cam kết hàng chính hãng 100%. Đổi mới trong 30 ngày nếu phát sinh lỗi từ nhà sản xuất.
+            </p>
+        </aside>
+    </div>
+</main>
+
+<script>
+function getLiveLocation() {
+    if (!navigator.geolocation) {
+        alert('Trình duyệt của bạn không hỗ trợ định vị GPS.');
+        return;
+    }
+    navigator.geolocation.getCurrentPosition(
+        pos => {
+            document.getElementById('geo-lat').value = pos.coords.latitude.toFixed(5);
+            document.getElementById('geo-lng').value = pos.coords.longitude.toFixed(5);
+            // Trigger recalculation
+            document.querySelector('[data-refresh-preview]')?.click();
+        },
+        err => {
+            alert('Không lấy được vị trí GPS: ' + err.message + '. Bạn có thể nhập vĩ độ/kinh độ thủ công.');
+        }
+    );
+}
+</script>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

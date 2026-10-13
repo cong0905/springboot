@@ -6,7 +6,7 @@ RUN mvn -B -DskipTests package
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-RUN useradd --system --uid 10001 --create-home techshop
+RUN useradd --system --uid 10001 --create-home techshop && mkdir -p /app/data/uploads && chown -R techshop:techshop /app/data
 COPY --from=build --chown=techshop:techshop /build/target/springboot-0.1.0-SNAPSHOT.jar app.jar
 USER techshop
 EXPOSE 8080

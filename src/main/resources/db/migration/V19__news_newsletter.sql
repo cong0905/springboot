@@ -1,0 +1,16 @@
+CREATE TABLE news_articles (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY, slug VARCHAR(160) NOT NULL UNIQUE,
+ title VARCHAR(200) NOT NULL, excerpt VARCHAR(500) NOT NULL, body_text TEXT NOT NULL,
+ status VARCHAR(16) NOT NULL, source_url VARCHAR(500) NULL,
+ version BIGINT NOT NULL DEFAULT 0, author_id BIGINT NOT NULL,
+ updated_at TIMESTAMP(6) NOT NULL,
+ CONSTRAINT ck_news_status CHECK(status IN('DRAFT','PUBLISHED','ARCHIVED'))
+);
+CREATE INDEX idx_news_public ON news_articles(status,id);
+CREATE TABLE newsletter_subscriptions (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY, email VARCHAR(254) NOT NULL UNIQUE,
+ status VARCHAR(16) NOT NULL DEFAULT 'PENDING', confirm_hash CHAR(64) NULL UNIQUE,
+ cancel_hash CHAR(64) NULL UNIQUE, expires_at TIMESTAMP(6) NOT NULL,
+ confirmed_at TIMESTAMP(6) NULL, updated_at TIMESTAMP(6) NOT NULL,
+ CONSTRAINT ck_newsletter_status CHECK(status IN('PENDING','SUBSCRIBED','UNSUBSCRIBED'))
+);

@@ -24,6 +24,9 @@ public class CartItem {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
+    @Column(name="variant_id") private Long variantId;
+    public Long getVariantId() { return variantId; }
+    public void setVariantId(Long value) { variantId=value; }
     public CartItem() {}
     public Long getId() { return id; }
     public Long getCartId() { return cartId; }

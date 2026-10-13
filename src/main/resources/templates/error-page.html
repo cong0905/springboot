@@ -1,1 +1,41 @@
-<!DOCTYPE html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments :: head('Thông báo')}"></head><body><header th:replace="~{fragments :: header}"></header><main class="auth-wrap"><section class="panel"><h1>Chưa thể xử lý yêu cầu</h1><p th:text="${problem.message()}"></p><p class="muted" th:text="${problem.code()}"></p><small th:text="'Mã kiểm tra: ' + ${problem.requestId()}"></small><p><a href="/products" class="button">Về danh sách sản phẩm</a></p></section></main></body></html>
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Thông báo')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main style="max-width: 680px; margin: 3rem auto; padding: 0 1rem;">
+    <section class="panel" style="text-align: center; padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+        <div style="font-size: 4rem; line-height: 1; margin-bottom: 1rem;" 
+             th:text="${problem.code() == 'NOT_FOUND' ? '🔍' : (problem.code() == 'ACCESS_DENIED' || problem.code() == 'AUTHENTICATION_REQUIRED' ? '🔒' : '⚠️')}">⚠️</div>
+        
+        <h1 style="font-size: 1.75rem; margin-bottom: 0.75rem; color: var(--text);"
+            th:text="${problem.code() == 'NOT_FOUND' ? 'Không tìm thấy trang yêu cầu' : (problem.code() == 'ACCESS_DENIED' ? 'Truy cập bị từ chối' : (problem.code() == 'AUTHENTICATION_REQUIRED' ? 'Yêu cầu đăng nhập' : 'Chưa thể xử lý yêu cầu'))}">
+            Chưa thể xử lý yêu cầu
+        </h1>
+
+        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;" 
+           th:text="${problem.message() != null && !problem.message().isBlank() ? problem.message() : 'Trang bạn đang tìm kiếm có thể đã bị đổi tên, tạm khóa hoặc không tồn tại.'}">
+            Trang bạn đang tìm kiếm có thể đã bị đổi tên, tạm khóa hoặc không tồn tại.
+        </p>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+            <a href="/" class="button" style="padding: 10px 24px; font-weight: 600; text-decoration: none;">← Về trang chủ</a>
+            <a href="/products" class="button secondary" style="padding: 10px 20px; font-weight: 600; text-decoration: none;">Khám phá sản phẩm</a>
+            <a href="/order-lookup" class="button secondary" style="padding: 10px 20px; font-weight: 600; text-decoration: none;">Tra cứu đơn hàng</a>
+        </div>
+
+        <details style="text-align: left; background: var(--surface-alt, #f8fafc); border: 1px solid var(--border, #e2e8f0); border-radius: 8px; padding: 12px 16px; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--text);">Thông tin hỗ trợ kỹ thuật (CSKH)</summary>
+            <div style="margin-top: 8px; line-height: 1.8;">
+                <p style="margin: 0;">Mã trạng thái: <code th:text="${problem.code()}">INTERNAL_ERROR</code></p>
+                <p style="margin: 0;" th:if="${problem.requestId() != null && !problem.requestId().isBlank()}">Mã kiểm tra (Request ID): <code th:text="${problem.requestId()}"></code></p>
+                <p style="margin: 0;">Hotline hỗ trợ miễn phí: <strong>1800.2097</strong> (8h00 - 21h30)</p>
+            </div>
+        </details>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

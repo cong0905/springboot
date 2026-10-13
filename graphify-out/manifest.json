@@ -1,0 +1,2396 @@
+{
+  "database/analytics.sql": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4466975,
+    "ast_hash": "d065ce337d3f9325c1663fa80a7c3993",
+    "semantic_hash": "d065ce337d3f9325c1663fa80a7c3993"
+  },
+  "database/schema.sql": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4466975,
+    "ast_hash": "0f0ce931505e6910d0d6aa0ee44c90ab",
+    "semantic_hash": "0f0ce931505e6910d0d6aa0ee44c90ab"
+  },
+  "docs/openapi.json": {
+    "mtime": 1790837892.2959263,
+    "seen": 1790838599.8782108,
+    "ast_hash": "f71944dcdc519ee1298af1d7c7de0977",
+    "semantic_hash": "f71944dcdc519ee1298af1d7c7de0977"
+  },
+  "mvnw": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "ab50dd89da7da2346b28003352eeeeeb",
+    "semantic_hash": "ab50dd89da7da2346b28003352eeeeeb"
+  },
+  "pom.xml": {
+    "mtime": 1791105929.1137147,
+    "seen": 1791109247.7437062,
+    "ast_hash": "49ed27d94e614fd2938fa93cc248e1de",
+    "semantic_hash": "49ed27d94e614fd2938fa93cc248e1de"
+  },
+  "scripts/browser_qa.cjs": {
+    "mtime": 1790838170.2024207,
+    "seen": 1790838599.879209,
+    "ast_hash": "1589901f7e0f9d766ec42e3b873fb266",
+    "semantic_hash": "1589901f7e0f9d766ec42e3b873fb266"
+  },
+  "scripts/collect_test_evidence.py": {
+    "mtime": 1790956698.529311,
+    "seen": 1791041358.3396475,
+    "ast_hash": "23ff7a0e223d1c8d818456215150280c",
+    "semantic_hash": "23ff7a0e223d1c8d818456215150280c"
+  },
+  "scripts/export_openapi.py": {
+    "mtime": 1790837886.8079512,
+    "seen": 1790838599.879209,
+    "ast_hash": "a0cec7c2c9e58d470d13adbe28b7f6cf",
+    "semantic_hash": "a0cec7c2c9e58d470d13adbe28b7f6cf"
+  },
+  "scripts/run-demo.ps1": {
+    "mtime": 1790827802.4700747,
+    "seen": 1790831187.4466975,
+    "ast_hash": "dcad03602abfa6dbfdc1437e4c77bfdb",
+    "semantic_hash": "dcad03602abfa6dbfdc1437e4c77bfdb"
+  },
+  "scripts/smoke_http.py": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "6cdfa282eeec7b64f7167abf9c21afa3",
+    "semantic_hash": "6cdfa282eeec7b64f7167abf9c21afa3"
+  },
+  "scripts/start-test-mysql.ps1": {
+    "mtime": 1790827491.435799,
+    "seen": 1790831187.4466975,
+    "ast_hash": "c100f7e4b5b1200b13e71db721fe553c",
+    "semantic_hash": "c100f7e4b5b1200b13e71db721fe553c"
+  },
+  "src/main/java/vn/techshop/TechShopApplication.java": {
+    "mtime": 1790958613.381214,
+    "seen": 1791041358.35586,
+    "ast_hash": "f349cbec931152d5fd24afd60907ee04",
+    "semantic_hash": "f349cbec931152d5fd24afd60907ee04"
+  },
+  "src/main/java/vn/techshop/branch/BranchInventory.java": {
+    "mtime": 1790825852.7104352,
+    "seen": 1790831187.4466975,
+    "ast_hash": "3536a392b0842a014d61a30f17ba1779",
+    "semantic_hash": "3536a392b0842a014d61a30f17ba1779"
+  },
+  "src/main/java/vn/techshop/branch/BranchInventoryRepository.java": {
+    "mtime": 1790825852.7108924,
+    "seen": 1790831187.4466975,
+    "ast_hash": "c8f8d58c784c307aad2cda67cf36c510",
+    "semantic_hash": "c8f8d58c784c307aad2cda67cf36c510"
+  },
+  "src/main/java/vn/techshop/branch/BranchInventoryService.java": {
+    "mtime": 1791040078.7098322,
+    "seen": 1791041358.35586,
+    "ast_hash": "23843a499d351dc0b66c46f7a8f93dc1",
+    "semantic_hash": "23843a499d351dc0b66c46f7a8f93dc1"
+  },
+  "src/main/java/vn/techshop/branch/StoreBranch.java": {
+    "mtime": 1790825852.708779,
+    "seen": 1790831187.4466975,
+    "ast_hash": "3dc3eb56a52d1f8dcd70f382dde6c180",
+    "semantic_hash": "3dc3eb56a52d1f8dcd70f382dde6c180"
+  },
+  "src/main/java/vn/techshop/branch/StoreBranchRepository.java": {
+    "mtime": 1790825852.7096665,
+    "seen": 1790831187.4466975,
+    "ast_hash": "6d31ba9554223acec0dcd48fc1ccfa18",
+    "semantic_hash": "6d31ba9554223acec0dcd48fc1ccfa18"
+  },
+  "src/main/java/vn/techshop/cart/Cart.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "8fc59de7c182d5f871759db897fbaf74",
+    "semantic_hash": "8fc59de7c182d5f871759db897fbaf74"
+  },
+  "src/main/java/vn/techshop/cart/CartApi.java": {
+    "mtime": 1790957708.036119,
+    "seen": 1791041358.4523299,
+    "ast_hash": "8b4733422c9b17f8361ba6c9c48568c1",
+    "semantic_hash": "8b4733422c9b17f8361ba6c9c48568c1"
+  },
+  "src/main/java/vn/techshop/cart/CartItem.java": {
+    "mtime": 1790825852.712314,
+    "seen": 1790831187.4466975,
+    "ast_hash": "165b5c76d3d5c3510a8bc2212b4c5b2e",
+    "semantic_hash": "165b5c76d3d5c3510a8bc2212b4c5b2e"
+  },
+  "src/main/java/vn/techshop/cart/CartItemRepository.java": {
+    "mtime": 1790825852.713851,
+    "seen": 1790831187.4466975,
+    "ast_hash": "9cd9c7a9db74fb4642d2b33c2a9e5a8d",
+    "semantic_hash": "9cd9c7a9db74fb4642d2b33c2a9e5a8d"
+  },
+  "src/main/java/vn/techshop/cart/CartRepository.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "69628bc792a2f7b01ea0fafc00708aa2",
+    "semantic_hash": "69628bc792a2f7b01ea0fafc00708aa2"
+  },
+  "src/main/java/vn/techshop/cart/CartService.java": {
+    "mtime": 1791101958.1267245,
+    "seen": 1791109247.7733345,
+    "ast_hash": "0098d5091a00643349867f205df9248e",
+    "semantic_hash": "0098d5091a00643349867f205df9248e"
+  },
+  "src/main/java/vn/techshop/cart/Pricing.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "899b92ff66dc8fe338cbdab16208af91",
+    "semantic_hash": "899b92ff66dc8fe338cbdab16208af91"
+  },
+  "src/main/java/vn/techshop/catalog/CatalogApi.java": {
+    "mtime": 1790958081.9216623,
+    "seen": 1791041358.4611137,
+    "ast_hash": "62b9a0562666817a0e78a0795861e59d",
+    "semantic_hash": "62b9a0562666817a0e78a0795861e59d"
+  },
+  "src/main/java/vn/techshop/catalog/CatalogService.java": {
+    "mtime": 1790958009.4567733,
+    "seen": 1791041358.4611137,
+    "ast_hash": "129590ecba63c62168b7249472528a92",
+    "semantic_hash": "129590ecba63c62168b7249472528a92"
+  },
+  "src/main/java/vn/techshop/catalog/Category.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "1ddd9f2b3682440cd220acde4b1f05c7",
+    "semantic_hash": "1ddd9f2b3682440cd220acde4b1f05c7"
+  },
+  "src/main/java/vn/techshop/catalog/CategoryRepository.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "ea426eac9532b66395a2c5681e5becb7",
+    "semantic_hash": "ea426eac9532b66395a2c5681e5becb7"
+  },
+  "src/main/java/vn/techshop/catalog/Product.java": {
+    "mtime": 1790958009.4507723,
+    "seen": 1791041358.4611137,
+    "ast_hash": "229263a68e4be0c2b1132bba3454d819",
+    "semantic_hash": "229263a68e4be0c2b1132bba3454d819"
+  },
+  "src/main/java/vn/techshop/catalog/ProductImage.java": {
+    "mtime": 1790826361.2825363,
+    "seen": 1790831187.4466975,
+    "ast_hash": "44b3729fbf7f0bcda36f8dec3c64cca0",
+    "semantic_hash": "44b3729fbf7f0bcda36f8dec3c64cca0"
+  },
+  "src/main/java/vn/techshop/catalog/ProductImageRepository.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "b5cdae9486602fb0b6cd0a99eb0e4519",
+    "semantic_hash": "b5cdae9486602fb0b6cd0a99eb0e4519"
+  },
+  "src/main/java/vn/techshop/catalog/ProductRepository.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "d2fc3288b29ac98ec48b75a597f95a36",
+    "semantic_hash": "d2fc3288b29ac98ec48b75a597f95a36"
+  },
+  "src/main/java/vn/techshop/config/AdminApi.java": {
+    "mtime": 1790958081.9226637,
+    "seen": 1791041358.4611137,
+    "ast_hash": "2e0678305aefd2b9896c87a9a36ad644",
+    "semantic_hash": "2e0678305aefd2b9896c87a9a36ad644"
+  },
+  "src/main/java/vn/techshop/config/AdminBootstrap.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4466975,
+    "ast_hash": "362d5edafb956a1d1d11df13f3cd7e80",
+    "semantic_hash": "362d5edafb956a1d1d11df13f3cd7e80"
+  },
+  "src/main/java/vn/techshop/config/CommerceSettingsService.java": {
+    "mtime": 1790829273.4481027,
+    "seen": 1790831187.4477987,
+    "ast_hash": "902b614321a45e8b6be6afa3651f4937",
+    "semantic_hash": "902b614321a45e8b6be6afa3651f4937"
+  },
+  "src/main/java/vn/techshop/config/DemoData.java": {
+    "mtime": 1791105730.1325438,
+    "seen": 1791109247.7827282,
+    "ast_hash": "eade34e3741a58cb3f7d70891b575ef0",
+    "semantic_hash": "eade34e3741a58cb3f7d70891b575ef0"
+  },
+  "src/main/java/vn/techshop/config/LoginAttempts.java": {
+    "mtime": 1790952073.6703799,
+    "seen": 1791041358.4684913,
+    "ast_hash": "92ffb6828b8e12f92634ec4c91c248dd",
+    "semantic_hash": "92ffb6828b8e12f92634ec4c91c248dd"
+  },
+  "src/main/java/vn/techshop/config/OmnichannelApi.java": {
+    "mtime": 1791040078.7088315,
+    "seen": 1791041358.4684913,
+    "ast_hash": "6767fc9b16dd0684cb434b9937060e10",
+    "semantic_hash": "6767fc9b16dd0684cb434b9937060e10"
+  },
+  "src/main/java/vn/techshop/config/OmnichannelDemoData.java": {
+    "mtime": 1791105665.3802931,
+    "seen": 1791109247.783749,
+    "ast_hash": "a12f3c50942131fbba608a86d25ac965",
+    "semantic_hash": "a12f3c50942131fbba608a86d25ac965"
+  },
+  "src/main/java/vn/techshop/config/OmnichannelWeb.java": {
+    "mtime": 1791040078.7088315,
+    "seen": 1791041358.4684913,
+    "ast_hash": "57fd5993dda34b65e16b140984ae92de",
+    "semantic_hash": "57fd5993dda34b65e16b140984ae92de"
+  },
+  "src/main/java/vn/techshop/config/SecurityConfig.java": {
+    "mtime": 1791108029.850731,
+    "seen": 1791109247.7847457,
+    "ast_hash": "b2ea4eaedabca1f10e45735a76fde849",
+    "semantic_hash": "b2ea4eaedabca1f10e45735a76fde849"
+  },
+  "src/main/java/vn/techshop/config/UploadResourceConfig.java": {
+    "mtime": 1790829110.8735871,
+    "seen": 1790831187.4477987,
+    "ast_hash": "2081829b0748062d5717ec73d56a6303",
+    "semantic_hash": "2081829b0748062d5717ec73d56a6303"
+  },
+  "src/main/java/vn/techshop/config/WebController.java": {
+    "mtime": 1790958875.126547,
+    "seen": 1791041358.4684913,
+    "ast_hash": "a40e100a067004944697bceb05c6e7f2",
+    "semantic_hash": "a40e100a067004944697bceb05c6e7f2"
+  },
+  "src/main/java/vn/techshop/coupon/Coupon.java": {
+    "mtime": 1791040078.7068453,
+    "seen": 1791041358.4684913,
+    "ast_hash": "8155a4057dfbfa3cdb78061fe59ae7ca",
+    "semantic_hash": "8155a4057dfbfa3cdb78061fe59ae7ca"
+  },
+  "src/main/java/vn/techshop/coupon/CouponApi.java": {
+    "mtime": 1791040078.7088315,
+    "seen": 1791041358.4684913,
+    "ast_hash": "ee230cde5129ad7bfbfb97effe824766",
+    "semantic_hash": "ee230cde5129ad7bfbfb97effe824766"
+  },
+  "src/main/java/vn/techshop/coupon/CouponRepository.java": {
+    "mtime": 1791041683.4485192,
+    "seen": 1791089732.315421,
+    "ast_hash": "9e9a060a1c941d0784ef509513247c75",
+    "semantic_hash": "9e9a060a1c941d0784ef509513247c75"
+  },
+  "src/main/java/vn/techshop/coupon/CouponService.java": {
+    "mtime": 1791041690.0489552,
+    "seen": 1791089732.315421,
+    "ast_hash": "6f075018df27efeeedea17b81a3e95cc",
+    "semantic_hash": "6f075018df27efeeedea17b81a3e95cc"
+  },
+  "src/main/java/vn/techshop/identity/AppUser.java": {
+    "mtime": 1790959353.1084783,
+    "seen": 1791041358.4684913,
+    "ast_hash": "27908679be471aed0ec850586667916b",
+    "semantic_hash": "27908679be471aed0ec850586667916b"
+  },
+  "src/main/java/vn/techshop/identity/IdentityApi.java": {
+    "mtime": 1790956840.745442,
+    "seen": 1791041358.4684913,
+    "ast_hash": "c3542d2a7cbaacd941038c3e58c626be",
+    "semantic_hash": "c3542d2a7cbaacd941038c3e58c626be"
+  },
+  "src/main/java/vn/techshop/identity/IdentityService.java": {
+    "mtime": 1790959353.1114755,
+    "seen": 1791041358.4684913,
+    "ast_hash": "1231060c34b8519ce5ad6d4b41c95418",
+    "semantic_hash": "1231060c34b8519ce5ad6d4b41c95418"
+  },
+  "src/main/java/vn/techshop/identity/TechPrincipal.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "410091374c7579334a47e9c37270d28d",
+    "semantic_hash": "410091374c7579334a47e9c37270d28d"
+  },
+  "src/main/java/vn/techshop/identity/UserRepository.java": {
+    "mtime": 1790956840.7201176,
+    "seen": 1791041358.4684913,
+    "ast_hash": "aa6960b63e2cec2a5baa924100066cf7",
+    "semantic_hash": "aa6960b63e2cec2a5baa924100066cf7"
+  },
+  "src/main/java/vn/techshop/imei/ImeiHistory.java": {
+    "mtime": 1790825852.7115946,
+    "seen": 1790831187.4477987,
+    "ast_hash": "fb609dbee2caa70fe9cad01ca54ce5bc",
+    "semantic_hash": "fb609dbee2caa70fe9cad01ca54ce5bc"
+  },
+  "src/main/java/vn/techshop/imei/ImeiHistoryRepository.java": {
+    "mtime": 1790825852.712314,
+    "seen": 1790831187.4477987,
+    "ast_hash": "a3b438adfee015faf690b7c14030ceb3",
+    "semantic_hash": "a3b438adfee015faf690b7c14030ceb3"
+  },
+  "src/main/java/vn/techshop/imei/ProductItemImei.java": {
+    "mtime": 1790825852.7108924,
+    "seen": 1790831187.4477987,
+    "ast_hash": "267040fd1a0f5eac7aac960c189a927a",
+    "semantic_hash": "267040fd1a0f5eac7aac960c189a927a"
+  },
+  "src/main/java/vn/techshop/imei/ProductItemImeiRepository.java": {
+    "mtime": 1790825852.7115946,
+    "seen": 1790831187.4477987,
+    "ast_hash": "fab2af0e5abd5e39e42a41130827fa73",
+    "semantic_hash": "fab2af0e5abd5e39e42a41130827fa73"
+  },
+  "src/main/java/vn/techshop/installment/InstallmentService.java": {
+    "mtime": 1791103411.1319034,
+    "seen": 1791109247.797782,
+    "ast_hash": "d0057a819b33dcfb02e55e92f37dd013",
+    "semantic_hash": "d0057a819b33dcfb02e55e92f37dd013"
+  },
+  "src/main/java/vn/techshop/inventory/InventoryService.java": {
+    "mtime": 1790827190.8457062,
+    "seen": 1790831187.4477987,
+    "ast_hash": "4f572d9cc9297e2d93f48060bead8c45",
+    "semantic_hash": "4f572d9cc9297e2d93f48060bead8c45"
+  },
+  "src/main/java/vn/techshop/inventory/StockMovement.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "e17ad6e45c779e2e13a551b1abdddc05",
+    "semantic_hash": "e17ad6e45c779e2e13a551b1abdddc05"
+  },
+  "src/main/java/vn/techshop/inventory/StockMovementRepository.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "e3e273ec98150be8bdef06115370d450",
+    "semantic_hash": "e3e273ec98150be8bdef06115370d450"
+  },
+  "src/main/java/vn/techshop/loyalty/LoyaltyService.java": {
+    "mtime": 1790958243.681553,
+    "seen": 1791041358.484708,
+    "ast_hash": "93dbc22abcd424ddc7bee398af56d9b5",
+    "semantic_hash": "93dbc22abcd424ddc7bee398af56d9b5"
+  },
+  "src/main/java/vn/techshop/order/LookupOrderController.java": {
+    "mtime": 1791039953.1352258,
+    "seen": 1791041358.484708,
+    "ast_hash": "aa4d885ac67197bd7892f038b77ee1b7",
+    "semantic_hash": "aa4d885ac67197bd7892f038b77ee1b7"
+  },
+  "src/main/java/vn/techshop/order/OrderApi.java": {
+    "mtime": 1790958338.414938,
+    "seen": 1791041358.484708,
+    "ast_hash": "9b2d89bf16f2e1cc8f6bcc6e33ccfc2f",
+    "semantic_hash": "9b2d89bf16f2e1cc8f6bcc6e33ccfc2f"
+  },
+  "src/main/java/vn/techshop/order/OrderHistory.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "806d95c5c0fbfc39e5e8ec6450db8ca4",
+    "semantic_hash": "806d95c5c0fbfc39e5e8ec6450db8ca4"
+  },
+  "src/main/java/vn/techshop/order/OrderHistoryRepository.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "36524bc128e8cf34a647906e7b1d3d18",
+    "semantic_hash": "36524bc128e8cf34a647906e7b1d3d18"
+  },
+  "src/main/java/vn/techshop/order/OrderItem.java": {
+    "mtime": 1790825852.7130177,
+    "seen": 1790831187.4477987,
+    "ast_hash": "f8706fb0919cc5a2cd4ce0cc2944b352",
+    "semantic_hash": "f8706fb0919cc5a2cd4ce0cc2944b352"
+  },
+  "src/main/java/vn/techshop/order/OrderItemRepository.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "f842c389dcd5cabd19f912795e54ee91",
+    "semantic_hash": "f842c389dcd5cabd19f912795e54ee91"
+  },
+  "src/main/java/vn/techshop/order/OrderRepository.java": {
+    "mtime": 1790823125.3173249,
+    "seen": 1790831187.4477987,
+    "ast_hash": "b27e5d962b9ce8d4d8aae40a4987de20",
+    "semantic_hash": "b27e5d962b9ce8d4d8aae40a4987de20"
+  },
+  "src/main/java/vn/techshop/order/OrderRoutingService.java": {
+    "mtime": 1790958243.6785553,
+    "seen": 1791041358.484708,
+    "ast_hash": "458078de4df39860280eac95bbed2cb3",
+    "semantic_hash": "458078de4df39860280eac95bbed2cb3"
+  },
+  "src/main/java/vn/techshop/order/OrderService.java": {
+    "mtime": 1791102924.3438954,
+    "seen": 1791109247.804162,
+    "ast_hash": "92c19010284f6afc11819c8ae35cd2a8",
+    "semantic_hash": "92c19010284f6afc11819c8ae35cd2a8"
+  },
+  "src/main/java/vn/techshop/order/OrderState.java": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "ac604386c582f64fc919586ba65fe39b",
+    "semantic_hash": "ac604386c582f64fc919586ba65fe39b"
+  },
+  "src/main/java/vn/techshop/order/PickupService.java": {
+    "mtime": 1791100873.9078224,
+    "seen": 1791109247.8051674,
+    "ast_hash": "439a418735529220df76ca1e6522f4a6",
+    "semantic_hash": "439a418735529220df76ca1e6522f4a6"
+  },
+  "src/main/java/vn/techshop/order/PurchaseOrder.java": {
+    "mtime": 1790825852.713851,
+    "seen": 1790831187.4477987,
+    "ast_hash": "1b1e06f41d65f42e5996c05bcd449539",
+    "semantic_hash": "1b1e06f41d65f42e5996c05bcd449539"
+  },
+  "src/main/java/vn/techshop/payment/PaymentController.java": {
+    "mtime": 1790827709.8984473,
+    "seen": 1790831187.4477987,
+    "ast_hash": "8f6ffa58f3092baa810e281d43a7f7ea",
+    "semantic_hash": "8f6ffa58f3092baa810e281d43a7f7ea"
+  },
+  "src/main/java/vn/techshop/payment/PaymentService.java": {
+    "mtime": 1791041690.051965,
+    "seen": 1791089732.3414013,
+    "ast_hash": "e26cdef7981fbc7c6e1e2f376d4945d2",
+    "semantic_hash": "e26cdef7981fbc7c6e1e2f376d4945d2"
+  },
+  "src/main/java/vn/techshop/payment/PaymentTransaction.java": {
+    "mtime": 1790956456.093148,
+    "seen": 1791041358.484708,
+    "ast_hash": "cd2f390894ffa71d5f62b3475053756b",
+    "semantic_hash": "cd2f390894ffa71d5f62b3475053756b"
+  },
+  "src/main/java/vn/techshop/payment/PaymentTransactionRepository.java": {
+    "mtime": 1791041683.4515524,
+    "seen": 1791089732.3425221,
+    "ast_hash": "bb1a48ae523dcd0eaa3f34b0f832488c",
+    "semantic_hash": "bb1a48ae523dcd0eaa3f34b0f832488c"
+  },
+  "src/main/java/vn/techshop/reporting/CommerceReportingService.java": {
+    "mtime": 1791100471.4408681,
+    "seen": 1791109247.8071597,
+    "ast_hash": "1d6c1846e232ae1ef95e8cce511e69b7",
+    "semantic_hash": "1d6c1846e232ae1ef95e8cce511e69b7"
+  },
+  "src/main/java/vn/techshop/reporting/ReportExportService.java": {
+    "mtime": 1791100497.486999,
+    "seen": 1791109247.8071597,
+    "ast_hash": "b4a66b609f5569f6e638d20c0c13642b",
+    "semantic_hash": "b4a66b609f5569f6e638d20c0c13642b"
+  },
+  "src/main/java/vn/techshop/reporting/ReportingService.java": {
+    "mtime": 1791100458.7848184,
+    "seen": 1791109247.8071597,
+    "ast_hash": "777ca223445d7fe232851c5ab086359d",
+    "semantic_hash": "777ca223445d7fe232851c5ab086359d"
+  },
+  "src/main/java/vn/techshop/review/ProductReview.java": {
+    "mtime": 1791103624.2203658,
+    "seen": 1791109247.8071597,
+    "ast_hash": "8176b3adc96f49ef18601bcb6273bd3e",
+    "semantic_hash": "8176b3adc96f49ef18601bcb6273bd3e"
+  },
+  "src/main/java/vn/techshop/review/ProductReviewRepository.java": {
+    "mtime": 1791103522.1603277,
+    "seen": 1791109247.8071597,
+    "ast_hash": "105f5424fdb9ca6deafb33e76747bfc7",
+    "semantic_hash": "105f5424fdb9ca6deafb33e76747bfc7"
+  },
+  "src/main/java/vn/techshop/review/ProductReviewService.java": {
+    "mtime": 1791103529.806273,
+    "seen": 1791109247.8071597,
+    "ast_hash": "b0edc11986b1da31b039ea3d9bdfd48a",
+    "semantic_hash": "b0edc11986b1da31b039ea3d9bdfd48a"
+  },
+  "src/main/java/vn/techshop/review/ReviewApi.java": {
+    "mtime": 1791103547.70151,
+    "seen": 1791109247.8071597,
+    "ast_hash": "71fee141d2747e6453ba9b6db59e24a5",
+    "semantic_hash": "71fee141d2747e6453ba9b6db59e24a5"
+  },
+  "src/main/java/vn/techshop/shared/BusinessException.java": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "0fa3ac0245d445779ee00e376efa29b0",
+    "semantic_hash": "0fa3ac0245d445779ee00e376efa29b0"
+  },
+  "src/main/java/vn/techshop/shared/Errors.java": {
+    "mtime": 1790957265.539093,
+    "seen": 1791041358.5005949,
+    "ast_hash": "c65a11a003f37b2675ae428a021de764",
+    "semantic_hash": "c65a11a003f37b2675ae428a021de764"
+  },
+  "src/main/java/vn/techshop/shared/FileStorageService.java": {
+    "mtime": 1790956299.6837645,
+    "seen": 1791041358.5005949,
+    "ast_hash": "b857681d3bd43c462b7a33ece41e0013",
+    "semantic_hash": "b857681d3bd43c462b7a33ece41e0013"
+  },
+  "src/main/java/vn/techshop/shared/PageView.java": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "06593dd261cd6052e372a2a9dfa97df0",
+    "semantic_hash": "06593dd261cd6052e372a2a9dfa97df0"
+  },
+  "src/main/java/vn/techshop/shared/RequestIdFilter.java": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "40cf098a7c84bb03d5485d7313bdd8f1",
+    "semantic_hash": "40cf098a7c84bb03d5485d7313bdd8f1"
+  },
+  "src/main/java/vn/techshop/shared/Rules.java": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "8add4c541ba9cb916ae961c64e295e06",
+    "semantic_hash": "8add4c541ba9cb916ae961c64e295e06"
+  },
+  "src/main/java/vn/techshop/tradein/TradeInService.java": {
+    "mtime": 1790826197.2018542,
+    "seen": 1790831187.4477987,
+    "ast_hash": "c21e4e036113687a18ed83ae7acfb7d6",
+    "semantic_hash": "c21e4e036113687a18ed83ae7acfb7d6"
+  },
+  "src/main/java/vn/techshop/variant/ProductComparisonService.java": {
+    "mtime": 1791040130.733019,
+    "seen": 1791041358.5167534,
+    "ast_hash": "0ece0fa0015d032041f7e2e0f4d9ea33",
+    "semantic_hash": "0ece0fa0015d032041f7e2e0f4d9ea33"
+  },
+  "src/main/java/vn/techshop/variant/ProductSpecification.java": {
+    "mtime": 1790825852.7049325,
+    "seen": 1790831187.4477987,
+    "ast_hash": "0adf5d0952a00ce2ccc948114e6ceeb3",
+    "semantic_hash": "0adf5d0952a00ce2ccc948114e6ceeb3"
+  },
+  "src/main/java/vn/techshop/variant/ProductSpecificationRepository.java": {
+    "mtime": 1790825852.7069643,
+    "seen": 1790831187.4477987,
+    "ast_hash": "0085d8ca74a01b55ba99bbc5f9297107",
+    "semantic_hash": "0085d8ca74a01b55ba99bbc5f9297107"
+  },
+  "src/main/java/vn/techshop/variant/ProductVariant.java": {
+    "mtime": 1790825852.7042632,
+    "seen": 1790831187.4477987,
+    "ast_hash": "8ccd6b56edd4f9aa4aa5c1bced58c665",
+    "semantic_hash": "8ccd6b56edd4f9aa4aa5c1bced58c665"
+  },
+  "src/main/java/vn/techshop/variant/ProductVariantRepository.java": {
+    "mtime": 1790827642.7797787,
+    "seen": 1790831187.4477987,
+    "ast_hash": "3ae835a3a7483bc7d54a4b0baeb61e4b",
+    "semantic_hash": "3ae835a3a7483bc7d54a4b0baeb61e4b"
+  },
+  "src/main/java/vn/techshop/variant/ProductVariantService.java": {
+    "mtime": 1790958338.4179444,
+    "seen": 1791041358.5167534,
+    "ast_hash": "037980d222b1c4927b21e20a82326ec3",
+    "semantic_hash": "037980d222b1c4927b21e20a82326ec3"
+  },
+  "src/main/java/vn/techshop/warranty/WarrantyExchangeService.java": {
+    "mtime": 1791100685.2914653,
+    "seen": 1791109247.8156986,
+    "ast_hash": "6acfffa4b84e5af277df023401a9678a",
+    "semantic_hash": "6acfffa4b84e5af277df023401a9678a"
+  },
+  "src/main/java/vn/techshop/warranty/WarrantyService.java": {
+    "mtime": 1791100673.3066213,
+    "seen": 1791109247.8156986,
+    "ast_hash": "52674c699b8d3bb44aaa94a909ca2ef9",
+    "semantic_hash": "52674c699b8d3bb44aaa94a909ca2ef9"
+  },
+  "src/main/resources/db/demo/V1__initial_schema.sql": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "aeea8d5ad2f8a50a190aed8156df1146",
+    "semantic_hash": "aeea8d5ad2f8a50a190aed8156df1146"
+  },
+  "src/main/resources/db/demo/V2__coupons_schema.sql": {
+    "mtime": 1790822955.0880306,
+    "seen": 1790831187.4477987,
+    "ast_hash": "4a6069a6b4ab6ea82d8a6415cb87bfdd",
+    "semantic_hash": "4a6069a6b4ab6ea82d8a6415cb87bfdd"
+  },
+  "src/main/resources/db/demo/V3__product_reviews_schema.sql": {
+    "mtime": 1790822961.0582876,
+    "seen": 1790831187.4477987,
+    "ast_hash": "895863db6c481a609cc46914468a772e",
+    "semantic_hash": "895863db6c481a609cc46914468a772e"
+  },
+  "src/main/resources/db/demo/V4__payment_transactions_schema.sql": {
+    "mtime": 1790822967.0868285,
+    "seen": 1790831187.4477987,
+    "ast_hash": "e9fa05625882e74e13494c09aa6cd25a",
+    "semantic_hash": "e9fa05625882e74e13494c09aa6cd25a"
+  },
+  "src/main/resources/db/demo/V5__product_variants_and_specs.sql": {
+    "mtime": 1790825852.6959293,
+    "seen": 1790831187.4477987,
+    "ast_hash": "cec30a64477e57dfad92e89e170028e7",
+    "semantic_hash": "cec30a64477e57dfad92e89e170028e7"
+  },
+  "src/main/resources/db/demo/V6__store_branches_and_imei.sql": {
+    "mtime": 1790825852.6981962,
+    "seen": 1790831187.4477987,
+    "ast_hash": "42d64b2c478c0382906a62ea59fb4518",
+    "semantic_hash": "42d64b2c478c0382906a62ea59fb4518"
+  },
+  "src/main/resources/db/demo/V7__omnichannel_orders.sql": {
+    "mtime": 1790826361.281528,
+    "seen": 1790831187.4477987,
+    "ast_hash": "fb36f94b8d09553354f7453e74b44cb8",
+    "semantic_hash": "fb36f94b8d09553354f7453e74b44cb8"
+  },
+  "src/main/resources/db/demo/V8__trade_in_and_installments.sql": {
+    "mtime": 1790827647.2673118,
+    "seen": 1790831187.4477987,
+    "ast_hash": "29fcd686e2042b131249793e54999adf",
+    "semantic_hash": "29fcd686e2042b131249793e54999adf"
+  },
+  "src/main/resources/db/demo/V9__loyalty_and_warranty.sql": {
+    "mtime": 1790825852.7036126,
+    "seen": 1790831187.4477987,
+    "ast_hash": "f278911c887c551ddb9ff18390c2b66a",
+    "semantic_hash": "f278911c887c551ddb9ff18390c2b66a"
+  },
+  "src/main/resources/db/migration/V1__initial_schema.sql": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "d7e5ed1d162c0b446ffabdfcc0b0212a",
+    "semantic_hash": "d7e5ed1d162c0b446ffabdfcc0b0212a"
+  },
+  "src/main/resources/db/migration/V2__coupons_schema.sql": {
+    "mtime": 1790819362.4188392,
+    "seen": 1790831187.4477987,
+    "ast_hash": "56e347ea0f6f6713209fc1a133c90c8b",
+    "semantic_hash": "56e347ea0f6f6713209fc1a133c90c8b"
+  },
+  "src/main/resources/db/migration/V3__product_reviews_schema.sql": {
+    "mtime": 1790820596.7157714,
+    "seen": 1790831187.4477987,
+    "ast_hash": "453af05710a0ea2b962d5a8685b0de27",
+    "semantic_hash": "453af05710a0ea2b962d5a8685b0de27"
+  },
+  "src/main/resources/db/migration/V4__payment_transactions_schema.sql": {
+    "mtime": 1790821478.977194,
+    "seen": 1790831187.4477987,
+    "ast_hash": "a99899c9001d11babc55be4b91df39d4",
+    "semantic_hash": "a99899c9001d11babc55be4b91df39d4"
+  },
+  "src/main/resources/db/migration/V5__product_variants_and_specs.sql": {
+    "mtime": 1790827876.8278286,
+    "seen": 1790831187.4477987,
+    "ast_hash": "e835ea61888cf31892a90fcbebd29136",
+    "semantic_hash": "e835ea61888cf31892a90fcbebd29136"
+  },
+  "src/main/resources/db/migration/V6__store_branches_and_imei.sql": {
+    "mtime": 1790825852.6981962,
+    "seen": 1790831187.4477987,
+    "ast_hash": "42d64b2c478c0382906a62ea59fb4518",
+    "semantic_hash": "42d64b2c478c0382906a62ea59fb4518"
+  },
+  "src/main/resources/db/migration/V7__omnichannel_orders.sql": {
+    "mtime": 1790826361.2825363,
+    "seen": 1790831187.4477987,
+    "ast_hash": "48453661a9afb23e66a43de9e1dbc480",
+    "semantic_hash": "48453661a9afb23e66a43de9e1dbc480"
+  },
+  "src/main/resources/db/migration/V8__trade_in_and_installments.sql": {
+    "mtime": 1790827647.2693512,
+    "seen": 1790831187.4477987,
+    "ast_hash": "29fcd686e2042b131249793e54999adf",
+    "semantic_hash": "29fcd686e2042b131249793e54999adf"
+  },
+  "src/main/resources/db/migration/V9__loyalty_and_warranty.sql": {
+    "mtime": 1790825852.7042632,
+    "seen": 1790831187.4477987,
+    "ast_hash": "f278911c887c551ddb9ff18390c2b66a",
+    "semantic_hash": "f278911c887c551ddb9ff18390c2b66a"
+  },
+  "src/main/resources/static/js/app.js": {
+    "mtime": 1791103183.642284,
+    "seen": 1791109247.835506,
+    "ast_hash": "13e31a340f4d8ae71a3f6d112ac9bfa9",
+    "semantic_hash": "13e31a340f4d8ae71a3f6d112ac9bfa9"
+  },
+  "src/test/java/vn/techshop/CommerceComprehensiveTest.java": {
+    "mtime": 1791104206.580319,
+    "seen": 1791109247.835506,
+    "ast_hash": "0113bf299259e2410d1cf4534c792c8f",
+    "semantic_hash": "0113bf299259e2410d1cf4534c792c8f"
+  },
+  "src/test/java/vn/techshop/CommerceIntegrationTest.java": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "a291f5289ee96f3b609ce52bc44c9825",
+    "semantic_hash": "a291f5289ee96f3b609ce52bc44c9825"
+  },
+  "src/test/java/vn/techshop/OmnichannelIntegrationTest.java": {
+    "mtime": 1791041879.0814066,
+    "seen": 1791089732.4336352,
+    "ast_hash": "1177ee961257046f3094d90d1c0556b3",
+    "semantic_hash": "1177ee961257046f3094d90d1c0556b3"
+  },
+  "src/test/java/vn/techshop/cart/PricingTest.java": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "bb30b6e8d2674e262f8620407d0267d4",
+    "semantic_hash": "bb30b6e8d2674e262f8620407d0267d4"
+  },
+  "src/test/java/vn/techshop/coupon/CouponServiceTest.java": {
+    "mtime": 1791041690.04996,
+    "seen": 1791089732.448928,
+    "ast_hash": "7a9f3c30bc95447a4d118b16bd7b5edd",
+    "semantic_hash": "7a9f3c30bc95447a4d118b16bd7b5edd"
+  },
+  "src/test/java/vn/techshop/order/OrderStateTest.java": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "3bcc2d8403efe3f5293897a8ec909b3f",
+    "semantic_hash": "3bcc2d8403efe3f5293897a8ec909b3f"
+  },
+  "src/test/java/vn/techshop/payment/PaymentServiceTest.java": {
+    "mtime": 1791041718.9115264,
+    "seen": 1791089732.4661734,
+    "ast_hash": "1efb1b52ccb7709bc7a5e76f1a149b46",
+    "semantic_hash": "1efb1b52ccb7709bc7a5e76f1a149b46"
+  },
+  "src/test/java/vn/techshop/review/ProductReviewServiceTest.java": {
+    "mtime": 1791103724.812556,
+    "seen": 1791109247.8460727,
+    "ast_hash": "5c05df8c09065bb4a20b66fc40dfafa4",
+    "semantic_hash": "5c05df8c09065bb4a20b66fc40dfafa4"
+  },
+  ".github/ISSUE_TEMPLATE/bug.yml": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "643ff49f1b4afbe570a69abe15c67914",
+    "semantic_hash": "643ff49f1b4afbe570a69abe15c67914"
+  },
+  ".github/ISSUE_TEMPLATE/feature.yml": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "fa2a0d834cfa4cce06df64d291f3290d",
+    "semantic_hash": "fa2a0d834cfa4cce06df64d291f3290d"
+  },
+  ".github/pull_request_template.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "5d559d230e9c3b43c68f356724a59bad",
+    "semantic_hash": "5d559d230e9c3b43c68f356724a59bad"
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1791040972.7642837,
+    "seen": 1791041358.597329,
+    "ast_hash": "a1ddeb711b40bd8b199488ed36603a8b",
+    "semantic_hash": "a1ddeb711b40bd8b199488ed36603a8b"
+  },
+  "CONTRIBUTING.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "b4c792ee6f4a4380392928799122ea94",
+    "semantic_hash": "b4c792ee6f4a4380392928799122ea94"
+  },
+  "DANH_SACH_CHUC_NANG.md": {
+    "mtime": 1790838351.2259803,
+    "seen": 1790838599.934443,
+    "ast_hash": "bb105324fe8f197b6a31d07b94a76d95",
+    "semantic_hash": "bb105324fe8f197b6a31d07b94a76d95"
+  },
+  "README.md": {
+    "mtime": 1791113667.4870389,
+    "seen": 1791114326.4122374,
+    "ast_hash": "02568135cbfc919b3507d9a83a549db2",
+    "semantic_hash": "02568135cbfc919b3507d9a83a549db2"
+  },
+  "compose.yml": {
+    "mtime": 1791113492.0228336,
+    "seen": 1791114326.4122374,
+    "ast_hash": "20ebfa29d5711a7364faf01217d0ae6f",
+    "semantic_hash": "20ebfa29d5711a7364faf01217d0ae6f"
+  },
+  "docs/00-project-charter.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "15bee130d4a4c0f2ac5b1d7f701f85de",
+    "semantic_hash": "15bee130d4a4c0f2ac5b1d7f701f85de"
+  },
+  "docs/01-spec.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "6faa49f82a51d3267ddd55c33ee92aa0",
+    "semantic_hash": "6faa49f82a51d3267ddd55c33ee92aa0"
+  },
+  "docs/02-architecture.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "c660b02fa2b5d6c66df28d9fe95925cb",
+    "semantic_hash": "c660b02fa2b5d6c66df28d9fe95925cb"
+  },
+  "docs/03-data-design.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "9dc01ce8b65a8b468d5414eb6a953312",
+    "semantic_hash": "9dc01ce8b65a8b468d5414eb6a953312"
+  },
+  "docs/04-api-contract.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "d094956a7569d32f70f31d67eb5f08df",
+    "semantic_hash": "d094956a7569d32f70f31d67eb5f08df"
+  },
+  "docs/05-diagrams.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "b5ad2fcb9eab84096afa6ddcd74ceb25",
+    "semantic_hash": "b5ad2fcb9eab84096afa6ddcd74ceb25"
+  },
+  "docs/06-development-plan.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "b32e7e32756def6260847e282aef206c",
+    "semantic_hash": "b32e7e32756def6260847e282aef206c"
+  },
+  "docs/07-backlog.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "ee37937f68aa5eeee80f6aad1e92739e",
+    "semantic_hash": "ee37937f68aa5eeee80f6aad1e92739e"
+  },
+  "docs/08-test-plan.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "60d260d4a7caba4589386153b3cda01d",
+    "semantic_hash": "60d260d4a7caba4589386153b3cda01d"
+  },
+  "docs/09-analytics-plan.md": {
+    "mtime": 1790816921.6116242,
+    "seen": 1790831187.4477987,
+    "ast_hash": "4cdebcb6756bd53208f32f487496310a",
+    "semantic_hash": "4cdebcb6756bd53208f32f487496310a"
+  },
+  "docs/10-operations.md": {
+    "mtime": 1791088893.0584285,
+    "seen": 1791089732.4813354,
+    "ast_hash": "985f3698b53a353685c6353feb5d4dc8",
+    "semantic_hash": "985f3698b53a353685c6353feb5d4dc8"
+  },
+  "docs/11-decisions-and-sources.md": {
+    "mtime": 1790816921.627446,
+    "seen": 1790831187.4477987,
+    "ast_hash": "37fa896ad796f0fc34f70d981ef09f0c",
+    "semantic_hash": "37fa896ad796f0fc34f70d981ef09f0c"
+  },
+  "docs/12-implementation-status.md": {
+    "mtime": 1791088893.028833,
+    "seen": 1791089732.4813354,
+    "ast_hash": "77a85c2c22d1976657373f18cfd53710",
+    "semantic_hash": "77a85c2c22d1976657373f18cfd53710"
+  },
+  "docs/13-omnichannel-guide.md": {
+    "mtime": 1790838351.2269795,
+    "seen": 1790838599.9394424,
+    "ast_hash": "ef076c0737b251619135ea3dd166497c",
+    "semantic_hash": "ef076c0737b251619135ea3dd166497c"
+  },
+  "docs/reference-laravel-features.md": {
+    "mtime": 1790828640.4248812,
+    "seen": 1790902998.16079,
+    "ast_hash": "48b74af463f52af4e285e42daa700dbc",
+    "semantic_hash": "48b74af463f52af4e285e42daa700dbc"
+  },
+  "plan.md": {
+    "mtime": 1790838351.224979,
+    "seen": 1790838599.9394424,
+    "ast_hash": "b522eef54c28f05894cb6608aa652568",
+    "semantic_hash": "b522eef54c28f05894cb6608aa652568"
+  },
+  "src/main/resources/application-demo.yml": {
+    "mtime": 1790827195.1592503,
+    "seen": 1790831187.4477987,
+    "ast_hash": "04195d54510f041b21a77749cb3e6461",
+    "semantic_hash": "04195d54510f041b21a77749cb3e6461"
+  },
+  "src/main/resources/application-prod.yml": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "d161a9b47fe4436869ac82f2d08483a8",
+    "semantic_hash": "d161a9b47fe4436869ac82f2d08483a8"
+  },
+  "src/main/resources/application.yml": {
+    "mtime": 1791112681.6320672,
+    "seen": 1791114326.4162383,
+    "ast_hash": "6b8bf42501a12c6e790daced3179bb72",
+    "semantic_hash": "6b8bf42501a12c6e790daced3179bb72"
+  },
+  "src/main/resources/templates/admin/categories.html": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "940b02ce95969f87322c260047e34798",
+    "semantic_hash": "940b02ce95969f87322c260047e34798"
+  },
+  "src/main/resources/templates/admin/channel-report.html": {
+    "mtime": 1791100545.661121,
+    "seen": 1791109247.861161,
+    "ast_hash": "d3b269557bb69cdfcb57ac2917d3b321",
+    "semantic_hash": "d3b269557bb69cdfcb57ac2917d3b321"
+  },
+  "src/main/resources/templates/admin/commerce-settings.html": {
+    "mtime": 1790829273.4772835,
+    "seen": 1790831187.4477987,
+    "ast_hash": "926e14529a6c76cdd17a2ea84a3d3a57",
+    "semantic_hash": "926e14529a6c76cdd17a2ea84a3d3a57"
+  },
+  "src/main/resources/templates/admin/commerce-tools.html": {
+    "mtime": 1790827975.839339,
+    "seen": 1790831187.4477987,
+    "ast_hash": "b929803e641a0123386cae375ac88f26",
+    "semantic_hash": "b929803e641a0123386cae375ac88f26"
+  },
+  "src/main/resources/templates/admin/commerce.html": {
+    "mtime": 1791103210.733922,
+    "seen": 1791109247.8621585,
+    "ast_hash": "d9fcf57f4ac5d9fbddbc4fbda9885453",
+    "semantic_hash": "d9fcf57f4ac5d9fbddbc4fbda9885453"
+  },
+  "src/main/resources/templates/admin/dashboard.html": {
+    "mtime": 1791100511.7135668,
+    "seen": 1791109247.8621585,
+    "ast_hash": "2d2b51b3b196fa06343ec9ec3a0e0c3c",
+    "semantic_hash": "2d2b51b3b196fa06343ec9ec3a0e0c3c"
+  },
+  "src/main/resources/templates/admin/product-form.html": {
+    "mtime": 1790958081.9226637,
+    "seen": 1791041358.6778426,
+    "ast_hash": "89fe28da1770e44f47a097c2939e1400",
+    "semantic_hash": "89fe28da1770e44f47a097c2939e1400"
+  },
+  "src/main/resources/templates/admin/products.html": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "52cf7ec605ff39f8200ceca61154a099",
+    "semantic_hash": "52cf7ec605ff39f8200ceca61154a099"
+  },
+  "src/main/resources/templates/admin/variant-images.html": {
+    "mtime": 1790827975.839339,
+    "seen": 1790831187.4477987,
+    "ast_hash": "cdb3742ac95d7c2324b942a416a5a487",
+    "semantic_hash": "cdb3742ac95d7c2324b942a416a5a487"
+  },
+  "src/main/resources/templates/branches.html": {
+    "mtime": 1791040130.733019,
+    "seen": 1791041358.6778426,
+    "ast_hash": "1a213746dcb04cb42a1aff7016608797",
+    "semantic_hash": "1a213746dcb04cb42a1aff7016608797"
+  },
+  "src/main/resources/templates/cart.html": {
+    "mtime": 1791102025.1677177,
+    "seen": 1791109247.863159,
+    "ast_hash": "7f2d76f22c9897fd6ce905b2d1731f2d",
+    "semantic_hash": "7f2d76f22c9897fd6ce905b2d1731f2d"
+  },
+  "src/main/resources/templates/checkout.html": {
+    "mtime": 1791103153.6264606,
+    "seen": 1791109247.863159,
+    "ast_hash": "24ab8c9fd37fee0722c3a83c649423d1",
+    "semantic_hash": "24ab8c9fd37fee0722c3a83c649423d1"
+  },
+  "src/main/resources/templates/compare.html": {
+    "mtime": 1790826788.4108086,
+    "seen": 1790831187.4477987,
+    "ast_hash": "3e90b7b6759b69dd5e854ed26653100a",
+    "semantic_hash": "3e90b7b6759b69dd5e854ed26653100a"
+  },
+  "src/main/resources/templates/error-page.html": {
+    "mtime": 1791102641.9123259,
+    "seen": 1791109247.863159,
+    "ast_hash": "ad397371f480a25e18acd890a3cc419d",
+    "semantic_hash": "ad397371f480a25e18acd890a3cc419d"
+  },
+  "src/main/resources/templates/fragments.html": {
+    "mtime": 1791108253.7269447,
+    "seen": 1791109247.863159,
+    "ast_hash": "8db32a47121b675a037722564757f556",
+    "semantic_hash": "8db32a47121b675a037722564757f556"
+  },
+  "src/main/resources/templates/login.html": {
+    "mtime": 1791102014.0573232,
+    "seen": 1791109247.863159,
+    "ast_hash": "d7cfc0efc7a37750da047aa826aa983d",
+    "semantic_hash": "d7cfc0efc7a37750da047aa826aa983d"
+  },
+  "src/main/resources/templates/member.html": {
+    "mtime": 1790902657.7504358,
+    "seen": 1790902998.1698298,
+    "ast_hash": "b92dfaa44bbef5b55dc803f9ec8f8390",
+    "semantic_hash": "b92dfaa44bbef5b55dc803f9ec8f8390"
+  },
+  "src/main/resources/templates/mock-payment.html": {
+    "mtime": 1790822054.8341053,
+    "seen": 1790831187.4477987,
+    "ast_hash": "e6ecf5c7fb2d6969325bd253fa45594f",
+    "semantic_hash": "e6ecf5c7fb2d6969325bd253fa45594f"
+  },
+  "src/main/resources/templates/order-lookup.html": {
+    "mtime": 1791102291.2206478,
+    "seen": 1791109247.8641772,
+    "ast_hash": "d3084841a1538b7c1fc2cb15af461cae",
+    "semantic_hash": "d3084841a1538b7c1fc2cb15af461cae"
+  },
+  "src/main/resources/templates/order.html": {
+    "mtime": 1791102266.1095493,
+    "seen": 1791109247.8641772,
+    "ast_hash": "55743f412bffee699a93be83a56ece78",
+    "semantic_hash": "55743f412bffee699a93be83a56ece78"
+  },
+  "src/main/resources/templates/orders.html": {
+    "mtime": 1791102276.123163,
+    "seen": 1791109247.8641772,
+    "ast_hash": "75663e9caa45117cb4bce90cc8a3aa87",
+    "semantic_hash": "75663e9caa45117cb4bce90cc8a3aa87"
+  },
+  "src/main/resources/templates/product.html": {
+    "mtime": 1791103649.8530376,
+    "seen": 1791109247.8641772,
+    "ast_hash": "c225c24e5fe342e68b00c59e3dd46055",
+    "semantic_hash": "c225c24e5fe342e68b00c59e3dd46055"
+  },
+  "src/main/resources/templates/products.html": {
+    "mtime": 1790958081.9226637,
+    "seen": 1791041358.6964827,
+    "ast_hash": "1817afdcbce35738bf8fcf27cdcf06bf",
+    "semantic_hash": "1817afdcbce35738bf8fcf27cdcf06bf"
+  },
+  "src/main/resources/templates/register.html": {
+    "mtime": 1790838638.8870049,
+    "seen": 1790902998.1727276,
+    "ast_hash": "55867bb2b28f13cc760a172febd91df7",
+    "semantic_hash": "55867bb2b28f13cc760a172febd91df7"
+  },
+  "src/main/resources/templates/trade-in.html": {
+    "mtime": 1790826788.4128215,
+    "seen": 1790831187.4477987,
+    "ast_hash": "568531469a6131b191092fc0073781dc",
+    "semantic_hash": "568531469a6131b191092fc0073781dc"
+  },
+  "src/main/resources/templates/warranty.html": {
+    "mtime": 1790826788.415941,
+    "seen": 1790831187.4477987,
+    "ast_hash": "821791e4d095684e7bb928241c8d28cd",
+    "semantic_hash": "821791e4d095684e7bb928241c8d28cd"
+  },
+  "src/test/resources/application-test.yml": {
+    "mtime": 1791113976.8166587,
+    "seen": 1791114326.4192355,
+    "ast_hash": "1d4f9e1442c51241242d64e9cf219e96",
+    "semantic_hash": "1d4f9e1442c51241242d64e9cf219e96"
+  },
+  "src/main/resources/static/assets/products/charger.svg": {
+    "mtime": 1790829464.6570425,
+    "seen": 1790831187.4477987,
+    "ast_hash": "ff5ea1281945fc2ea261cd99f825c105",
+    "semantic_hash": "ff5ea1281945fc2ea261cd99f825c105"
+  },
+  "src/main/resources/static/assets/products/device.svg": {
+    "mtime": 1790816921.6432412,
+    "seen": 1790831187.4477987,
+    "ast_hash": "cd84ca41d210d819a70b3d4c90ef52fa",
+    "semantic_hash": "cd84ca41d210d819a70b3d4c90ef52fa"
+  },
+  "src/main/resources/static/assets/products/hub.svg": {
+    "mtime": 1790829464.6602252,
+    "seen": 1790831187.4477987,
+    "ast_hash": "ec051b9fde18bd7f617968ed3278ad7d",
+    "semantic_hash": "ec051b9fde18bd7f617968ed3278ad7d"
+  },
+  "src/main/resources/static/assets/products/keyboard.svg": {
+    "mtime": 1790829464.6487036,
+    "seen": 1790831187.4477987,
+    "ast_hash": "9060814558a8448f62d9dac99e07f0f2",
+    "semantic_hash": "9060814558a8448f62d9dac99e07f0f2"
+  },
+  "src/main/resources/static/assets/products/mouse.svg": {
+    "mtime": 1790829464.6487036,
+    "seen": 1790831187.4477987,
+    "ast_hash": "3082367b72aa6dc1e8ad7f68d1f7d98c",
+    "semantic_hash": "3082367b72aa6dc1e8ad7f68d1f7d98c"
+  },
+  "src/main/resources/static/assets/products/phone-black.svg": {
+    "mtime": 1790829464.6429577,
+    "seen": 1790831187.4477987,
+    "ast_hash": "db600bcf3a420c0cd9e8fbba8cf8a0b9",
+    "semantic_hash": "db600bcf3a420c0cd9e8fbba8cf8a0b9"
+  },
+  "src/main/resources/static/assets/products/phone-silver.svg": {
+    "mtime": 1790829464.6429577,
+    "seen": 1790831187.4477987,
+    "ast_hash": "bee9199530509b9501304be98fe80244",
+    "semantic_hash": "bee9199530509b9501304be98fe80244"
+  },
+  "src/main/resources/static/assets/products/speaker.svg": {
+    "mtime": 1790829464.6529841,
+    "seen": 1790831187.4477987,
+    "ast_hash": "9cd5e8c233a292bf6b6e51d381a706f9",
+    "semantic_hash": "9cd5e8c233a292bf6b6e51d381a706f9"
+  },
+  "scripts/refresh_graph_outputs.py": {
+    "mtime": 1791113878.057503,
+    "seen": 1791114326.3894856,
+    "ast_hash": "bb8050d62aef51f62d20008863cd0d47",
+    "semantic_hash": "bb8050d62aef51f62d20008863cd0d47"
+  },
+  "database/seed_cellphones_full.sql": {
+    "mtime": 1790832136.9606402,
+    "seen": 1790838599.8782108,
+    "ast_hash": "458ce40af146a82c68b705b8c535a805",
+    "semantic_hash": "458ce40af146a82c68b705b8c535a805"
+  },
+  "src/main/java/vn/techshop/order/PickupQrController.java": {
+    "mtime": 1790838027.064985,
+    "seen": 1790838599.907215,
+    "ast_hash": "61afdd9a375297ab07d2bf82bee67e09",
+    "semantic_hash": "61afdd9a375297ab07d2bf82bee67e09"
+  },
+  "PROJECT_AUDIT_REPORT.md": {
+    "mtime": 1790838880.5304103,
+    "seen": 1790902998.1539226,
+    "ast_hash": "8bc5f03e672a47032c3f39a2250eafdd",
+    "semantic_hash": "8bc5f03e672a47032c3f39a2250eafdd"
+  },
+  "src/main/resources/static/assets/products/laptop.svg": {
+    "mtime": 1790831943.673771,
+    "seen": 1790838382.5485206,
+    "ast_hash": "8890383f820bb4efb9c04f6333876665",
+    "semantic_hash": ""
+  },
+  "src/main/resources/static/assets/products/phone-titan.svg": {
+    "mtime": 1790831967.0991383,
+    "seen": 1790838382.5485206,
+    "ast_hash": "75460ab5e8a49f2b1fd1b15158ca8457",
+    "semantic_hash": ""
+  },
+  "src/main/resources/static/assets/products/tablet.svg": {
+    "mtime": 1790831952.0184357,
+    "seen": 1790838382.5485206,
+    "ast_hash": "560728358497a700af149685238d1bff",
+    "semantic_hash": ""
+  },
+  "src/main/resources/static/assets/products/watch.svg": {
+    "mtime": 1790831959.5677304,
+    "seen": 1790838382.5485206,
+    "ast_hash": "316f57e7d6d6bd0127b81677ee139638",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/admin/users.html": {
+    "mtime": 1790838511.607063,
+    "seen": 1790838853.1219518,
+    "ast_hash": "58610f774a7d88313e120abeabf1e23f",
+    "semantic_hash": ""
+  },
+  "src/main/resources/static/assets/storefront/hero-laptop.svg": {
+    "mtime": 1790901852.9730878,
+    "seen": 1790902998.177552,
+    "ast_hash": "5c708e45e0b0a7b3d9c8c83b261a32f9",
+    "semantic_hash": "5c708e45e0b0a7b3d9c8c83b261a32f9"
+  },
+  "src/main/resources/static/assets/storefront/hero-phone.svg": {
+    "mtime": 1790901852.9709246,
+    "seen": 1790902998.177552,
+    "ast_hash": "1df4f310d378024b74796374d4adcbf6",
+    "semantic_hash": "1df4f310d378024b74796374d4adcbf6"
+  },
+  "scripts/storefront_qa.cjs": {
+    "mtime": 1790904158.4329994,
+    "seen": 1790904610.1029482,
+    "ast_hash": "e70c48401f0e94bd491942448e187a63",
+    "semantic_hash": "e70c48401f0e94bd491942448e187a63"
+  },
+  "docs/14-storefront-ui.md": {
+    "mtime": 1790902783.163903,
+    "seen": 1790902998.16079,
+    "ast_hash": "9abdfb64534bbc6bb5e8122bd19d38c3",
+    "semantic_hash": "9abdfb64534bbc6bb5e8122bd19d38c3"
+  },
+  "scripts/catalog_photo_sheet.cjs": {
+    "mtime": 1790904158.4329994,
+    "seen": 1790904610.1019466,
+    "ast_hash": "ad6c70bcae928684d999c8a0b42648eb",
+    "semantic_hash": "ad6c70bcae928684d999c8a0b42648eb"
+  },
+  "scripts/catalog_qa.cjs": {
+    "mtime": 1790904745.6959496,
+    "seen": 1790904858.1174514,
+    "ast_hash": "def2ab5dfd36de47798c6afe050d5211",
+    "semantic_hash": "def2ab5dfd36de47798c6afe050d5211"
+  },
+  "scripts/download_sample_catalog.cjs": {
+    "mtime": 1790903811.692949,
+    "seen": 1790904610.1019466,
+    "ast_hash": "903367d2067080d2d76ae99f8f85afcf",
+    "semantic_hash": "903367d2067080d2d76ae99f8f85afcf"
+  },
+  "src/main/java/vn/techshop/config/RetailDemoCatalog.java": {
+    "mtime": 1791105675.9011602,
+    "seen": 1791109247.7847457,
+    "ast_hash": "9813869264ef8762ea2a2a5b259028c4",
+    "semantic_hash": "9813869264ef8762ea2a2a5b259028c4"
+  },
+  "src/main/resources/demo/retail-catalog.json": {
+    "mtime": 1790903830.622352,
+    "seen": 1790904610.113487,
+    "ast_hash": "808a4ce6a0b4f94c102e0ae76fd9af7b",
+    "semantic_hash": "808a4ce6a0b4f94c102e0ae76fd9af7b"
+  },
+  "src/test/java/vn/techshop/RetailDemoCatalogTest.java": {
+    "mtime": 1790904158.4329994,
+    "seen": 1790904610.113487,
+    "ast_hash": "e35a8df4e4168163f1b72e0639d26713",
+    "semantic_hash": "e35a8df4e4168163f1b72e0639d26713"
+  },
+  "docs/15-sample-catalog.md": {
+    "mtime": 1790904337.7877133,
+    "seen": 1790904610.113487,
+    "ast_hash": "2006edbf455408174ceb446d828776f1",
+    "semantic_hash": "2006edbf455408174ceb446d828776f1"
+  },
+  "src/main/resources/static/assets/products/real/airpods-4-1.png": {
+    "mtime": 1790903827.3310564,
+    "seen": 1790904610.1183825,
+    "ast_hash": "ae62f1f7633cf9f9686a166a2a665851",
+    "semantic_hash": "ae62f1f7633cf9f9686a166a2a665851"
+  },
+  "src/main/resources/static/assets/products/real/airpods-pro-2-1.png": {
+    "mtime": 1790903825.934217,
+    "seen": 1790904610.1183825,
+    "ast_hash": "2a0e911977d8a6e868c0558bb2f480fa",
+    "semantic_hash": "2a0e911977d8a6e868c0558bb2f480fa"
+  },
+  "src/main/resources/static/assets/products/real/anker-737-1.png": {
+    "mtime": 1790903830.615617,
+    "seen": 1790904610.1183825,
+    "ast_hash": "be51290a9005095fafbf3bb13a33e660",
+    "semantic_hash": "be51290a9005095fafbf3bb13a33e660"
+  },
+  "src/main/resources/static/assets/products/real/apple-20w-1.png": {
+    "mtime": 1790903828.98787,
+    "seen": 1790904610.1183825,
+    "ast_hash": "96bff76f74cecc0db0cb18b974f8ef35",
+    "semantic_hash": "96bff76f74cecc0db0cb18b974f8ef35"
+  },
+  "src/main/resources/static/assets/products/real/apple-watch-s9-1.png": {
+    "mtime": 1790903821.6110322,
+    "seen": 1790904610.1183825,
+    "ast_hash": "f1b7b15d36bdf6ac7eeebdeedce8175b",
+    "semantic_hash": "f1b7b15d36bdf6ac7eeebdeedce8175b"
+  },
+  "src/main/resources/static/assets/products/real/apple-watch-se-1.png": {
+    "mtime": 1790903827.27194,
+    "seen": 1790904610.1183825,
+    "ast_hash": "3d83a84f90325f95caea6afb0f03d096",
+    "semantic_hash": "3d83a84f90325f95caea6afb0f03d096"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-a55-1.png": {
+    "mtime": 1790903577.2445104,
+    "seen": 1790904610.1183825,
+    "ast_hash": "4e5a3503af2b27845db61727b9da1618",
+    "semantic_hash": "4e5a3503af2b27845db61727b9da1618"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-a55-2.png": {
+    "mtime": 1790903577.779122,
+    "seen": 1790904610.1183825,
+    "ast_hash": "99c74fffccde4b3d9cb011b4f641341e",
+    "semantic_hash": "99c74fffccde4b3d9cb011b4f641341e"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-buds2-pro-1.png": {
+    "mtime": 1790903830.2684083,
+    "seen": 1790904610.1183825,
+    "ast_hash": "82d1f1a1784b3654fea5faff52031613",
+    "semantic_hash": "82d1f1a1784b3654fea5faff52031613"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-s24-plus-1.png": {
+    "mtime": 1790903575.78129,
+    "seen": 1790904610.1183825,
+    "ast_hash": "259e5af96034985672419ffe48cc011a",
+    "semantic_hash": "259e5af96034985672419ffe48cc011a"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-s24-ultra-1.png": {
+    "mtime": 1790903581.228892,
+    "seen": 1790904610.1183825,
+    "ast_hash": "4b0ba817f72eb0c35078806a0ecaebea",
+    "semantic_hash": "4b0ba817f72eb0c35078806a0ecaebea"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-tab-s9-1.png": {
+    "mtime": 1790903587.3166099,
+    "seen": 1790904610.1183825,
+    "ast_hash": "bd150b883e2aa3b296d1c1b9a135c856",
+    "semantic_hash": "bd150b883e2aa3b296d1c1b9a135c856"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-tab-s9-2.png": {
+    "mtime": 1790903587.9636397,
+    "seen": 1790904610.1183825,
+    "ast_hash": "b6034ebeae1ed318b8ecc7c402af7082",
+    "semantic_hash": "b6034ebeae1ed318b8ecc7c402af7082"
+  },
+  "src/main/resources/static/assets/products/real/galaxy-watch6-1.png": {
+    "mtime": 1790903827.6595414,
+    "seen": 1790904610.1183825,
+    "ast_hash": "761c3d82271bae32c366b0574bfb7a7a",
+    "semantic_hash": "761c3d82271bae32c366b0574bfb7a7a"
+  },
+  "src/main/resources/static/assets/products/real/ipad-10-1.png": {
+    "mtime": 1790903822.8825643,
+    "seen": 1790904610.1183825,
+    "ast_hash": "bb2bec8154785ffd7b307d04d752b690",
+    "semantic_hash": "bb2bec8154785ffd7b307d04d752b690"
+  },
+  "src/main/resources/static/assets/products/real/ipad-air-m2-1.jpg": {
+    "mtime": 1790903823.6580772,
+    "seen": 1790904610.1183825,
+    "ast_hash": "eb31e1ee51159f36eb666c6eea3f68b2",
+    "semantic_hash": "eb31e1ee51159f36eb666c6eea3f68b2"
+  },
+  "src/main/resources/static/assets/products/real/ipad-pro-m4-1.png": {
+    "mtime": 1790903825.8220468,
+    "seen": 1790904610.1183825,
+    "ast_hash": "4e7cdad8b6a28d99b5b03cfaa3b1afff",
+    "semantic_hash": "4e7cdad8b6a28d99b5b03cfaa3b1afff"
+  },
+  "src/main/resources/static/assets/products/real/iphone-15-1.png": {
+    "mtime": 1790903571.5809314,
+    "seen": 1790904610.1183825,
+    "ast_hash": "b5e08a31d231156cbdd97104cec011b2",
+    "semantic_hash": "b5e08a31d231156cbdd97104cec011b2"
+  },
+  "src/main/resources/static/assets/products/real/iphone-15-plus-1.png": {
+    "mtime": 1790903566.5711296,
+    "seen": 1790904610.1183825,
+    "ast_hash": "b5e08a31d231156cbdd97104cec011b2",
+    "semantic_hash": "b5e08a31d231156cbdd97104cec011b2"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-1.png": {
+    "mtime": 1790903573.6686924,
+    "seen": 1790904610.1183825,
+    "ast_hash": "46415c7139ac5d46369fda62f724a4b2",
+    "semantic_hash": "46415c7139ac5d46369fda62f724a4b2"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-2.png": {
+    "mtime": 1790903574.2358644,
+    "seen": 1790904610.1183825,
+    "ast_hash": "8f411ef238692de785d60162153e5ee2",
+    "semantic_hash": "8f411ef238692de785d60162153e5ee2"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-plus-1.png": {
+    "mtime": 1790903564.01009,
+    "seen": 1790904610.1183825,
+    "ast_hash": "46415c7139ac5d46369fda62f724a4b2",
+    "semantic_hash": "46415c7139ac5d46369fda62f724a4b2"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-plus-2.png": {
+    "mtime": 1790903571.9169917,
+    "seen": 1790904610.1183825,
+    "ast_hash": "8f411ef238692de785d60162153e5ee2",
+    "semantic_hash": "8f411ef238692de785d60162153e5ee2"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-pro-1.png": {
+    "mtime": 1790903579.756343,
+    "seen": 1790904610.1183825,
+    "ast_hash": "a253456062d2ebb47851b6ee451fef3b",
+    "semantic_hash": "a253456062d2ebb47851b6ee451fef3b"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-pro-2.png": {
+    "mtime": 1790903580.0238225,
+    "seen": 1790904610.1183825,
+    "ast_hash": "b372853fe4620b3f66ffbcb4fc843b13",
+    "semantic_hash": "b372853fe4620b3f66ffbcb4fc843b13"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-pro-max-1.png": {
+    "mtime": 1790903575.0461652,
+    "seen": 1790904610.1183825,
+    "ast_hash": "a253456062d2ebb47851b6ee451fef3b",
+    "semantic_hash": "a253456062d2ebb47851b6ee451fef3b"
+  },
+  "src/main/resources/static/assets/products/real/iphone-16-pro-max-2.png": {
+    "mtime": 1790903577.905056,
+    "seen": 1790904610.1183825,
+    "ast_hash": "b372853fe4620b3f66ffbcb4fc843b13",
+    "semantic_hash": "b372853fe4620b3f66ffbcb4fc843b13"
+  },
+  "src/main/resources/static/assets/products/real/jbl-charge5-1.png": {
+    "mtime": 1790903587.6505432,
+    "seen": 1790904610.1183825,
+    "ast_hash": "9cbf138dc3f8302a4e5f2feda1a2ac02",
+    "semantic_hash": "9cbf138dc3f8302a4e5f2feda1a2ac02"
+  },
+  "src/main/resources/static/assets/products/real/jbl-flip6-1.png": {
+    "mtime": 1790903585.781719,
+    "seen": 1790904610.1183825,
+    "ast_hash": "1b14b0fd594855e823c96ccf012f7b2d",
+    "semantic_hash": "1b14b0fd594855e823c96ccf012f7b2d"
+  },
+  "src/main/resources/static/assets/products/real/logitech-k380-1.png": {
+    "mtime": 1790903588.6136153,
+    "seen": 1790904610.1183825,
+    "ast_hash": "aed8647c11acbb3fe4daafc47e5bc9a5",
+    "semantic_hash": "aed8647c11acbb3fe4daafc47e5bc9a5"
+  },
+  "src/main/resources/static/assets/products/real/logitech-mx-master3s-1.png": {
+    "mtime": 1790903587.5619678,
+    "seen": 1790904610.1183825,
+    "ast_hash": "93233ee57db7fbfa2eeccdb5fe66ea9b",
+    "semantic_hash": "93233ee57db7fbfa2eeccdb5fe66ea9b"
+  },
+  "src/main/resources/static/assets/products/real/macbook-air-m2-1.png": {
+    "mtime": 1790903583.8063893,
+    "seen": 1790904610.1183825,
+    "ast_hash": "2aa9f722e54d6b58b070352c2d16e39e",
+    "semantic_hash": "2aa9f722e54d6b58b070352c2d16e39e"
+  },
+  "src/main/resources/static/assets/products/real/macbook-air-m3-13-1.png": {
+    "mtime": 1790903582.6517336,
+    "seen": 1790904610.1183825,
+    "ast_hash": "4b5c2e077291c54ae4b9024db25404f0",
+    "semantic_hash": "4b5c2e077291c54ae4b9024db25404f0"
+  },
+  "src/main/resources/static/assets/products/real/macbook-air-m3-15-1.png": {
+    "mtime": 1790903583.4453964,
+    "seen": 1790904610.1183825,
+    "ast_hash": "94d562f38d81e3c3624cfe675c3e93d9",
+    "semantic_hash": "94d562f38d81e3c3624cfe675c3e93d9"
+  },
+  "src/main/resources/static/assets/products/real/macbook-pro-m3-1.png": {
+    "mtime": 1790903584.3180795,
+    "seen": 1790904610.1183825,
+    "ast_hash": "c5128017841073259e64137954b4c763",
+    "semantic_hash": "c5128017841073259e64137954b4c763"
+  },
+  "src/main/resources/static/assets/products/real/samsung-25w-1.png": {
+    "mtime": 1790903828.2793443,
+    "seen": 1790904610.1183825,
+    "ast_hash": "bc2febd4f0949f40c3d6260078b00c52",
+    "semantic_hash": "bc2febd4f0949f40c3d6260078b00c52"
+  },
+  "src/main/resources/static/assets/products/real/sony-wh-1000xm5-1.png": {
+    "mtime": 1790903828.0211742,
+    "seen": 1790904610.1183825,
+    "ast_hash": "19f2d3f20a0a552ce5ba02d6dd3bcd4e",
+    "semantic_hash": "19f2d3f20a0a552ce5ba02d6dd3bcd4e"
+  },
+  "src/main/resources/static/assets/products/real/xiaomi-14-1.png": {
+    "mtime": 1790903580.9657228,
+    "seen": 1790904610.1183825,
+    "ast_hash": "1da34981ed890277d21828157fd1f9f2",
+    "semantic_hash": "1da34981ed890277d21828157fd1f9f2"
+  },
+  "scripts/techzone_step01_qa.cjs": {
+    "mtime": 1790946590.3484764,
+    "seen": 1790946891.9520986,
+    "ast_hash": "57ad786035ca3fa4f3497868bb6816be",
+    "semantic_hash": "57ad786035ca3fa4f3497868bb6816be"
+  },
+  "src/main/java/vn/techshop/config/StorefrontModel.java": {
+    "mtime": 1791108029.8517358,
+    "seen": 1791109247.7847457,
+    "ast_hash": "7ea03b755f2856fd0026924cabb3cde5",
+    "semantic_hash": "7ea03b755f2856fd0026924cabb3cde5"
+  },
+  "src/main/resources/static/js/techzone.js": {
+    "mtime": 1791102000.3362508,
+    "seen": 1791109247.835506,
+    "ast_hash": "49d983c73e45301af4b95e6aa1b6bbad",
+    "semantic_hash": "49d983c73e45301af4b95e6aa1b6bbad"
+  },
+  "docs/16-techzone-implementation-plan.md": {
+    "mtime": 1790946767.0343645,
+    "seen": 1790946892.021306,
+    "ast_hash": "8fb09f846d95b0e8196c20c3b340370e",
+    "semantic_hash": "8fb09f846d95b0e8196c20c3b340370e"
+  },
+  "techzone/TechZone Vietnamese Electronics Marketplace.png": {
+    "mtime": 1790944918.2742019,
+    "seen": 1790946892.0508611,
+    "ast_hash": "19be1fe18a272b27ea10602563e7de9b",
+    "semantic_hash": "19be1fe18a272b27ea10602563e7de9b"
+  },
+  "techzone/Trang chi ti\u1ebft s\u1ea3n ph\u1ea9m.png": {
+    "mtime": 1790945093.069904,
+    "seen": 1790946892.0508611,
+    "ast_hash": "b3c258d40f34c3a95b5c08316f7f9783",
+    "semantic_hash": "b3c258d40f34c3a95b5c08316f7f9783"
+  },
+  "techzone/Trang chi ti\u1ebft \u0111\u01a1n hang.png": {
+    "mtime": 1790945230.8178606,
+    "seen": 1790946892.0508611,
+    "ast_hash": "cdcce6284cccfa17825dcf402acf29f7",
+    "semantic_hash": "cdcce6284cccfa17825dcf402acf29f7"
+  },
+  "techzone/Trang gi\u1ecf hang.png": {
+    "mtime": 1790945108.8034253,
+    "seen": 1790946892.0508611,
+    "ast_hash": "3d9789334c47bfd6c8ff1f9827cd3333",
+    "semantic_hash": "3d9789334c47bfd6c8ff1f9827cd3333"
+  },
+  "techzone/Trang h\u1ec7 th\u1ed1ng c\u1eeda hang.png": {
+    "mtime": 1790945284.1185884,
+    "seen": 1790946892.0515983,
+    "ast_hash": "1a43940d2a8cf7a8e6e4dfbb4045719f",
+    "semantic_hash": "1a43940d2a8cf7a8e6e4dfbb4045719f"
+  },
+  "techzone/Trang so s\u00e1nh s\u1ea3n ph\u1ea9m.png": {
+    "mtime": 1790945240.953096,
+    "seen": 1790946892.0515983,
+    "ast_hash": "80416be04e4589c6089d6947e9a63c39",
+    "semantic_hash": "80416be04e4589c6089d6947e9a63c39"
+  },
+  "techzone/Trang t\u00e0i kho\u1ea3n c\u00e1 nh\u00e2n.png": {
+    "mtime": 1790945177.9087203,
+    "seen": 1790946892.0515983,
+    "ast_hash": "e109c3ce8787de000b0ba9548f0944a5",
+    "semantic_hash": "e109c3ce8787de000b0ba9548f0944a5"
+  },
+  "techzone/Trang \u0111\u0103ng nh\u1eadp \u0111\u0103ng k\u00fd.png": {
+    "mtime": 1790945166.5442545,
+    "seen": 1790946892.0515983,
+    "ast_hash": "0a9d0e97d48ede7645d3a1e2e5e50172",
+    "semantic_hash": "0a9d0e97d48ede7645d3a1e2e5e50172"
+  },
+  "techzone/danh m\u1ee5c.png": {
+    "mtime": 1790945043.100028,
+    "seen": 1790946892.0515983,
+    "ast_hash": "c91295059647d651982dffd7f542cc43",
+    "semantic_hash": "c91295059647d651982dffd7f542cc43"
+  },
+  "techzone/thanh to\u00e1n.png": {
+    "mtime": 1790945134.8489594,
+    "seen": 1790946892.0515983,
+    "ast_hash": "51bec17d89add3bfb9afd56fcf0b8149",
+    "semantic_hash": "51bec17d89add3bfb9afd56fcf0b8149"
+  },
+  "techzone/tin t\u1ee9c.png": {
+    "mtime": 1790945291.7981822,
+    "seen": 1790946892.0515983,
+    "ast_hash": "9d326d371cc9dde28813b30086472441",
+    "semantic_hash": "9d326d371cc9dde28813b30086472441"
+  },
+  "techzone/trang t\u00e0i kho\u1ea3n cas nh\u00e2n.png": {
+    "mtime": 1790945192.0378487,
+    "seen": 1790946892.0515983,
+    "ast_hash": "314cbe829593c4c33abc5156a553dd2b",
+    "semantic_hash": "314cbe829593c4c33abc5156a553dd2b"
+  },
+  "scripts/install_ci_scanners.py": {
+    "mtime": 1791040287.4179072,
+    "seen": 1791041358.3396475,
+    "ast_hash": "c9a1adff98bdb611cad1cbbaccb251ee",
+    "semantic_hash": "c9a1adff98bdb611cad1cbbaccb251ee"
+  },
+  "scripts/repair_browser_qa.cjs": {
+    "mtime": 1791041061.5557158,
+    "seen": 1791041358.3396475,
+    "ast_hash": "86a79a6b4e4485ce38bc8daa368ca9c5",
+    "semantic_hash": "86a79a6b4e4485ce38bc8daa368ca9c5"
+  },
+  "scripts/runtime_sbom.py": {
+    "mtime": 1791040287.41391,
+    "seen": 1791041358.35586,
+    "ast_hash": "5e16976d973296cd7980e5ba2b8cd38c",
+    "semantic_hash": "5e16976d973296cd7980e5ba2b8cd38c"
+  },
+  "scripts/verify-test-restore.ps1": {
+    "mtime": 1791089294.8725905,
+    "seen": 1791089732.2948925,
+    "ast_hash": "efbf007f20268a9d9f85bf851d7fd837",
+    "semantic_hash": "efbf007f20268a9d9f85bf851d7fd837"
+  },
+  "src/main/java/vn/techshop/catalog/StorefrontCatalogService.java": {
+    "mtime": 1790958197.5033813,
+    "seen": 1791041358.4611137,
+    "ast_hash": "6711ca3959a4f6f2473f3500de55a54c",
+    "semantic_hash": "6711ca3959a4f6f2473f3500de55a54c"
+  },
+  "src/main/java/vn/techshop/catalog/WishlistApi.java": {
+    "mtime": 1790958875.117187,
+    "seen": 1791041358.4611137,
+    "ast_hash": "ea35f40734ca8df1f92782fc39be38e1",
+    "semantic_hash": "ea35f40734ca8df1f92782fc39be38e1"
+  },
+  "src/main/java/vn/techshop/catalog/WishlistService.java": {
+    "mtime": 1790958875.113307,
+    "seen": 1791041358.4611137,
+    "ast_hash": "63db7e7b838befdfffdded910a4f480c",
+    "semantic_hash": "63db7e7b838befdfffdded910a4f480c"
+  },
+  "src/main/java/vn/techshop/config/ClientIpResolver.java": {
+    "mtime": 1790956456.086147,
+    "seen": 1791041358.4684913,
+    "ast_hash": "ec670dc248c2ed6a136a73d496b28778",
+    "semantic_hash": "ec670dc248c2ed6a136a73d496b28778"
+  },
+  "src/main/java/vn/techshop/config/GoogleLoginConfig.java": {
+    "mtime": 1790958608.2628632,
+    "seen": 1791041358.4684913,
+    "ast_hash": "1f57844acb220f8bbccfa265b36b5620",
+    "semantic_hash": "1f57844acb220f8bbccfa265b36b5620"
+  },
+  "src/main/java/vn/techshop/config/ProductionSafety.java": {
+    "mtime": 1791103142.2099962,
+    "seen": 1791109247.7847457,
+    "ast_hash": "809699186f0c2a4572d3f4cb4fc2bdd6",
+    "semantic_hash": "809699186f0c2a4572d3f4cb4fc2bdd6"
+  },
+  "src/main/java/vn/techshop/content/NewsController.java": {
+    "mtime": 1790959013.4293888,
+    "seen": 1791041358.4684913,
+    "ast_hash": "23aebad8343e04dc8e29ec733f51cd3e",
+    "semantic_hash": "23aebad8343e04dc8e29ec733f51cd3e"
+  },
+  "src/main/java/vn/techshop/content/NewsService.java": {
+    "mtime": 1790959013.4284773,
+    "seen": 1791041358.4684913,
+    "ast_hash": "4c53b5fe60d35cf5c893c9c58c37f2d5",
+    "semantic_hash": "4c53b5fe60d35cf5c893c9c58c37f2d5"
+  },
+  "src/main/java/vn/techshop/content/NewsletterController.java": {
+    "mtime": 1790959082.8910296,
+    "seen": 1791041358.4684913,
+    "ast_hash": "1127638c991b999e29e4b4826aee898d",
+    "semantic_hash": "1127638c991b999e29e4b4826aee898d"
+  },
+  "src/main/java/vn/techshop/content/NewsletterMail.java": {
+    "mtime": 1791103512.877869,
+    "seen": 1791109247.7867472,
+    "ast_hash": "9ba85bb348aed0ba66caa873e94d33fc",
+    "semantic_hash": "9ba85bb348aed0ba66caa873e94d33fc"
+  },
+  "src/main/java/vn/techshop/content/NewsletterService.java": {
+    "mtime": 1790959082.8890257,
+    "seen": 1791041358.4684913,
+    "ast_hash": "9209c11c40b10b4b37b18258e1251ef7",
+    "semantic_hash": "9209c11c40b10b4b37b18258e1251ef7"
+  },
+  "src/main/java/vn/techshop/guest/GuestApi.java": {
+    "mtime": 1791102245.0337465,
+    "seen": 1791109247.7902815,
+    "ast_hash": "29e83d914bfd5c8691b5c54b3a46e12e",
+    "semantic_hash": "29e83d914bfd5c8691b5c54b3a46e12e"
+  },
+  "src/main/java/vn/techshop/guest/GuestService.java": {
+    "mtime": 1791039589.9391212,
+    "seen": 1791041358.4684913,
+    "ast_hash": "06f4c792ad0fe4cfbe9595dc0ef3da56",
+    "semantic_hash": "06f4c792ad0fe4cfbe9595dc0ef3da56"
+  },
+  "src/main/java/vn/techshop/guest/GuestWeb.java": {
+    "mtime": 1791039953.1352258,
+    "seen": 1791041358.4684913,
+    "ast_hash": "44a3b654f788f9fe6c85f1560680341d",
+    "semantic_hash": "44a3b654f788f9fe6c85f1560680341d"
+  },
+  "src/main/java/vn/techshop/identity/AddressApi.java": {
+    "mtime": 1790957476.3773594,
+    "seen": 1791041358.4684913,
+    "ast_hash": "27dc5b0888421d5311066fc17523d061",
+    "semantic_hash": "27dc5b0888421d5311066fc17523d061"
+  },
+  "src/main/java/vn/techshop/identity/AddressService.java": {
+    "mtime": 1790957476.3753176,
+    "seen": 1791041358.4684913,
+    "ast_hash": "5d27fe9ab85c4bc52aabbb86a7e78c3d",
+    "semantic_hash": "5d27fe9ab85c4bc52aabbb86a7e78c3d"
+  },
+  "src/main/java/vn/techshop/identity/AvatarApi.java": {
+    "mtime": 1790958875.108088,
+    "seen": 1791041358.4684913,
+    "ast_hash": "ebce73fe158a7592c263c590aea59436",
+    "semantic_hash": "ebce73fe158a7592c263c590aea59436"
+  },
+  "src/main/java/vn/techshop/identity/GoogleAccounts.java": {
+    "mtime": 1790958608.261864,
+    "seen": 1791041358.4684913,
+    "ast_hash": "0ed0acac48016c21ecf60b729337b410",
+    "semantic_hash": "0ed0acac48016c21ecf60b729337b410"
+  },
+  "src/main/java/vn/techshop/identity/GoogleLinkApi.java": {
+    "mtime": 1790958608.2711442,
+    "seen": 1791041358.4684913,
+    "ast_hash": "0a74d447518a3bdc889be746a52a0093",
+    "semantic_hash": "0a74d447518a3bdc889be746a52a0093"
+  },
+  "src/main/java/vn/techshop/identity/GooglePrincipal.java": {
+    "mtime": 1790958608.26086,
+    "seen": 1791041358.4684913,
+    "ast_hash": "d312f6fc47186e55abaf4bd0cea62756",
+    "semantic_hash": "d312f6fc47186e55abaf4bd0cea62756"
+  },
+  "src/main/java/vn/techshop/identity/RecoveryController.java": {
+    "mtime": 1790958515.1554399,
+    "seen": 1791041358.4684913,
+    "ast_hash": "6e3f3b6c4d48b8e3180a3a414db142a3",
+    "semantic_hash": "6e3f3b6c4d48b8e3180a3a414db142a3"
+  },
+  "src/main/java/vn/techshop/identity/RecoveryMail.java": {
+    "mtime": 1791103503.320203,
+    "seen": 1791109247.795766,
+    "ast_hash": "c6680279758c4cd060d12cd4a97e0244",
+    "semantic_hash": "c6680279758c4cd060d12cd4a97e0244"
+  },
+  "src/main/java/vn/techshop/identity/RecoveryService.java": {
+    "mtime": 1790958515.1534324,
+    "seen": 1791041358.4684913,
+    "ast_hash": "ed8a0ffc165ea2cbf2d0e710bf5bff07",
+    "semantic_hash": "ed8a0ffc165ea2cbf2d0e710bf5bff07"
+  },
+  "src/main/java/vn/techshop/identity/RequestLimits.java": {
+    "mtime": 1790958515.14791,
+    "seen": 1791041358.4684913,
+    "ast_hash": "3f83b67c03375b03c9b82df386842ef0",
+    "semantic_hash": "3f83b67c03375b03c9b82df386842ef0"
+  },
+  "src/main/java/vn/techshop/payment/RefundService.java": {
+    "mtime": 1791100309.0326052,
+    "seen": 1791109247.8071597,
+    "ast_hash": "c5436ad704a26b861400910ad98240e9",
+    "semantic_hash": "c5436ad704a26b861400910ad98240e9"
+  },
+  "src/main/java/vn/techshop/variant/SpecificationDisplay.java": {
+    "mtime": 1791040124.5375943,
+    "seen": 1791041358.5167534,
+    "ast_hash": "9347f9341f6433042b7c2078c9016f8f",
+    "semantic_hash": "9347f9341f6433042b7c2078c9016f8f"
+  },
+  "src/main/resources/db/demo/V10__separate_cod_from_online_delivery.sql": {
+    "mtime": 1790953090.761484,
+    "seen": 1791041358.5167534,
+    "ast_hash": "6a0e036d2f1a841a6a8f6b78b6433eea",
+    "semantic_hash": "6a0e036d2f1a841a6a8f6b78b6433eea"
+  },
+  "src/main/resources/db/demo/V11__refund_and_reconciliation_ledger.sql": {
+    "mtime": 1790954714.9848418,
+    "seen": 1791041358.5167534,
+    "ast_hash": "921d2b7f5b0fade686c065acac1ae84d",
+    "semantic_hash": "921d2b7f5b0fade686c065acac1ae84d"
+  },
+  "src/main/resources/db/demo/V12__payment_client_ip.sql": {
+    "mtime": 1790956456.123155,
+    "seen": 1791041358.5167534,
+    "ast_hash": "6c9e3d34108b4d353875869d3437a925",
+    "semantic_hash": "6c9e3d34108b4d353875869d3437a925"
+  },
+  "src/main/resources/db/demo/V13__customer_profile.sql": {
+    "mtime": 1790956840.7151127,
+    "seen": 1791041358.5167534,
+    "ast_hash": "02c85cde0f528927c1300d9cc66ac174",
+    "semantic_hash": "02c85cde0f528927c1300d9cc66ac174"
+  },
+  "src/main/resources/db/demo/V14__customer_addresses.sql": {
+    "mtime": 1790957476.3593268,
+    "seen": 1791041358.5167534,
+    "ast_hash": "07a8c37c9f3b742762554111509b9322",
+    "semantic_hash": "07a8c37c9f3b742762554111509b9322"
+  },
+  "src/main/resources/db/demo/V15__catalog_brand.sql": {
+    "mtime": 1790958009.4443185,
+    "seen": 1791041358.5167534,
+    "ast_hash": "84eb1cfa5f3ac640322f9e944f442cc2",
+    "semantic_hash": "84eb1cfa5f3ac640322f9e944f442cc2"
+  },
+  "src/main/resources/db/demo/V16__loyalty_refund_audit.sql": {
+    "mtime": 1790958243.680551,
+    "seen": 1791041358.5167534,
+    "ast_hash": "465a6620aa898064406920ce9e0d175f",
+    "semantic_hash": "465a6620aa898064406920ce9e0d175f"
+  },
+  "src/main/resources/db/demo/V17__account_recovery_oauth.sql": {
+    "mtime": 1790958515.1524465,
+    "seen": 1791041358.5167534,
+    "ast_hash": "23fc1b64762aab62c9bfaef274925c87",
+    "semantic_hash": "23fc1b64762aab62c9bfaef274925c87"
+  },
+  "src/main/resources/db/demo/V18__wishlist_avatar.sql": {
+    "mtime": 1790958875.0982327,
+    "seen": 1791041358.5167534,
+    "ast_hash": "91b44057e9d6640be2c53307a94b135b",
+    "semantic_hash": "91b44057e9d6640be2c53307a94b135b"
+  },
+  "src/main/resources/db/demo/V19__news_newsletter.sql": {
+    "mtime": 1790959013.4198742,
+    "seen": 1791041358.5167534,
+    "ast_hash": "be576d49498cf526432d14c809c827f3",
+    "semantic_hash": "be576d49498cf526432d14c809c827f3"
+  },
+  "src/main/resources/db/demo/V20__guest_checkout.sql": {
+    "mtime": 1790959353.1084783,
+    "seen": 1791041358.532897,
+    "ast_hash": "7ddb81f9c9ee3db2038d8fd893a2c9e1",
+    "semantic_hash": "7ddb81f9c9ee3db2038d8fd893a2c9e1"
+  },
+  "src/main/resources/db/demo/V21__branch_details_personal_coupons.sql": {
+    "mtime": 1791039993.2822502,
+    "seen": 1791041358.532897,
+    "ast_hash": "a08c975159169359d132b4f8d68afb7f",
+    "semantic_hash": "a08c975159169359d132b4f8d68afb7f"
+  },
+  "src/main/resources/db/migration/V10__separate_cod_from_online_delivery.sql": {
+    "mtime": 1790953098.5451913,
+    "seen": 1791041358.5487638,
+    "ast_hash": "c100ad89f4c3bbda2525b2b17800140b",
+    "semantic_hash": "c100ad89f4c3bbda2525b2b17800140b"
+  },
+  "src/main/resources/db/migration/V11__refund_and_reconciliation_ledger.sql": {
+    "mtime": 1790954724.7743185,
+    "seen": 1791041358.5487638,
+    "ast_hash": "921d2b7f5b0fade686c065acac1ae84d",
+    "semantic_hash": "921d2b7f5b0fade686c065acac1ae84d"
+  },
+  "src/main/resources/db/migration/V12__payment_client_ip.sql": {
+    "mtime": 1790956456.115159,
+    "seen": 1791041358.5487638,
+    "ast_hash": "6c9e3d34108b4d353875869d3437a925",
+    "semantic_hash": "6c9e3d34108b4d353875869d3437a925"
+  },
+  "src/main/resources/db/migration/V13__customer_profile.sql": {
+    "mtime": 1790956840.7141013,
+    "seen": 1791041358.5487638,
+    "ast_hash": "02c85cde0f528927c1300d9cc66ac174",
+    "semantic_hash": "02c85cde0f528927c1300d9cc66ac174"
+  },
+  "src/main/resources/db/migration/V14__customer_addresses.sql": {
+    "mtime": 1790957476.3571348,
+    "seen": 1791041358.5487638,
+    "ast_hash": "c9d1ad6ec24ce2a861cdb28fb5e77168",
+    "semantic_hash": "c9d1ad6ec24ce2a861cdb28fb5e77168"
+  },
+  "src/main/resources/db/migration/V15__catalog_brand.sql": {
+    "mtime": 1790958009.442734,
+    "seen": 1791041358.5487638,
+    "ast_hash": "84eb1cfa5f3ac640322f9e944f442cc2",
+    "semantic_hash": "84eb1cfa5f3ac640322f9e944f442cc2"
+  },
+  "src/main/resources/db/migration/V16__loyalty_refund_audit.sql": {
+    "mtime": 1790958243.679553,
+    "seen": 1791041358.5487638,
+    "ast_hash": "465a6620aa898064406920ce9e0d175f",
+    "semantic_hash": "465a6620aa898064406920ce9e0d175f"
+  },
+  "src/main/resources/db/migration/V17__account_recovery_oauth.sql": {
+    "mtime": 1790958515.1494236,
+    "seen": 1791041358.5487638,
+    "ast_hash": "33a83854e9ab0cb99fa83918157a8c6e",
+    "semantic_hash": "33a83854e9ab0cb99fa83918157a8c6e"
+  },
+  "src/main/resources/db/migration/V18__wishlist_avatar.sql": {
+    "mtime": 1790958875.0982327,
+    "seen": 1791041358.5487638,
+    "ast_hash": "91b44057e9d6640be2c53307a94b135b",
+    "semantic_hash": "91b44057e9d6640be2c53307a94b135b"
+  },
+  "src/main/resources/db/migration/V19__news_newsletter.sql": {
+    "mtime": 1790959013.4188755,
+    "seen": 1791041358.5487638,
+    "ast_hash": "f2feb00cb7288dbac70841c08b6106a4",
+    "semantic_hash": "f2feb00cb7288dbac70841c08b6106a4"
+  },
+  "src/main/resources/db/migration/V20__guest_checkout.sql": {
+    "mtime": 1790959353.1074765,
+    "seen": 1791041358.5487638,
+    "ast_hash": "7ddb81f9c9ee3db2038d8fd893a2c9e1",
+    "semantic_hash": "7ddb81f9c9ee3db2038d8fd893a2c9e1"
+  },
+  "src/main/resources/db/migration/V21__branch_details_personal_coupons.sql": {
+    "mtime": 1791039993.2766309,
+    "seen": 1791041358.5487638,
+    "ast_hash": "a08c975159169359d132b4f8d68afb7f",
+    "semantic_hash": "a08c975159169359d132b4f8d68afb7f"
+  },
+  "src/test/java/vn/techshop/cart/SelectedCheckoutTest.java": {
+    "mtime": 1791041061.5557158,
+    "seen": 1791041358.581166,
+    "ast_hash": "84cd8bd701186afe44c14064472282aa",
+    "semantic_hash": "84cd8bd701186afe44c14064472282aa"
+  },
+  "src/test/java/vn/techshop/catalog/CatalogQueryBudgetTest.java": {
+    "mtime": 1791040722.2349708,
+    "seen": 1791041358.581166,
+    "ast_hash": "61ec551010e8c8c700eee8d95bd19f17",
+    "semantic_hash": "61ec551010e8c8c700eee8d95bd19f17"
+  },
+  "src/test/java/vn/techshop/config/LoginAttemptsTest.java": {
+    "mtime": 1790952098.961827,
+    "seen": 1791041358.581166,
+    "ast_hash": "d5620231e3712cdc980780786ba0cf46",
+    "semantic_hash": "d5620231e3712cdc980780786ba0cf46"
+  },
+  "src/test/java/vn/techshop/config/ProductionSafetyTest.java": {
+    "mtime": 1790956456.1282527,
+    "seen": 1791041358.581166,
+    "ast_hash": "7e6f3fab544ecad8d70f3e9abe5c3867",
+    "semantic_hash": "7e6f3fab544ecad8d70f3e9abe5c3867"
+  },
+  "src/test/java/vn/techshop/content/ContentAndWishlistTest.java": {
+    "mtime": 1790959211.8805957,
+    "seen": 1791041358.581166,
+    "ast_hash": "8f9971cbd5dd0d33cbf6f93bc4c87e13",
+    "semantic_hash": "8f9971cbd5dd0d33cbf6f93bc4c87e13"
+  },
+  "src/test/java/vn/techshop/feature/FeatureCompletionTest.java": {
+    "mtime": 1791040537.6069937,
+    "seen": 1791041358.581166,
+    "ast_hash": "e0219e4b1625dda0baaf69fecaa2692b",
+    "semantic_hash": "e0219e4b1625dda0baaf69fecaa2692b"
+  },
+  "src/test/java/vn/techshop/guest/GuestCheckoutTest.java": {
+    "mtime": 1791039651.3156688,
+    "seen": 1791041358.581166,
+    "ast_hash": "b36f83d7eb3b08e7afdae1dd2becddd5",
+    "semantic_hash": "b36f83d7eb3b08e7afdae1dd2becddd5"
+  },
+  "src/test/java/vn/techshop/identity/AddressServiceTest.java": {
+    "mtime": 1790957588.7581153,
+    "seen": 1791041358.581166,
+    "ast_hash": "40a0f47ee5b0646be12984e78ccb019e",
+    "semantic_hash": "40a0f47ee5b0646be12984e78ccb019e"
+  },
+  "src/test/java/vn/techshop/identity/CustomerProfileTest.java": {
+    "mtime": 1790957142.0066154,
+    "seen": 1791041358.581166,
+    "ast_hash": "90efb8df3ff04f4dcac7c3778f5dff2e",
+    "semantic_hash": "90efb8df3ff04f4dcac7c3778f5dff2e"
+  },
+  "src/test/java/vn/techshop/identity/RecoveryAndGoogleTest.java": {
+    "mtime": 1790959211.8816025,
+    "seen": 1791041358.581166,
+    "ast_hash": "6dd1f9a1899c90c36fc6641dc42d3a5f",
+    "semantic_hash": "6dd1f9a1899c90c36fc6641dc42d3a5f"
+  },
+  "src/test/java/vn/techshop/order/OrderHoldExpiryAndRejectionTest.java": {
+    "mtime": 1791100886.0797224,
+    "seen": 1791109247.844068,
+    "ast_hash": "2cc9f255712f31b9b391a03f3d4b03e5",
+    "semantic_hash": "2cc9f255712f31b9b391a03f3d4b03e5"
+  },
+  "src/test/java/vn/techshop/order/OrderLookupTest.java": {
+    "mtime": 1791040537.6069937,
+    "seen": 1791041358.581166,
+    "ast_hash": "e320d698db14db1ed1960d68f97446d7",
+    "semantic_hash": "e320d698db14db1ed1960d68f97446d7"
+  },
+  "src/test/java/vn/techshop/order/OrderPaginationAndFilterTest.java": {
+    "mtime": 1790956299.7073576,
+    "seen": 1791041358.581166,
+    "ast_hash": "af1087279eb7a7dd1dfd2b1b7210fa3d",
+    "semantic_hash": "af1087279eb7a7dd1dfd2b1b7210fa3d"
+  },
+  "src/test/java/vn/techshop/payment/RefundAndReconciliationTest.java": {
+    "mtime": 1791100379.5430264,
+    "seen": 1791109247.8460727,
+    "ast_hash": "4cc399c539132ae24e6b469fd6465717",
+    "semantic_hash": "4cc399c539132ae24e6b469fd6465717"
+  },
+  "src/test/java/vn/techshop/reporting/ReportExportServiceTest.java": {
+    "mtime": 1791042225.5180144,
+    "seen": 1791089732.4661734,
+    "ast_hash": "2cb94d46a396d216f625c13935742324",
+    "semantic_hash": "2cb94d46a396d216f625c13935742324"
+  },
+  "src/test/java/vn/techshop/shared/ErrorHandlingTest.java": {
+    "mtime": 1790955123.8045316,
+    "seen": 1791041358.597329,
+    "ast_hash": "61476916da87967a218c8d891765a562",
+    "semantic_hash": "61476916da87967a218c8d891765a562"
+  },
+  "src/test/java/vn/techshop/shared/FileStorageServiceTest.java": {
+    "mtime": 1791040232.3500292,
+    "seen": 1791041358.597329,
+    "ast_hash": "f31e72d69cd92f948a43c20e1608be2b",
+    "semantic_hash": "f31e72d69cd92f948a43c20e1608be2b"
+  },
+  "docs/17-repair-plan.md": {
+    "mtime": 1790950320.3437696,
+    "seen": 1791041358.6619313,
+    "ast_hash": "237b7c90c3a2bbfa61a1af584b8721e4",
+    "semantic_hash": "237b7c90c3a2bbfa61a1af584b8721e4"
+  },
+  "docs/18-repair-continuation.md": {
+    "mtime": 1791088893.061936,
+    "seen": 1791089732.4834478,
+    "ast_hash": "7d0dc7eafebef1b6edbec27f55be3eeb",
+    "semantic_hash": "7d0dc7eafebef1b6edbec27f55be3eeb"
+  },
+  "kehoanh.md": {
+    "mtime": 1791104296.3741968,
+    "seen": 1791109247.859156,
+    "ast_hash": "6d77d221c9fdc66991a4d528335b2b33",
+    "semantic_hash": "6d77d221c9fdc66991a4d528335b2b33"
+  },
+  "src/main/resources/application-production.yml": {
+    "mtime": 1790956456.0881698,
+    "seen": 1791041019.28549,
+    "ast_hash": "c702fdb7221845347b1be8e14a074750",
+    "semantic_hash": ""
+  },
+  "src/main/resources/application-smtp.yml": {
+    "mtime": 1790958716.7525406,
+    "seen": 1791041019.28549,
+    "ast_hash": "57d2643d56c33cbbe6b0a7c13dd61841",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/addresses.html": {
+    "mtime": 1790957476.38497,
+    "seen": 1791041019.28549,
+    "ast_hash": "386b715caf59123c82e4bcbadfb8cc6d",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/admin/news.html": {
+    "mtime": 1790959013.4333887,
+    "seen": 1791041019.28549,
+    "ast_hash": "f64da31f76e17afafc20cd4c8433eb21",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/admin/refunds.html": {
+    "mtime": 1791102797.864431,
+    "seen": 1791108730.1273441,
+    "ast_hash": "48de2b24a94870929e6e053b517509ea",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/news-detail.html": {
+    "mtime": 1790959013.4323845,
+    "seen": 1791041019.28549,
+    "ast_hash": "57171433bcd57b4f42f9153228d632c0",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/news.html": {
+    "mtime": 1790959013.4303856,
+    "seen": 1791041019.28549,
+    "ast_hash": "e47e5f9eda1f0d0a94a404f56895767f",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/newsletter-proof.html": {
+    "mtime": 1790959082.900035,
+    "seen": 1791041019.28549,
+    "ast_hash": "b979a7ef7348b6e14b367c99908a2f44",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/newsletter.html": {
+    "mtime": 1790959082.8990262,
+    "seen": 1791041019.28549,
+    "ast_hash": "0e08e1cb352366ad513795203e17ed6f",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/profile.html": {
+    "mtime": 1790958879.1243942,
+    "seen": 1791041019.28549,
+    "ast_hash": "db4c4e1c6593d129bf3776a42ba4f687",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/vouchers.html": {
+    "mtime": 1791040124.5415936,
+    "seen": 1791041019.28549,
+    "ast_hash": "0031ad23b015b300b6d2f00ea5e64028",
+    "semantic_hash": ""
+  },
+  "src/main/resources/templates/wishlist.html": {
+    "mtime": 1790958879.1013372,
+    "seen": 1791041019.28549,
+    "ast_hash": "fd5402ca11e28769851ffe957261bee5",
+    "semantic_hash": ""
+  },
+  "src/test/resources/fixtures/valid.webp": {
+    "mtime": 1791040215.9362283,
+    "seen": 1791041019.28549,
+    "ast_hash": "9bf35dc24bdcda6e7a3b28dfd1ecc5cc",
+    "semantic_hash": ""
+  },
+  "scripts/repair_source_manifest.py": {
+    "mtime": 1791088766.9695163,
+    "seen": 1791089732.2928946,
+    "ast_hash": "d2427b70e64367cb69ee4188f59ec301",
+    "semantic_hash": "d2427b70e64367cb69ee4188f59ec301"
+  },
+  "scripts/verify-csv-excel.ps1": {
+    "mtime": 1791042440.2295485,
+    "seen": 1791089732.2948925,
+    "ast_hash": "ad1711062dc9d496b02645e4d5890638",
+    "semantic_hash": "ad1711062dc9d496b02645e4d5890638"
+  },
+  "src/main/java/db/demo/V22__Preserve_warranty_history.java": {
+    "mtime": 1791088445.9272268,
+    "seen": 1791089732.2948925,
+    "ast_hash": "44053b81cac9150bd8b81a45e71f9c26",
+    "semantic_hash": "44053b81cac9150bd8b81a45e71f9c26"
+  },
+  "src/main/java/db/migration/V22__Preserve_warranty_history.java": {
+    "mtime": 1791088445.9175103,
+    "seen": 1791089732.2948925,
+    "ast_hash": "583eac64457259d2689377032df86793",
+    "semantic_hash": "583eac64457259d2689377032df86793"
+  },
+  "src/main/java/vn/techshop/coupon/CouponQuote.java": {
+    "mtime": 1791041683.4464393,
+    "seen": 1791089732.315421,
+    "ast_hash": "995bf244021f838d62c886d6cb15f8ca",
+    "semantic_hash": "995bf244021f838d62c886d6cb15f8ca"
+  },
+  "src/main/java/vn/techshop/migration/WarrantyHistoryMigration.java": {
+    "mtime": 1791088445.9049745,
+    "seen": 1791089732.3306837,
+    "ast_hash": "eeb331f093f83130283008d347066c6e",
+    "semantic_hash": "eeb331f093f83130283008d347066c6e"
+  },
+  "src/test/java/vn/techshop/warranty/WarrantyMigrationTest.java": {
+    "mtime": 1791103940.634053,
+    "seen": 1791109247.8470712,
+    "ast_hash": "5ede99959564935e2834742b7838e319",
+    "semantic_hash": "5ede99959564935e2834742b7838e319"
+  },
+  "scripts/chat_qa.cjs": {
+    "mtime": 1791108855.8080928,
+    "seen": 1791109247.7596054,
+    "ast_hash": "ca6bd30a69f0c1f5c0c020680e87b51c",
+    "semantic_hash": "ca6bd30a69f0c1f5c0c020680e87b51c"
+  },
+  "src/main/java/vn/techshop/chat/ChatApi.java": {
+    "mtime": 1791112681.6310544,
+    "seen": 1791114326.39253,
+    "ast_hash": "35eba22b60965c8c7a31d41994330a6f",
+    "semantic_hash": "35eba22b60965c8c7a31d41994330a6f"
+  },
+  "src/main/java/vn/techshop/chat/ChatConversation.java": {
+    "mtime": 1791112575.1815753,
+    "seen": 1791114326.39253,
+    "ast_hash": "d74dc95a10006660cdf96e8bde41a8e1",
+    "semantic_hash": "d74dc95a10006660cdf96e8bde41a8e1"
+  },
+  "src/main/java/vn/techshop/chat/ChatConversationRepository.java": {
+    "mtime": 1791113667.4640667,
+    "seen": 1791114326.39253,
+    "ast_hash": "eb2f950a7cf8c4cd361ee35b26ffa196",
+    "semantic_hash": "eb2f950a7cf8c4cd361ee35b26ffa196"
+  },
+  "src/main/java/vn/techshop/chat/ChatMessage.java": {
+    "mtime": 1791112575.1815753,
+    "seen": 1791114326.39253,
+    "ast_hash": "cdfdfb64f49d2d0ac14db8e5ef8a73c0",
+    "semantic_hash": "cdfdfb64f49d2d0ac14db8e5ef8a73c0"
+  },
+  "src/main/java/vn/techshop/chat/ChatMessageRepository.java": {
+    "mtime": 1791112575.1860888,
+    "seen": 1791114326.39253,
+    "ast_hash": "52fcba2fd3877f5e2b4e6886f3cea298",
+    "semantic_hash": "52fcba2fd3877f5e2b4e6886f3cea298"
+  },
+  "src/main/java/vn/techshop/chat/ChatService.java": {
+    "mtime": 1791112681.6290376,
+    "seen": 1791114326.39253,
+    "ast_hash": "9a07dbd8ede2646ece014770afdc32ec",
+    "semantic_hash": "9a07dbd8ede2646ece014770afdc32ec"
+  },
+  "src/main/java/vn/techshop/chat/ChatWeb.java": {
+    "mtime": 1791108029.8404033,
+    "seen": 1791109247.7787704,
+    "ast_hash": "bb0a9e23491532355320d064be3f7f93",
+    "semantic_hash": "bb0a9e23491532355320d064be3f7f93"
+  },
+  "src/main/java/vn/techshop/config/VietnameseEncodingFixer.java": {
+    "mtime": 1791106059.431633,
+    "seen": 1791109247.7847457,
+    "ast_hash": "5f6eea78b1c23f44af66d149f6aaec48",
+    "semantic_hash": "5f6eea78b1c23f44af66d149f6aaec48"
+  },
+  "src/main/java/vn/techshop/notification/EmailOutboxService.java": {
+    "mtime": 1791103491.9963338,
+    "seen": 1791109247.8006227,
+    "ast_hash": "c41509d1b86bb7025e4110ade4257a14",
+    "semantic_hash": "c41509d1b86bb7025e4110ade4257a14"
+  },
+  "src/main/resources/db/demo/V23__repair_ticket_serial_and_exchanges.sql": {
+    "mtime": 1791100661.6490843,
+    "seen": 1791109247.821224,
+    "ast_hash": "9247daac78d57a5f37a97a189f1f1458",
+    "semantic_hash": "9247daac78d57a5f37a97a189f1f1458"
+  },
+  "src/main/resources/db/demo/V24__email_outbox.sql": {
+    "mtime": 1791103826.91598,
+    "seen": 1791109247.821224,
+    "ast_hash": "6af6615a5d181294bb52eebb4bc72b4e",
+    "semantic_hash": "6af6615a5d181294bb52eebb4bc72b4e"
+  },
+  "src/main/resources/db/demo/V25__customer_admin_chat.sql": {
+    "mtime": 1791108029.8404033,
+    "seen": 1791109247.821224,
+    "ast_hash": "cd716ae2e829bac487099038f79350c4",
+    "semantic_hash": "cd716ae2e829bac487099038f79350c4"
+  },
+  "src/main/resources/db/migration/V23__repair_ticket_serial_and_exchanges.sql": {
+    "mtime": 1791100654.8663414,
+    "seen": 1791109247.8321507,
+    "ast_hash": "9247daac78d57a5f37a97a189f1f1458",
+    "semantic_hash": "9247daac78d57a5f37a97a189f1f1458"
+  },
+  "src/main/resources/db/migration/V24__email_outbox.sql": {
+    "mtime": 1791103474.791368,
+    "seen": 1791109247.8321507,
+    "ast_hash": "6af6615a5d181294bb52eebb4bc72b4e",
+    "semantic_hash": "6af6615a5d181294bb52eebb4bc72b4e"
+  },
+  "src/main/resources/db/migration/V25__customer_admin_chat.sql": {
+    "mtime": 1791108029.8404033,
+    "seen": 1791109247.8321507,
+    "ast_hash": "cd716ae2e829bac487099038f79350c4",
+    "semantic_hash": "cd716ae2e829bac487099038f79350c4"
+  },
+  "src/main/resources/static/js/chat.js": {
+    "mtime": 1791113040.6633818,
+    "seen": 1791114326.407398,
+    "ast_hash": "1068a113287011c5289982c255f8b3c9",
+    "semantic_hash": "1068a113287011c5289982c255f8b3c9"
+  },
+  "src/test/java/vn/techshop/chat/ChatIntegrationTest.java": {
+    "mtime": 1791108855.8067813,
+    "seen": 1791109247.8379617,
+    "ast_hash": "9eb5245da37eebbd4d9de84157ddd896",
+    "semantic_hash": "9eb5245da37eebbd4d9de84157ddd896"
+  },
+  "src/test/java/vn/techshop/guest/GuestCartMergeAndExperienceTest.java": {
+    "mtime": 1791102034.8995275,
+    "seen": 1791109247.8415406,
+    "ast_hash": "01f777ead41b40eb2a0a4198222fe903",
+    "semantic_hash": "01f777ead41b40eb2a0a4198222fe903"
+  },
+  "src/test/java/vn/techshop/installment/InstallmentTransparencyAndSafetyTest.java": {
+    "mtime": 1791103349.577284,
+    "seen": 1791109247.844068,
+    "ast_hash": "407570d75e1a54d281ac5749856d091d",
+    "semantic_hash": "407570d75e1a54d281ac5749856d091d"
+  },
+  "src/test/java/vn/techshop/notification/EmailOutboxAndReviewModerationTest.java": {
+    "mtime": 1791103711.8961637,
+    "seen": 1791109247.844068,
+    "ast_hash": "8d607e10ea01b9053b6a258865fd4107",
+    "semantic_hash": "8d607e10ea01b9053b6a258865fd4107"
+  },
+  "src/test/java/vn/techshop/payment/OrderStatusAndRefundUxTest.java": {
+    "mtime": 1791102930.6120782,
+    "seen": 1791109247.8450682,
+    "ast_hash": "fed51d512307c0e61a5ec23ffe5bf67e",
+    "semantic_hash": "fed51d512307c0e61a5ec23ffe5bf67e"
+  },
+  "src/test/java/vn/techshop/reporting/CommerceReportingComprehensiveTest.java": {
+    "mtime": 1791100563.082095,
+    "seen": 1791109247.8460727,
+    "ast_hash": "83ed642c2d562349729e8f3a99a6710a",
+    "semantic_hash": "83ed642c2d562349729e8f3a99a6710a"
+  },
+  "src/test/java/vn/techshop/warranty/WarrantyExchangeAndHistoryTest.java": {
+    "mtime": 1791100713.8281446,
+    "seen": 1791109247.8470712,
+    "ast_hash": "134e486cb96701fda78c8e7b6ad724f5",
+    "semantic_hash": "134e486cb96701fda78c8e7b6ad724f5"
+  },
+  "docs/19-customer-admin-chat.md": {
+    "mtime": 1791108637.5031116,
+    "seen": 1791109247.859156,
+    "ast_hash": "b5e6cc9e5dee3eeeeba5ccc1ff02f2b1",
+    "semantic_hash": "b5e6cc9e5dee3eeeeba5ccc1ff02f2b1"
+  },
+  "src/main/resources/templates/chat.html": {
+    "mtime": 1791113040.6622984,
+    "seen": 1791114326.417237,
+    "ast_hash": "8b85232d59534408b5b8429955555618",
+    "semantic_hash": "8b85232d59534408b5b8429955555618"
+  },
+  "docs/20-gemini-ai-chat-plan.md": {
+    "mtime": 1791113667.4840395,
+    "seen": 1791114326.4142377,
+    "ast_hash": "0dda752ec6011e888053463984256da1",
+    "semantic_hash": "0dda752ec6011e888053463984256da1"
+  },
+  "scripts/gemini_chat_qa.cjs": {
+    "mtime": 1791114187.3667285,
+    "seen": 1791114326.3894856,
+    "ast_hash": "d9870885b090b80d049bdf36557b6650",
+    "semantic_hash": "d9870885b090b80d049bdf36557b6650"
+  },
+  "src/main/java/vn/techshop/ai/AiAdvisor.java": {
+    "mtime": 1791113040.6609175,
+    "seen": 1791114326.3904788,
+    "ast_hash": "6739011547f5a374bf566089a731959b",
+    "semantic_hash": "6739011547f5a374bf566089a731959b"
+  },
+  "src/main/java/vn/techshop/ai/AiSettings.java": {
+    "mtime": 1791112420.6771302,
+    "seen": 1791114326.3904788,
+    "ast_hash": "23971c405a8205b3160ab226b8d773ba",
+    "semantic_hash": "23971c405a8205b3160ab226b8d773ba"
+  },
+  "src/main/java/vn/techshop/ai/AiUsage.java": {
+    "mtime": 1791112681.6275244,
+    "seen": 1791114326.3904788,
+    "ast_hash": "806237128367d741a16b5af3c469e875",
+    "semantic_hash": "806237128367d741a16b5af3c469e875"
+  },
+  "src/main/java/vn/techshop/ai/GeminiGateway.java": {
+    "mtime": 1791112420.6781313,
+    "seen": 1791114326.3904788,
+    "ast_hash": "192dc4b358e40cbd37d5a04ce1c23c11",
+    "semantic_hash": "192dc4b358e40cbd37d5a04ce1c23c11"
+  },
+  "src/main/java/vn/techshop/ai/GeminiRestClient.java": {
+    "mtime": 1791113040.6573339,
+    "seen": 1791114326.3904788,
+    "ast_hash": "534c7c9e3af34f6724cefd66aff61da9",
+    "semantic_hash": "534c7c9e3af34f6724cefd66aff61da9"
+  },
+  "src/main/java/vn/techshop/chat/AiChatJob.java": {
+    "mtime": 1791113040.658866,
+    "seen": 1791114326.39253,
+    "ast_hash": "492186ddff7a84822228bf60ae8772f9",
+    "semantic_hash": "492186ddff7a84822228bf60ae8772f9"
+  },
+  "src/main/java/vn/techshop/chat/AiChatLifecycle.java": {
+    "mtime": 1791112681.6275244,
+    "seen": 1791114326.39253,
+    "ast_hash": "a254aad7f5ef25f9d38e3fc01f7fb81c",
+    "semantic_hash": "a254aad7f5ef25f9d38e3fc01f7fb81c"
+  },
+  "src/main/java/vn/techshop/chat/AiChatWorker.java": {
+    "mtime": 1791113667.4650433,
+    "seen": 1791114326.39253,
+    "ast_hash": "03fecc0da0edf25b9e59cd6d0215a30f",
+    "semantic_hash": "03fecc0da0edf25b9e59cd6d0215a30f"
+  },
+  "src/main/java/vn/techshop/chat/AiJobRepository.java": {
+    "mtime": 1791112575.18409,
+    "seen": 1791114326.39253,
+    "ast_hash": "ccd9f2db671add481e05a7f9d4d9afc9",
+    "semantic_hash": "ccd9f2db671add481e05a7f9d4d9afc9"
+  },
+  "src/main/resources/db/demo/V26__gemini_chat_support.sql": {
+    "mtime": 1791113040.6609175,
+    "seen": 1791114326.40457,
+    "ast_hash": "5714c8bbf130b1673b9bfe003662960b",
+    "semantic_hash": "5714c8bbf130b1673b9bfe003662960b"
+  },
+  "src/main/resources/db/migration/V26__gemini_chat_support.sql": {
+    "mtime": 1791113040.6599243,
+    "seen": 1791114326.407398,
+    "ast_hash": "42c99e20384703ead06a2d30f7c87f0d",
+    "semantic_hash": "42c99e20384703ead06a2d30f7c87f0d"
+  },
+  "src/test/java/vn/techshop/ai/GeminiRestClientTest.java": {
+    "mtime": 1791113222.07225,
+    "seen": 1791114326.407398,
+    "ast_hash": "bc6ae56c8d0534764cb5f636a186f7b6",
+    "semantic_hash": "bc6ae56c8d0534764cb5f636a186f7b6"
+  },
+  "src/test/java/vn/techshop/chat/AiChatIntegrationTest.java": {
+    "mtime": 1791113976.8175633,
+    "seen": 1791114326.407398,
+    "ast_hash": "f517ebd997e4446df1cb0b5792ea8400",
+    "semantic_hash": "f517ebd997e4446df1cb0b5792ea8400"
+  },
+  "docs/21-gemini-chat-setup.md": {
+    "mtime": 1791113492.0228336,
+    "seen": 1791114326.4142377,
+    "ast_hash": "9e994e35c5bf1a56c058f457adbe36a1",
+    "semantic_hash": "9e994e35c5bf1a56c058f457adbe36a1"
+  },
+  "target-github-status.txt": {
+    "mtime": 1791884310.4561982,
+    "seen": 1791884512.047948,
+    "ast_hash": "0bab873389b113234d4d4da5a9458467",
+    "semantic_hash": ""
+  }
+}

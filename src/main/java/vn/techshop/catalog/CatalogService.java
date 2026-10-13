@@ -15,12 +15,18 @@ import vn.techshop.shared.*;
 @Service
 @Transactional(readOnly=true)
 public class CatalogService {
+    @org.springframework.beans.factory.annotation.Autowired private StorefrontCatalogService storefront;
+    @Transactional public void brand(Long id,String brand,Long expectedVersion){var p=products.lockById(id).orElseThrow(BusinessException::missing);Rules.version(p.getVersion(),expectedVersion,"STALE_VERSION");p.setBrand(Rules.optional(brand,80));p.setUpdatedAt(clock.instant());products.saveAndFlush(p);}
     public record CategoryInput(@NotBlank String code, @NotBlank String name, @NotBlank String status) {}
     public record CategoryUpdate(@NotBlank String name, @NotBlank String status, @NotNull Long expectedVersion) {}
     public record CategoryView(Long id,String code,String name,String status,Long version) {}
     public record ProductInput(@NotNull Long categoryId,@NotBlank String sku,@NotBlank String name,@NotNull BigDecimal price,@NotBlank String status,@Size(max=5000) String description) {}
     public record ProductUpdate(@NotNull Long categoryId,@NotBlank String name,@NotNull BigDecimal price,@NotBlank String status,@Size(max=5000) String description,@NotNull Long expectedVersion) {}
-    public record ProductView(Long id,String sku,String name,String description,BigDecimal price,String currency,Integer stockQuantity,String status,Long version,Long categoryId,String categoryName,String thumbnailPath) {}
+    public record ProductView(Long id,String sku,String name,String description,BigDecimal price,String currency,Integer stockQuantity,String status,Long version,Long categoryId,String categoryName,String thumbnailPath,List<String> images) {
+        public ProductView(Long id,String sku,String name,String description,BigDecimal price,String currency,Integer stockQuantity,String status,Long version,Long categoryId,String categoryName,String thumbnailPath) {
+            this(id, sku, name, description, price, currency, stockQuantity, status, version, categoryId, categoryName, thumbnailPath, List.of(thumbnailPath != null ? thumbnailPath : "/assets/products/device.svg"));
+        }
+    }
     private final ProductRepository products;
     private final CategoryRepository categories;
     private final ProductImageRepository images;
@@ -28,6 +34,7 @@ public class CatalogService {
     public CatalogService(ProductRepository products,CategoryRepository categories,ProductImageRepository images,Clock clock) { this.products=products;this.categories=categories;this.images=images;this.clock=clock; }
     public List<CategoryView> categories(boolean admin) { return (admin?categories.findAll(Sort.by("name")):categories.findByStatusOrderByNameAsc("ACTIVE")).stream().map(CatalogService::categoryView).toList(); }
     public PageView<ProductView> search(String keyword,Long categoryId,BigDecimal minPrice,BigDecimal maxPrice,String sort,int page,int size,boolean admin,String status) {
+        if(!admin)return storefront.search(keyword,categoryId,minPrice,maxPrice,sort,page,size,null,null,false);
         if(keyword!=null && keyword.length()>100) throw BusinessException.invalid("Từ khóa quá dài.");
         if(minPrice!=null && minPrice.signum()<0 || maxPrice!=null && maxPrice.signum()<0 || minPrice!=null && maxPrice!=null && minPrice.compareTo(maxPrice)>0) throw BusinessException.invalid("Khoảng giá không hợp lệ.");
         Sort ordering=switch(sort) { case "newest" -> Sort.by(Sort.Order.desc("createdAt"),Sort.Order.desc("id")); case "price_asc" -> Sort.by("price","id"); case "price_desc" -> Sort.by(Sort.Order.desc("price"),Sort.Order.desc("id")); default -> throw BusinessException.invalid("Kiểu sắp xếp không hợp lệ."); };
@@ -74,6 +81,30 @@ public class CatalogService {
         p.setCategoryId(c.getId());p.setName(Rules.text(input.name(),2,200));p.setDescription(Rules.optional(input.description(),5000));p.setPrice(Rules.price(input.price()));p.setStatus(Rules.status(input.status()));p.setUpdatedAt(clock.instant());
         products.saveAndFlush(p);return productView(p,c.getName());
     }
+
+    @Transactional public ProductImage addImage(Long productId, String assetPath, String altText, int sortOrder) {
+        products.findById(productId).orElseThrow(BusinessException::missing);
+        ProductImage img = new ProductImage();
+        img.setProductId(productId);
+        img.setAssetPath(assetPath);
+        img.setAltText(altText != null ? altText : "");
+        img.setSortOrder(Math.max(0, sortOrder));
+        return images.saveAndFlush(img);
+    }
+
+    @Transactional public void deleteImage(Long imageId) {
+        images.deleteById(imageId);
+    }
+
+    public List<ProductImage> listImages(Long productId) {
+        return images.findByProductIdOrderBySortOrderAscIdAsc(productId);
+    }
+
     private static CategoryView categoryView(Category c) { return new CategoryView(c.getId(),c.getCode(),c.getName(),c.getStatus(),c.getVersion()); }
-    private static ProductView productView(Product p,String categoryName) { return new ProductView(p.getId(),p.getSku(),p.getName(),p.getDescription(),p.getPrice(),"VND",p.getStockQuantity(),p.getStatus(),p.getVersion(),p.getCategoryId(),categoryName,"/assets/products/device.svg"); }
+    private ProductView productView(Product p,String categoryName) {
+        var imgList = images.findByProductIdOrderBySortOrderAscIdAsc(p.getId());
+        List<String> imagePaths = imgList.isEmpty() ? List.of("/assets/products/device.svg") : imgList.stream().map(ProductImage::getAssetPath).toList();
+        String thumb = imagePaths.get(0);
+        return new ProductView(p.getId(),p.getSku(),p.getName(),p.getDescription(),p.getPrice(),"VND",p.getStockQuantity(),p.getStatus(),p.getVersion(),p.getCategoryId(),categoryName,thumb,imagePaths);
+    }
 }

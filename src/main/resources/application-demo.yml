@@ -7,3 +7,5 @@ spring:
     locations: classpath:db/demo
 app:
   demo: true
+
+app.payment.mock.enabled: true

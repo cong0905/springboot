@@ -9,6 +9,26 @@ import org.hibernate.type.SqlTypes;
 @Entity
 @Table(name = "users")
 public class AppUser {
+    @Column(name="guest_account",nullable=false) private boolean guestAccount;
+    public boolean isGuestAccount(){return guestAccount;}
+    public void setGuestAccount(boolean value){guestAccount=value;}
+    @Column(name="avatar_path",length=255) private String avatarPath;
+    public String getAvatarPath(){return avatarPath;}
+    public void setAvatarPath(String value){avatarPath=value;}
+    @Column(name="default_address_id") private Long defaultAddressId;
+    public Long getDefaultAddressId(){return defaultAddressId;}
+    public void setDefaultAddressId(Long id){defaultAddressId=id;}
+    @Column(name="phone",length=10) private String phone;
+    @Column(name="birth_date") private java.time.LocalDate birthDate;
+    @Column(name="gender",nullable=false,length=16) private String gender="UNSPECIFIED";
+    @Version @Column(name="version",nullable=false) private Long version;
+    public String getPhone(){return phone;}
+    public void setPhone(String value){phone=value;}
+    public java.time.LocalDate getBirthDate(){return birthDate;}
+    public void setBirthDate(java.time.LocalDate value){birthDate=value;}
+    public String getGender(){return gender;}
+    public void setGender(String value){gender=value;}
+    public Long getVersion(){return version;}
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "full_name", nullable = false, length = 100)

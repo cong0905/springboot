@@ -2,7 +2,7 @@ spring:
   application:
     name: techshop
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/techshop?connectionTimeZone=UTC}
+    url: ${DB_URL:jdbc:mysql://localhost:3306/techshop?useUnicode=true&characterEncoding=UTF-8&connectionTimeZone=UTC}
     username: ${DB_USERNAME:techshop}
     password: ${DB_PASSWORD:}
   jpa:
@@ -16,7 +16,12 @@ spring:
   jackson:
     deserialization:
       fail-on-unknown-properties: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
 server:
+  forward-headers-strategy: NONE
   port: ${PORT:8080}
   servlet:
     session:
@@ -29,7 +34,32 @@ server:
     include-message: never
     include-stacktrace: never
 app:
+  public-url: ${APP_PUBLIC_URL:http://localhost:8080}
+  mail:
+    enabled: ${APP_MAIL_ENABLED:false}
+    from: ${SMTP_FROM:}
+  upload:
+    dir: ${APP_UPLOAD_DIR:./data/uploads}
+  payment:
+    vnpay:
+      tmn-code: ${VNPAY_TMN_CODE:}
+      hash-secret: ${VNPAY_HASH_SECRET:}
+      url: ${VNPAY_URL:https://sandbox.vnpayment.vn/paymentv2/vpcpay.html}
+      return-url: ${VNPAY_RETURN_URL:http://localhost:8080/payment/vnpay/return}
   bootstrap-admin:
     enabled: ${APP_BOOTSTRAP_ADMIN_ENABLED:false}
     email: ${APP_BOOTSTRAP_ADMIN_EMAIL:}
     password: ${APP_BOOTSTRAP_ADMIN_PASSWORD:}
+
+app.ai:
+  enabled: ${APP_AI_ENABLED:false}
+  api-key: ${GEMINI_API_KEY:}
+  model: ${GEMINI_MODEL:}
+  worker-enabled: ${APP_AI_WORKER_ENABLED:true}
+  turn-timeout-seconds: ${APP_AI_TURN_TIMEOUT_SECONDS:30}
+  max-output-tokens: ${APP_AI_MAX_OUTPUT_TOKENS:800}
+  max-concurrent-calls: ${APP_AI_MAX_CONCURRENT_CALLS:2}
+  user-turns-per-minute: ${APP_AI_USER_TURNS_PER_MINUTE:2}
+  user-turns-per-day: ${APP_AI_USER_TURNS_PER_DAY:20}
+  global-requests-per-minute: ${APP_AI_GLOBAL_REQUESTS_PER_MINUTE:10}
+  global-requests-per-day: ${APP_AI_GLOBAL_REQUESTS_PER_DAY:200}

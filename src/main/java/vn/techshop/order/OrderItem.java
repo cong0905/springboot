@@ -26,6 +26,9 @@ public class OrderItem {
     @Column(name = "line_total", nullable = false, precision = 15, scale = 0)
     private BigDecimal lineTotal;
 
+    @Column(name="variant_id") private Long variantId;
+    public Long getVariantId() { return variantId; }
+    public void setVariantId(Long value) { variantId=value; }
     public OrderItem() {}
     public Long getId() { return id; }
     public Long getOrderId() { return orderId; }
