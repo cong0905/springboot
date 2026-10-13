@@ -1,0 +1,5 @@
+.local/**
+data/**
+target/**
+qa/browser-*.png
+src/main/resources/static/assets/products/uploads/**

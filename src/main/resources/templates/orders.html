@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Đơn hàng')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <nav th:if="${isAdmin}" th:replace="~{fragments :: adminNav}"></nav>
+    <h1 th:text="${isAdmin ? 'Quản lý đơn hàng' : 'Đơn hàng của tôi'}"></h1>
+    <form method="get" class="filters" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+        <label th:if="${isAdmin}">Từ khóa (Mã đơn/SĐT/Tên)
+            <input name="keyword" th:value="${keyword}" placeholder="TS-..., 09..., Tên">
+        </label>
+        <label th:if="${isAdmin}">Từ ngày
+            <input type="date" name="fromDate" th:value="${fromDate}">
+        </label>
+        <label th:if="${isAdmin}">Đến ngày
+            <input type="date" name="toDate" th:value="${toDate}">
+        </label>
+        <label>Trạng thái
+            <select name="status">
+                <option value="">Tất cả</option>
+                <option th:each="s : ${ {'PENDING','CONFIRMED','SHIPPED','DELIVERED','CANCELLED'} }" th:selected="${s == status}" th:value="${s}" th:text="${s}"></option>
+            </select>
+        </label>
+        <button class="button">Lọc đơn</button>
+        <a th:if="${isAdmin && (keyword != null || fromDate != null || toDate != null || status != null)}" href="/admin/orders" class="button secondary" style="text-decoration:none;">Xóa lọc</a>
+        <a th:if="${!isAdmin && status != null}" th:href="${guestMode==true?'/guest/orders':'/orders'}" class="button secondary" style="text-decoration:none;">Xóa lọc</a>
+    </form>
+    <div class="panel table-wrap">
+        <table>
+            <thead>
+            <tr>
+                <th>Mã đơn</th>
+                <th>Ngày đặt UTC</th>
+                <th>Trạng thái</th>
+                <th>Tổng tiền</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="o : ${orders.content()}">
+                <td th:text="${o.orderCode()}"></td>
+                <td th:text="${o.createdAt()}"></td>
+                <td>
+                    <span class="badge" th:text="${o.status()}"></span>
+                    <span th:if="${o.paymentStatus() == 'REFUNDED'}" class="badge danger" style="background:#fee2e2;color:#991b1b;margin-left:4px;font-size:0.75rem;">Đã hoàn tiền</span>
+                    <span th:if="${o.paymentStatus() == 'PARTIALLY_REFUNDED'}" class="badge warning" style="background:#fef3c7;color:#92400e;margin-left:4px;font-size:0.75rem;">Hoàn tiền 1 phần</span>
+                    <span th:if="${o.paymentStatus() == 'PAID'}" class="badge success" style="background:#dcfce7;color:#166534;margin-left:4px;font-size:0.75rem;">Đã thanh toán</span>
+                </td>
+                <td th:text="${#numbers.formatInteger(o.total(),1,'POINT')} + ' ₫'"></td>
+                <td><a th:href="${isAdmin ? '/admin/orders/' + o.id() : (guestMode==true?'/guest/orders/':'/orders/') + o.id()}">Chi tiết →</a></td>
+            </tr>
+            <tr th:if="${orders.content().isEmpty()}">
+                <td colspan="5">Chưa có đơn hàng.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination">
+        <a th:if="${orders.page() > 0}" th:href="@{''(page=${orders.page()-1},status=${status},keyword=${keyword},fromDate=${fromDate},toDate=${toDate})}">← Trang trước</a>
+        <span th:text="'Trang ' + ${orders.page()+1} + (${orders.totalPages() > 0} ? ' / ' + ${orders.totalPages()} : '')"></span>
+        <a th:if="${orders.page()+1 < orders.totalPages()}" th:href="@{''(page=${orders.page()+1},status=${status},keyword=${keyword},fromDate=${fromDate},toDate=${toDate})}">Trang sau →</a>
+    </div>
+</main>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

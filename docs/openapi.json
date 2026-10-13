@@ -1,0 +1,4085 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TechShop Omnichannel implemented API",
+    "version": "0.2.1",
+    "description": "Session authentication. Fetch /api/v1/csrf using the same cookie; send X-CSRF-TOKEN for mutations. Checkout snapshot uses POST /api/v1/orders/preview. Money is integer VND. Installments are internal demo approvals. Public warranty lookup uses serial; phone is an optional matching proof. Branch filters use configured provinceCode/districtCode values; inStock=true hides empty stores. Order detail includes resumable paymentUrl for its persisted transaction."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/api/v1/products/{id}/variants": {
+      "get": {
+        "operationId": "variants",
+        "summary": "variants",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductVariantService_View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/products/{id}/specifications": {
+      "get": {
+        "operationId": "specs",
+        "summary": "specs",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductVariantService_Spec"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/products/compare": {
+      "get": {
+        "operationId": "compare",
+        "summary": "compare",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductComparisonService_Comparison"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/admin/products/{id}/variants": {
+      "post": {
+        "operationId": "variant",
+        "summary": "variant",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductVariantService_View"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductVariantService_Input"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/variants/{id}": {
+      "patch": {
+        "operationId": "variantUpdate",
+        "summary": "variantUpdate",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductVariantService_View"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OmnichannelApi_VariantUpdate"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/products/{id}/specifications": {
+      "post": {
+        "operationId": "spec",
+        "summary": "spec",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductVariantService_SpecInput"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/products/{id}/images/{imageId}/variant": {
+      "patch": {
+        "operationId": "image",
+        "summary": "image",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OmnichannelApi_ImageAssignment"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/branches": {
+      "get": {
+        "operationId": "branches",
+        "summary": "branches",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BranchInventoryService_Branch"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "provinceCode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "districtCode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/variants/{id}/stores": {
+      "get": {
+        "operationId": "stores",
+        "summary": "stores",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BranchInventoryService_Stock"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "provinceCode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "districtCode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "inStock",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/admin/branches": {
+      "post": {
+        "operationId": "branch",
+        "summary": "branch",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BranchInventoryService_Branch"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BranchInventoryService_BranchInput"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/imei": {
+      "get": {
+        "operationId": "items",
+        "summary": "items",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BranchInventoryService_Item"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/imei/import": {
+      "post": {
+        "operationId": "receive",
+        "summary": "receive",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BranchInventoryService_Import"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/imei/transfer": {
+      "post": {
+        "operationId": "transfer",
+        "summary": "transfer",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BranchInventoryService_Transfer"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/orders/preview": {
+      "post": {
+        "operationId": "preview",
+        "summary": "preview",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderService_Preview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderService_PreviewRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/admin/orders/{id}/pickup": {
+      "post": {
+        "operationId": "pickup",
+        "summary": "pickup",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderService_OrderView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OmnichannelApi_Pickup"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/me/member": {
+      "get": {
+        "operationId": "member",
+        "summary": "member",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoyaltyService_Member"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ]
+      }
+    },
+    "/api/v1/trade-in/devices": {
+      "get": {
+        "operationId": "devices",
+        "summary": "devices",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TradeInService_Device"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/admin/trade-in/devices": {
+      "post": {
+        "operationId": "createDevice",
+        "summary": "createDevice",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommerceSettingsService_DeviceInput"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/trade-in/criteria": {
+      "post": {
+        "operationId": "createCriteria",
+        "summary": "createCriteria",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommerceSettingsService_CriteriaInput"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/installment/plans": {
+      "post": {
+        "operationId": "createPlan",
+        "summary": "createPlan",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommerceSettingsService_PlanInput"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/trade-in/devices/{id}/archive": {
+      "post": {
+        "operationId": "archiveDevice",
+        "summary": "archiveDevice",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/installment/plans/{id}/archive": {
+      "post": {
+        "operationId": "archivePlan",
+        "summary": "archivePlan",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/trade-in/criteria": {
+      "get": {
+        "operationId": "criteria",
+        "summary": "criteria",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TradeInService_Criteria"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/me/trade-in": {
+      "get": {
+        "operationId": "quotes",
+        "summary": "quotes",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TradeInService_Quote"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "quote",
+        "summary": "quote",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradeInService_Quote"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradeInService_Input"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/admin/trade-in/{id}/approve": {
+      "post": {
+        "operationId": "approve",
+        "summary": "approve",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/installment/plans": {
+      "get": {
+        "operationId": "plans",
+        "summary": "plans",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InstallmentService_Plan"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/installment/quote": {
+      "get": {
+        "operationId": "schedule",
+        "summary": "schedule",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstallmentService_Schedule"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "planId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/admin/orders/{id}/installment": {
+      "post": {
+        "operationId": "decision",
+        "summary": "decision",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OmnichannelApi_Decision"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/warranty/lookup": {
+      "get": {
+        "operationId": "lookup",
+        "summary": "lookup",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WarrantyService_Card"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/me/warranty": {
+      "get": {
+        "operationId": "owned",
+        "summary": "owned",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WarrantyService_Card"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ]
+      }
+    },
+    "/api/v1/admin/repairs": {
+      "post": {
+        "operationId": "receiveRepair",
+        "summary": "receiveRepair",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OmnichannelApi_Repair"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/repairs/{id}/transitions": {
+      "post": {
+        "operationId": "repairStatus",
+        "summary": "repairStatus",
+        "responses": {
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          },
+          "204": {
+            "description": "Updated without body"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OmnichannelApi_Decision"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/warranty/{id}/exchange": {
+      "post": {
+        "operationId": "exchange",
+        "summary": "exchange",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OmnichannelApi_Exchange"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/admin/reports/commerce": {
+      "get": {
+        "operationId": "channels",
+        "summary": "channels",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "description": "Requires ROLE_ADMIN."
+      }
+    },
+    "/api/v1/products/autocomplete": {
+      "get": {
+        "operationId": "autocomplete",
+        "summary": "autocomplete",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Role or CSRF rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Concurrent/state conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/orders": {
+      "post": {
+        "operationId": "checkout",
+        "summary": "Transactional checkout; replay returns 200, creation 201",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRF-TOKEN",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderService_Checkout"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Order created"
+          },
+          "200": {
+            "description": "Idempotent replay"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "Role/CSRF"
+          },
+          "409": {
+            "description": "Price/cart/stock/state changed"
+          }
+        }
+      }
+    },
+    "/api/v1/orders/{id}/pickup-qr.png": {
+      "get": {
+        "operationId": "pickupQr",
+        "summary": "PNG QR containing pickup code",
+        "description": "Requires CUSTOMER (owner). Active pickup orders only. Expired unpaid holds return 409. Cache-Control: no-store.",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "256x256 PNG QR",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Role denied"
+          },
+          "404": {
+            "description": "Unknown, other owner or ineligible order"
+          },
+          "409": {
+            "description": "PICKUP_EXPIRED"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/orders/{id}/pickup-qr.png": {
+      "get": {
+        "operationId": "adminPickupQr",
+        "summary": "PNG QR containing pickup code",
+        "description": "Requires ADMIN. Active pickup orders only. Expired unpaid holds return 409. Cache-Control: no-store.",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "256x256 PNG QR",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Role denied"
+          },
+          "404": {
+            "description": "Unknown, other owner or ineligible order"
+          },
+          "409": {
+            "description": "PICKUP_EXPIRED"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "session": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "JSESSIONID"
+      }
+    },
+    "schemas": {
+      "BranchInventoryService_BranchInput": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "provinceCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "districtCode": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "code",
+          "address",
+          "provinceCode",
+          "phone"
+        ]
+      },
+      "BranchInventoryService_Branch": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "provinceCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "districtCode": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BranchInventoryService_Stock": {
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "provinceCode": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "available": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reserved": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "districtCode": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BranchInventoryService_Import": {
+        "type": "object",
+        "properties": {
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "branchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imeiNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "variantId",
+          "branchId",
+          "imeiNumbers"
+        ]
+      },
+      "BranchInventoryService_Transfer": {
+        "type": "object",
+        "properties": {
+          "fromBranch": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "toBranch": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imeiNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "fromBranch",
+          "toBranch",
+          "imeiNumbers"
+        ]
+      },
+      "BranchInventoryService_Item": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "branchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imeiNumber": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "orderItemId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CartService_Add": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productId",
+          "quantity",
+          "expectedVersion"
+        ]
+      },
+      "CartService_Update": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "quantity",
+          "expectedVersion"
+        ]
+      },
+      "CartService_ItemView": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "unitPrice": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "lineTotal": {
+            "type": "number"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "warningCode": {
+            "type": "string"
+          },
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CartService_CartView": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CartService_ItemView"
+            }
+          },
+          "subtotal": {
+            "type": "number"
+          },
+          "shippingFee": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "pricingHash": {
+            "type": "string"
+          },
+          "canCheckout": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Pricing_Line": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "unitPrice": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CatalogService_CategoryInput": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "name",
+          "status"
+        ]
+      },
+      "CatalogService_CategoryUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "status",
+          "expectedVersion"
+        ]
+      },
+      "CatalogService_CategoryView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CatalogService_ProductInput": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "categoryId",
+          "sku",
+          "name",
+          "price",
+          "status"
+        ]
+      },
+      "CatalogService_ProductUpdate": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "categoryId",
+          "name",
+          "price",
+          "status",
+          "expectedVersion"
+        ]
+      },
+      "CatalogService_ProductView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "stockQuantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "status": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "categoryName": {
+            "type": "string"
+          },
+          "thumbnailPath": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AdminApi_ImageView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "assetPath": {
+            "type": "string"
+          },
+          "altText": {
+            "type": "string"
+          },
+          "sortOrder": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommerceSettingsService_DeviceInput": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "basePrice": {
+            "type": "number"
+          },
+          "subsidyAmount": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model",
+          "basePrice",
+          "subsidyAmount"
+        ]
+      },
+      "CommerceSettingsService_CriteriaInput": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "deductionPercent": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "CommerceSettingsService_PlanInput": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string"
+          },
+          "months": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "feePercent": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "provider",
+          "feePercent"
+        ]
+      },
+      "CommerceSettingsService_Device": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "model": {
+            "type": "string"
+          },
+          "basePrice": {
+            "type": "number"
+          },
+          "subsidyAmount": {
+            "type": "number"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommerceSettingsService_Plan": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "months": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "feePercent": {
+            "type": "number"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OmnichannelApi_Decision": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ]
+      },
+      "OmnichannelApi_Repair": {
+        "type": "object",
+        "properties": {
+          "warrantyId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issue": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "warrantyId",
+          "issue"
+        ]
+      },
+      "OmnichannelApi_Pickup": {
+        "type": "object",
+        "properties": {
+          "pickupCode": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pickupCode"
+        ]
+      },
+      "OmnichannelApi_ImageAssignment": {
+        "type": "object",
+        "properties": {
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OmnichannelApi_Exchange": {
+        "type": "object",
+        "properties": {
+          "replacementSerial": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "replacementSerial"
+        ]
+      },
+      "OmnichannelApi_VariantUpdate": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "$ref": "#/components/schemas/ProductVariantService_Input"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "input",
+          "expectedVersion"
+        ]
+      },
+      "CouponApi_ValidateRequest": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "code"
+        ]
+      },
+      "CouponApi_ValidateResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "discountType": {
+            "type": "string"
+          },
+          "discountValue": {
+            "type": "number"
+          },
+          "discountAmount": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "subtotal": {
+            "type": "number"
+          },
+          "shippingFee": {
+            "type": "number"
+          },
+          "totalAfterDiscount": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CouponService_CouponResult": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "discountType": {
+            "type": "string"
+          },
+          "discountValue": {
+            "type": "number"
+          },
+          "discountAmount": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CouponService_CouponInput": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "discountType": {
+            "type": "string"
+          },
+          "discountValue": {
+            "type": "number"
+          },
+          "minOrderAmount": {
+            "type": "number"
+          },
+          "maxDiscountAmount": {
+            "type": "number"
+          },
+          "maxUses": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityApi_TokenView": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "headerName": {
+            "type": "string"
+          },
+          "parameterName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityService_Registration": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "fullName",
+          "email",
+          "password"
+        ]
+      },
+      "IdentityService_UserView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstallmentService_Plan": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "months": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "feePercent": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstallmentService_Schedule": {
+        "type": "object",
+        "properties": {
+          "principal": {
+            "type": "number"
+          },
+          "fee": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "monthlyPayments": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstallmentService_Application": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "financedAmount": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InventoryService_Adjustment": {
+        "type": "object",
+        "properties": {
+          "delta": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "delta",
+          "reason",
+          "expectedVersion"
+        ]
+      },
+      "InventoryService_Result": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "stockQuantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "movementId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InventoryService_MovementView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string"
+          },
+          "delta": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "balanceAfter": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "actorId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "occurredAt": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoyaltyService_Member": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rank": {
+            "type": "string"
+          },
+          "accumulatedSpending": {
+            "type": "number"
+          },
+          "pointsBalance": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "discountPercent": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderRoutingService_Need": {
+        "type": "object",
+        "properties": {
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderRoutingService_Route": {
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "distanceKm": {
+            "type": "number"
+          },
+          "shippingFee": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_Checkout": {
+        "type": "object",
+        "properties": {
+          "checkoutKey": {
+            "type": "string"
+          },
+          "cartVersion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "expectedTotal": {
+            "type": "number"
+          },
+          "expectedPricingHash": {
+            "type": "string"
+          },
+          "recipientName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "couponCode": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "string"
+          },
+          "options": {
+            "$ref": "#/components/schemas/OrderService_Options"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "checkoutKey",
+          "cartVersion",
+          "expectedTotal",
+          "expectedPricingHash",
+          "recipientName",
+          "phone",
+          "address"
+        ]
+      },
+      "OrderService_Options": {
+        "type": "object",
+        "properties": {
+          "fulfillmentType": {
+            "type": "string"
+          },
+          "pickupBranchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pickupTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "tradeInRequestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "installmentPlanId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_PreviewRequest": {
+        "type": "object",
+        "properties": {
+          "couponCode": {
+            "type": "string"
+          },
+          "options": {
+            "$ref": "#/components/schemas/OrderService_Options"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_Preview": {
+        "type": "object",
+        "properties": {
+          "cartVersion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "subtotal": {
+            "type": "number"
+          },
+          "discountAmount": {
+            "type": "number"
+          },
+          "shippingFee": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "pricingHash": {
+            "type": "string"
+          },
+          "assignedBranchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fulfillmentType": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_Cancel": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "reason",
+          "expectedVersion"
+        ]
+      },
+      "OrderService_Transition": {
+        "type": "object",
+        "properties": {
+          "targetStatus": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "codCollected": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "targetStatus",
+          "expectedVersion"
+        ]
+      },
+      "OrderService_ItemView": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "unitPrice": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "lineTotal": {
+            "type": "number"
+          },
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imeiNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_HistoryView": {
+        "type": "object",
+        "properties": {
+          "fromStatus": {
+            "type": "string"
+          },
+          "toStatus": {
+            "type": "string"
+          },
+          "occurredAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_OrderView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "orderCode": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "subtotal": {
+            "type": "number"
+          },
+          "discountAmount": {
+            "type": "number"
+          },
+          "couponCode": {
+            "type": "string"
+          },
+          "shippingFee": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deliveredAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "recipientName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "string"
+          },
+          "paymentStatus": {
+            "type": "string"
+          },
+          "paymentUrl": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderService_ItemView"
+            }
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderService_HistoryView"
+            }
+          },
+          "fulfillmentType": {
+            "type": "string"
+          },
+          "assignedBranchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pickupCode": {
+            "type": "string"
+          },
+          "holdExpiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_Summary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "orderCode": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "total": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderService_CheckoutResult": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "$ref": "#/components/schemas/OrderService_OrderView"
+          },
+          "replay": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentController_PaymentView": {
+        "type": "object",
+        "properties": {
+          "transactionCode": {
+            "type": "string"
+          },
+          "paymentGateway": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentService_PaymentResult": {
+        "type": "object",
+        "properties": {
+          "transactionCode": {
+            "type": "string"
+          },
+          "paymentUrl": {
+            "type": "string"
+          },
+          "gateway": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommerceReportingService_Channel": {
+        "type": "object",
+        "properties": {
+          "fulfillmentType": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string"
+          },
+          "deliveredOrders": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "goodsRevenue": {
+            "type": "number"
+          },
+          "shippingRevenue": {
+            "type": "number"
+          },
+          "collectedTotal": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportingService_Summary": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "placedOrders": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "deliveredOrders": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "merchandiseRevenue": {
+            "type": "number"
+          },
+          "shippingCollected": {
+            "type": "number"
+          },
+          "codCollectedTotal": {
+            "type": "number"
+          },
+          "aov": {
+            "type": "number"
+          },
+          "statusCountsAsOf": {
+            "type": "object"
+          },
+          "asOf": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportingService_TopProduct": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "unitsSold": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "merchandiseRevenue": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductReviewService_ReviewView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "authorName": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductReviewService_ReviewStats": {
+        "type": "object",
+        "properties": {
+          "averageRating": {
+            "type": "number"
+          },
+          "totalReviews": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fiveStarCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fourStarCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "threeStarCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "twoStarCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "oneStarCount": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductReviewService_SubmitInput": {
+        "type": "object",
+        "properties": {
+          "rating": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "comment": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewApi_ReviewSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "stats": {
+            "$ref": "#/components/schemas/ProductReviewService_ReviewStats"
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductReviewService_ReviewView"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Errors_FieldError": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Errors_ApiError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "fieldErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Errors_FieldError"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "TradeInService_Device": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "model": {
+            "type": "string"
+          },
+          "basePrice": {
+            "type": "number"
+          },
+          "subsidyAmount": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TradeInService_Criteria": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "deductionPercent": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TradeInService_Input": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "criteriaId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "oldImei": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "criteriaId",
+          "oldImei"
+        ]
+      },
+      "TradeInService_Quote": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "model": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "oldImei": {
+            "type": "string"
+          },
+          "quotedAmount": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductComparisonService_Row": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductComparisonService_Comparison": {
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CatalogService_ProductView"
+            }
+          },
+          "specifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductComparisonService_Row"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductVariantService_Input": {
+        "type": "object",
+        "properties": {
+          "skuCode": {
+            "type": "string"
+          },
+          "colorName": {
+            "type": "string"
+          },
+          "storageCapacity": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "originalPrice": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "skuCode",
+          "colorName",
+          "storageCapacity",
+          "price",
+          "originalPrice"
+        ]
+      },
+      "ProductVariantService_View": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "skuCode": {
+            "type": "string"
+          },
+          "colorName": {
+            "type": "string"
+          },
+          "storageCapacity": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "originalPrice": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "available": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductVariantService_SpecInput": {
+        "type": "object",
+        "properties": {
+          "specGroup": {
+            "type": "string"
+          },
+          "specName": {
+            "type": "string"
+          },
+          "specValue": {
+            "type": "string"
+          },
+          "displayOrder": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "specGroup",
+          "specName",
+          "specValue"
+        ]
+      },
+      "ProductVariantService_Spec": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "displayOrder": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductVariantService_Image": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "assetPath": {
+            "type": "string"
+          },
+          "variantId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WarrantyExchangeService_Result": {
+        "type": "object",
+        "properties": {
+          "warrantyId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "previousSerial": {
+            "type": "string"
+          },
+          "replacementSerial": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WarrantyService_Card": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imeiNumber": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "warrantyType": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WarrantyService_Ticket": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "warrantyId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imeiNumber": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

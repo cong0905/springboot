@@ -1,0 +1,11 @@
+.git
+target
+.env
+.env.*
+tools
+backups
+uploads
+.local
+data
+graphify-out
+qa

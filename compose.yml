@@ -1,0 +1,50 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: techshop
+      MYSQL_USER: techshop
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://db:3306/techshop?connectionTimeZone=UTC
+      APP_AI_ENABLED: ${APP_AI_ENABLED:-false}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-}
+      APP_AI_USER_TURNS_PER_MINUTE: ${APP_AI_USER_TURNS_PER_MINUTE:-2}
+      APP_AI_GLOBAL_REQUESTS_PER_MINUTE: ${APP_AI_GLOBAL_REQUESTS_PER_MINUTE:-10}
+      APP_AI_USER_TURNS_PER_DAY: ${APP_AI_USER_TURNS_PER_DAY:-20}
+      APP_AI_GLOBAL_REQUESTS_PER_DAY: ${APP_AI_GLOBAL_REQUESTS_PER_DAY:-200}
+      DB_USERNAME: techshop
+      DB_PASSWORD: ${DB_PASSWORD}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-production}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-true}
+      APP_BOOTSTRAP_ADMIN_ENABLED: ${APP_BOOTSTRAP_ADMIN_ENABLED:-false}
+      APP_BOOTSTRAP_ADMIN_EMAIL: ${APP_BOOTSTRAP_ADMIN_EMAIL:-}
+      APP_BOOTSTRAP_ADMIN_PASSWORD: ${APP_BOOTSTRAP_ADMIN_PASSWORD:-}
+      APP_PUBLIC_URL: ${APP_PUBLIC_URL:-}
+      APP_UPLOAD_DIR: /app/data/uploads
+      VNPAY_TMN_CODE: ${VNPAY_TMN_CODE:-}
+      VNPAY_HASH_SECRET: ${VNPAY_HASH_SECRET:-}
+      VNPAY_RETURN_URL: ${VNPAY_RETURN_URL:-}
+    volumes:
+      - app_uploads:/app/data/uploads
+volumes:
+  mysql_data:
+  app_uploads:

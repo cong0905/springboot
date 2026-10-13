@@ -1,6 +1,6 @@
 # Quy trình đóng góp
 
-Repository hiện ở giai đoạn tài liệu. Trước code, đọc [SRS](docs/01-spec.md), [architecture](docs/02-architecture.md), [backlog](docs/07-backlog.md) và [test plan](docs/08-test-plan.md).
+Repository đã có bản code đầu tiên. Trước thay đổi, đọc [SRS](docs/01-spec.md), [architecture](docs/02-architecture.md), [backlog](docs/07-backlog.md) và [test plan](docs/08-test-plan.md).
 
 ## Branch và commit
 
@@ -11,9 +11,9 @@ Repository hiện ở giai đoạn tài liệu. Trước code, đọc [SRS](docs
 
 ## PR
 
-Mô tả vấn đề cụ thể và behavior cuối, liên kết B/FR/BR/AC, nêu schema/API impact, evidence và known limitations. Các template trong .github/ chỉ là form hỗ trợ, chưa tự tạo issue/PR hoặc pipeline.
+Mô tả vấn đề cụ thể và behavior cuối, liên kết B/FR/BR/AC, nêu schema/API impact, evidence và known limitations. Các template trong .github/ hỗ trợ review; workflow ci.yml chạy verify với H2 và MySQL 8.4.
 
-PR code cần Maven verify sau khi wrapper tồn tại; feature touching DB cần MySQL tests; money/stock/owner/idempotency cần critical tests. Không thêm test chỉ mirror DTO/getters, không dùng một coverage badge làm bằng chứng transaction đúng.
+PR code cần ./mvnw verify; feature touching DB cần MySQL tests; money/stock/owner/idempotency cần critical tests. Không thêm test chỉ mirror DTO/getters, không dùng một coverage badge làm bằng chứng transaction đúng.
 
 PR docs cần local links đúng, ID traceability đầy đủ, estimate/capacity không mâu thuẫn, Mermaid render được trên GitHub, nguồn technical chính thức khi thay khả năng framework. Schema.sql là tham chiếu; migration chỉ trở thành authoritative khi có app/test chạy.
 

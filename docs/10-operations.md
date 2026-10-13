@@ -1,6 +1,6 @@
 # Kế hoạch CI/CD, vận hành và bàn giao
 
-Thiết kế vận hành dự kiến. **Chưa có ứng dụng, pipeline build, Dockerfile, hosting hay backup đã chạy.** Không có lệnh nào trong tài liệu được thực hiện để deploy website trong lượt lập kế hoạch.
+Thiết kế baseline trước triển khai. Trạng thái source, CI local và kiểm tra backup/restore DB test hiện tại ở [tài liệu sửa chữa](18-repair-continuation.md) và [evidence](../qa/repair-continuation/README.md). Tài liệu này không phải bằng chứng deploy/backup production; production và staging HTTPS chưa được nghiệm thu.
 
 ## 1. Môi trường
 

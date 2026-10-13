@@ -1,0 +1,13 @@
+server:
+  servlet:
+    session:
+      cookie:
+        secure: ${SESSION_COOKIE_SECURE:true}
+  forward-headers-strategy: NONE
+app:
+  security:
+    trusted-proxies: ${TRUSTED_PROXY_IPS:}
+  demo: false
+  payment:
+    mock:
+      enabled: false

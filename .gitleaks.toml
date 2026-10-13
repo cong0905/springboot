@@ -1,0 +1,18 @@
+title = "TechZone source secret scan"
+[extend]
+useDefault = true
+[[allowlists]]
+description = "Local test MySQL keys, downloaded scanner fixtures and generated Graphify hash cache are not release source"
+paths = ['''^\.local[/\\]''', '''^graphify-out[/\\]cache[/\\]''', '''^target(?:-repair|-h2)?[/\\]''']
+[[allowlists]]
+description = "Documented UUID checkout idempotency key, not a credential"
+condition = "AND"
+paths = ['''^docs[/\\]04-api-contract\.md$''']
+regexTarget = "line"
+regexes = ['''"checkoutKey"\s*:\s*"[0-9a-f-]+"''']
+[[allowlists]]
+description = "Generated source fingerprints, checked against actual file bytes in manifest-hash-triage.json"
+condition = "AND"
+paths = ['''^qa[/\\]repair-continuation[/\\]source-manifest\.json$''']
+regexTarget = "line"
+regexes = ['''^\s*"(?:src|scripts|\.github)/[^"]+": "[a-f0-9]{64}",?$''']

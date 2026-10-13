@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Đăng nhập')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main class="auth-wrap" style="max-width: 480px; margin: 2rem auto; padding: 0 1rem;">
+    <section class="panel auth-panel">
+        <span class="eyebrow" style="color: var(--primary); font-weight: 700;">CHÀO MỪNG TRỞ LẠI</span>
+        <h1 style="margin: 8px 0;">Đăng nhập TechShop</h1>
+        <p class="muted" style="color: var(--text-muted); margin-bottom: 1.5rem;">Tiếp tục trải nghiệm mua sắm công nghệ và ưu đãi Smember.</p>
+        
+        <p class="alert" th:if="${param.error}" style="padding: 10px; background: #fee2e2; color: #dc2626; border-radius: 6px; margin-bottom: 1rem;">
+            ⚠️ Email hoặc mật khẩu không chính xác.
+        </p>
+        <p class="success" th:if="${param.registered}" style="padding: 10px; background: #dcfce7; color: #15803d; border-radius: 6px; margin-bottom: 1rem;">
+            ✅ Đăng ký thành công! Bạn có thể đăng nhập ngay.
+        </p>
+        <p class="success" th:if="${param.logout}" style="padding: 10px; background: #f1f5f9; color: #475569; border-radius: 6px; margin-bottom: 1rem;">
+            Đã đăng xuất an toàn.
+        </p>
+
+        <p class="success" th:if="${param.passwordChanged}">Đã đổi mật khẩu và đăng xuất các phiên. Hãy đăng nhập lại.</p>
+        <form th:action="@{/login}" method="post">
+            <input type="hidden" name="redirect" th:value="${param.redirect}">
+            <label style="display: block; margin-bottom: 1rem;">Email
+                <input id="login-email" type="email" name="username" autocomplete="username" required maxlength="254" placeholder="name@domain.com" style="width: 100%; margin-top: 4px;">
+            </label>
+            <label style="display: block; margin-bottom: 1.5rem;">Mật khẩu
+                <input id="login-password" type="password" name="password" autocomplete="current-password" required placeholder="••••••••" style="width: 100%; margin-top: 4px;">
+            </label>
+            <button class="button full" style="padding: 12px; font-size: 1rem; font-weight: 600;">Đăng nhập ngay</button>
+        </form>
+
+        <a href="/forgot-password">Quên mật khẩu?</a><a th:if="${googleEnabled}" th:href="@{/oauth2/authorization/google(redirect=${param.redirect})}" class="button secondary">Đăng nhập bằng Google</a><p class="alert" th:if="${param.googleError}">Không thể đăng nhập Google. Nếu email đã có tài khoản, hãy đăng nhập bằng mật khẩu rồi liên kết Google trong hồ sơ.</p>
+        <p style="margin-top: 1.5rem; text-align: center; color: var(--text-muted);">
+            Chưa có tài khoản? <a th:href="@{/register(redirect=${param.redirect})}" style="color: var(--primary); font-weight: 600;">Đăng ký Smember</a>
+        </p>
+    </section>
+</main>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

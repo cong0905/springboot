@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Cổng thanh toán thử nghiệm')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <div style="max-width: 500px; margin: 40px auto; padding: 32px; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+        <span class="eyebrow" style="color: #f57c00;">MÔ PHỎNG THANH TOÁN ONLINE</span>
+        <h1 style="margin: 8px 0 16px 0; font-size: 1.5rem;">Cổng thanh toán TechShop</h1>
+        <p class="muted">Môi trường thử nghiệm thanh toán trực tuyến (Sandbox / Mock Gateway).</p>
+        
+        <div style="background: #f8f9fa; border-radius: 8px; padding: 16px; margin: 20px 0;">
+            <p style="margin: 0 0 8px 0; display: flex; justify-content: space-between;">
+                <span>Mã giao dịch:</span>
+                <strong th:text="${txn.transactionCode()}"></strong>
+            </p>
+            <p style="margin: 0 0 8px 0; display: flex; justify-content: space-between;">
+                <span>Cổng thanh toán:</span>
+                <span class="badge" th:text="${txn.paymentGateway()}"></span>
+            </p>
+            <p style="margin: 0; display: flex; justify-content: space-between; font-size: 1.1rem;">
+                <span>Số tiền thanh toán:</span>
+                <strong style="color: #2e7d32;" th:text="${#numbers.formatInteger(txn.amount(), 1, 'POINT')} + ' ₫'"></strong>
+            </p>
+        </div>
+
+        <form th:action="@{/payment/mock-pay/{code}/confirm(code=${txn.transactionCode()})}" method="post" style="display: flex; flex-direction: column; gap: 12px;">
+            <input type="hidden" name="responseCode" value="00">
+            <input type="hidden" name="bankCode" value="VNPAY_SANDBOX">
+            <button class="button full" style="background: #2e7d32; border-color: #2e7d32;">
+                ✓ Xác nhận thanh toán thành công
+            </button>
+        </form>
+
+        <form th:action="@{/payment/mock-pay/{code}/confirm(code=${txn.transactionCode()})}" method="post" style="margin-top: 8px;">
+            <input type="hidden" name="responseCode" value="24">
+            <input type="hidden" name="bankCode" value="VNPAY_SANDBOX">
+            <button class="link-button danger full" style="text-align: center; color: #c62828;">
+                ✕ Hủy / Mô phỏng thanh toán thất bại
+            </button>
+        </form>
+    </div>
+</main>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>
